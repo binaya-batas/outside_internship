@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="forms.css">
+    <title>Forms</title>
+</head>
+<body>
+    <div class="container">
+        <div class="inner-container">
+            <h1>HTML Forms</h1>
+            <hr/>
+            
+            <section class="form">
+                <h4>Personal Details</h4>
+
+                <form action="" class="form-input">
+                    
+                    <div class="name">
+                        <label for="name">Name:</label>
+                        <input class="input-box" type="text" id="name" name="name"><br>
+                    </div>
+
+                    <div class="email">
+                        <label for="email">Email:</label>
+                        <input class="input-box" type="text" id="email" name="email"><br>
+                    </div>
+
+                    <div class="location">
+                        <label for="location">Location:</label>
+                        <input class="input-box" type="text" id="location" name="location"><br>
+                    </div>
+
+                    <div class="gender">
+                        <span>Gender: </span>
+                        <input  type="radio" id="male" name="gender" value="Male">
+                        <label for="html">Male</label>
+                        <input type="radio" id="female" name="gender" value="Female">
+                        <label for="css">Female</label><br>
+                    </div>
+
+                    <div class="birthday">
+                        <label for="birthday">Birthday:</label>
+                        <input class="input-box" type="date" id="birthday" name="birthday"><br>
+                    </div>
+
+                    <div class="country">
+                        <label for="country">Country:</label>
+                        <select class="input-box" name="country" id="country">
+                            <option value="Nepal">Nepal</option>
+                            <option value="China">China</option>
+                            <option value="India">India</option>
+                        </select> 
+                    </div>
+
+                    <div class="other-information">
+                        <label for="other-information">Other information</label>
+                        <textarea id="other-information" name="other-information" rows="4" cols="50" style="resize: none;"></textarea>
+                    </div>
+
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                    <label for="vehicle1"> I want to receive news letter.</label>
+                    <br/><br/>
+
+                    <Button type="Submit" class="button">SUBMIT</Button>
+                </form>
+
+            </section>
+
+
+        </div>
+    </div>
+</body>
+</html>
