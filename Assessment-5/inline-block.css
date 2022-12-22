@@ -1,0 +1,30 @@
+li {
+    display: inline-block;
+    background-color: red;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+div {
+    margin: 10px;
+}
+
+.margin-left-4 {
+    margin-left: -4px;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.float {
+    float: right;
+}
+
+.font-zero {
+    font-size: 0;
+}
+
+.font-zero li {
+    font-size: 16px;
+}
