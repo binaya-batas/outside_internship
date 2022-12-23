@@ -26,6 +26,10 @@ h2 {
     column-gap: 20px;
 }
 
+.row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
 .text-1{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;

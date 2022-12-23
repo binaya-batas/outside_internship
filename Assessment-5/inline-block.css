@@ -17,10 +17,6 @@ div {
     display: flex;
 }
 
-.float {
-    float: right;
-}
-
 .font-zero {
     font-size: 0;
 }
