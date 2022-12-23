@@ -1,0 +1,58 @@
+/* variables */
+:root {
+    --dark-grey: #3A3A3A;
+    --grey: #D9D9D9;
+    --light-grey: #E8E8E8;
+    --purple: #755E7B;
+    --light-purple: #E5DCE9;
+}
+
+.grid-container {
+    display: grid;
+    width: 1290px;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 100px 50px 921px 100px;
+    gap: 10px;
+}
+
+.grid-header {
+    grid-column: 1/span 3;
+    grid-row: 1;
+    text-align: center;
+    background-color: var(--dark-grey);
+}
+
+.grid-navigation {
+    text-align: center;
+    grid-column: 2;
+    background-color: var(--light-purple);
+}
+
+.grid-sidebar-left {
+    text-align: center;
+    grid-column: 1;
+    grid-row:2/ span 2;
+    background-color: var(--light-grey);
+}
+
+.grid-sidebar-right {
+    text-align: center;
+    grid-column: 3;
+    grid-row: 2/ span 2;
+    background-color: var(--purple);
+}
+
+
+.grid-main {
+    text-align: center;
+    grid-column: 2;
+    grid-row: 3;
+    background-color: var(--grey);
+}
+
+.grid-footer {
+    grid-column: 1/span 3;
+    grid-row: 4/ span 1;
+    text-align: center;
+    background-color: var(--dark-grey);
+}
