@@ -1,0 +1,35 @@
+:root {
+    --padding: 30px;
+}
+
+.content {
+    width: 400px;
+}
+
+.content__text {
+    border: 1px solid red;
+}
+
+.content__text--padding-inline {
+    padding-inline: var(--padding);
+}
+
+.content__text--padding-block {
+    padding-block: var(--padding);
+}
+
+.content__text--padding-inline-end {
+    padding-inline-end: var(--padding);
+}
+
+.content__text--padding-inline-start {
+    padding-inline-start: var(--padding);
+}
+
+.content__text--padding-top {
+    padding-top: var(--padding);
+}
+
+.content__text--padding-right {
+    padding-right: var(--padding);
+}
