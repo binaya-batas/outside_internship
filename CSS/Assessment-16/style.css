@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+
+:root {
+    --button-color: #F15E50;
+    --articles-heading: #C5C6CE;
+    --news-background: #00001A;
+    --news-heading: #E9AB53;
+    --nav-link: #5E607A;
+    --container-background: #FDF8EC;
+}
+
+body {
+    background-color: var(--container-background);
+}
+
+.container {
+    width: 100%;
+    min-width: 375px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    row-gap: 40px;
+    background-color: #FDF8EC;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 2.5rem;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 40px;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+h4 {
+    font-weight: 900;
+    font-size: 20px;
+    /* line-height: 40px; */
+}
+
+h5 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 0.8rem;
+}
+
+.articles__item__text__number, .articles__item__text__title, p, .news__heading, .news__item__title, .news__item__title__description {
+    margin-block-start: 0;
+}
+
+p {
+    font-size: 0.94rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    list-style-type: none;
+    float: left;
+    color: var(--nav-link);
+    margin-left: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.header__navigation__menuToggle input{
+    position: absolute;
+    top: 25px;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+
+.header__navigation__menuToggle__menu {
+    background-color: white;
+    width: 200px;
+    display: none;
+}
+
+.header__navigation__menuToggle input:checked ~ .header__navigation__menuToggle__menu {
+    display: flex;
+}
+
+.hero__image img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.hero__button {
+    text-align: center;
+    width: 11rem;
+    padding: 0.8rem 0rem;
+    color: white;
+    letter-spacing: 0.2rem;
+}
+
+.hero__button:hover {
+    background-color: black;
+    transition: 0.4s;
+}
+
+.hero__button--backgroundcolor {
+    background-color: var(--button-color);
+}
+
+.articles {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.articles__item {
+    display: flex;
+    gap: 10px;
+}
+
+.articles__item__text__number--fontcolor {
+    color: var(--articles-heading);
+}
+
+.articles__item__image {
+    width: 100px;
+    height: 150px; 
+}
+
+.articles__item__text {
+    width: calc(100% - 30%);
+}
+
+.news {
+    background-color: var(--news-background);
+    color: white;
+    padding: 32px 20px;
+}
+
+.news__item {
+    margin-block: 30px;
+}
+
+.news__item__title:hover {
+    color: var(--news-heading);
+    transition: 0.4s;
+}
+
+.news__item__title__description--fontcolor {
+    color: var(--articles-heading);
+}
+
+.news__heading--fontcolor {
+    color: var(--news-heading);
+}
+
+@media only screen and (min-width: 700px) and (max-width:1440px) {
+    .container {
+        display: grid;
+        width: 100%;
+        height: fit-content;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 50px repeat(3, 1fr);
+        gap: 10px;
+        border: 1px solid green;
+    }
+
+    .header {
+        grid-column: 1/span 3;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid red;
+        grid-row: 1;
+    }
+    
+    .header__navigation img {
+        display: none;
+    }
+
+    .header__navigation__menuToggle__menu {
+        border: 1px solid green;
+        display: flex;
+        background-color: inherit;
+        flex-direction: row;
+    }
+
+    .hero {
+        grid-column: 1/ 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .hero__image {
+        grid-column: 1/ span 2;
+    }
+
+    .hero__heading {
+        grid-column: 1;
+    }
+
+    .news {
+        grid-column: 3;
+        grid-row: 2/ span 1;
+    }
+
+    .articles {
+        grid-column: 1/ span 3;
+        grid-row: 3;
+        flex-direction: row;
+        column-gap: 10px;
+    }
+
+}
+
