@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 80px;
+}
+
+.plans {
+    /* text-align: center; */
+    display: flex;
+    gap: 10px;
+}
+
+.plans__card {
+    text-align: center;
+}
+
+.plans__card:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.plans__card:hover + .plans__card__title--blue {
+    color: lightblue;
+}
+
+.plans__card__title {
+    padding:1rem; 
+    background-color: lightblue;
+    color: white;
+}
+
+li {
+    list-style-type: none;
+}
+
+.slider__list__left, .slider__list__right {
+    display: inline;
+}
+
+.slider__list__right {
+    margin-left: 300px;
+}
+
+.slider__list__bar {
+    width: 410px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: rgb(234, 227, 227);
+}
+
+.slider__list__bar:hover > .slider__list__bar--animation {
+    width: 200px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: lightblue;
+    transition: 0.6s;
+}

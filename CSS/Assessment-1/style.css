@@ -1,0 +1,32 @@
+.hover:hover {
+    color: red;
+}
+
+.checked input:checked + .color-change {
+    color: green;
+}
+
+.focus input:focus {
+    background-color: red;
+}
+
+.active a:active {
+    color: red;
+}
+
+li:nth-child(even) {
+    color: red;
+}
+
+li:nth-child(odd) {
+    color: green;
+}
+
+.invalid input:invalid {
+    border: none;
+    background-color: red;
+}
+
+button:disabled {
+    background-color: red;
+}

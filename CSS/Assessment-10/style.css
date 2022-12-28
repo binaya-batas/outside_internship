@@ -1,0 +1,24 @@
+.container {
+    width: 800px;
+    border: 1px solid red;
+    padding: 20px;
+    resize: horizontal;
+    overflow: auto;
+}
+
+.container__text {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.container__text--max {
+    width: max(50%, 300px);
+}
+
+.container__text--min {
+    width: min(50%, 300px);
+}
+
+.container__text--clamp {
+    width: clamp(300px, 50%, 500px);
+}
