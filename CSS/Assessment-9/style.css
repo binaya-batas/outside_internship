@@ -1,0 +1,13 @@
+ul li {
+    list-style-type: none;
+}
+
+li::before {
+    content: '\f058';
+    font-weight: bold;
+}
+
+li:nth-last-child(1):hover {
+    text-decoration: underline;
+}
+
