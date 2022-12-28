@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plans {
+    /* text-align: center; */
+    display: flex;
+    gap: 10px;
+}
+
+.plans__card {
+    text-align: center;
+}
+
+.plans__card:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.plans__card:hover + .plans__card__title--blue {
+    color: lightblue;
+}
+
+.plans__card__title {
+    padding:1rem; 
+    background-color: lightblue;
+    color: white;
+}
+
+li {
+    list-style-type: none;
+}

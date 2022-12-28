@@ -26,7 +26,6 @@
     height: 880px;
     display: flex;
     background-color: #ffffff;
-    border: 1px solid red;
 }
 
 .card__column__left {
@@ -35,8 +34,6 @@
     justify-content: center;
     text-align: center;
     width: 63%;
-    border: 1px solid black;
-    background-color: red;
 }
 
 .card__column__right {
@@ -73,6 +70,33 @@
     transform: translate(-50%,-50%);
 }
 
+.card__column__left__name {
+    position: absolute;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.card__column__left__button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.card__column__left__button--one, .card__column__left__button--two {
+    border: 4px solid var(--beige);
+    padding: 1rem 3rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    border-radius: 25px;
+}
+
+.card__column__left__button--one:hover, .card__column__left__button--two:hover {
+    background-color: var(--beige);
+    transition: 0.8s;
+}
+
 img {
     object-fit: cover;
     border-radius: 50%;
@@ -87,6 +111,7 @@ img {
 
 .card__column__right__button:hover {
     background-color: var(--button-right-hover);
+    transition: 0.8s;
 }
 
 .card__column__right__button p {
@@ -95,3 +120,10 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+@media only screen and (max-width: 600px) {
+    .card {
+        display: flex;
+        flex-direction: row;
+    }
+  }
