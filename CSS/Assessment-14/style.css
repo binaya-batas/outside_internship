@@ -1,24 +1,27 @@
+:root {
+    --on-hover: #7DD0ED;
+    --primary: #E9EDEF;
+}
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     row-gap: 80px;
+    background-color: var(--primary);
 }
 
-.plans {
-    /* text-align: center; */
-    display: flex;
-    gap: 10px;
-}
 
 .plans__card {
     text-align: center;
+    transition: 1s;
+    background-color: white;
 }
 
 .plans__card:hover {
     transform: scale(1.1);
-    transition: 1s;
+    
 }
 
 .plans__card:hover + .plans__card__title--blue {
@@ -31,8 +34,25 @@
     color: white;
 }
 
+.plans__card ul li {
+    width: 100%;
+    margin: auto;
+}
+
+
 li {
     list-style-type: none;
+}
+
+.slider {
+    padding: 20px;
+    background-color: white;
+}
+
+.slider__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
 }
 
 .slider__list__left, .slider__list__right {
@@ -40,20 +60,25 @@ li {
 }
 
 .slider__list__right {
-    margin-left: 300px;
+    margin-left: 400px;
 }
 
 .slider__list__bar {
-    width: 410px;
+    width: 520px;
     height: 15px;
     border-radius: 15px;
     background-color: rgb(234, 227, 227);
 }
 
-.slider__list__bar:hover > .slider__list__bar--animation {
-    width: 200px;
+.slider__list__bar--animation {
+    width: 0px;
     height: 15px;
     border-radius: 15px;
-    background-color: lightblue;
+    background-color: none;
     transition: 0.6s;
+}
+
+.plans__card:hover ~ .slider .slider__list .slider__list__bar .slider__list__bar--animation {
+    background-color: var(--on-hover);
+    width: 200px;
 }

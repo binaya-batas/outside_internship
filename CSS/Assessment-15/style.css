@@ -57,6 +57,11 @@
     transform: translate(-50%);
 }
 
+.card__column__image:hover {
+    transform: rotate(360deg);
+    background-color: red;
+}
+
 .card__column__image__border {
     border: 4px solid var(--beige);
     border-right: 4px solid white;
@@ -90,11 +95,12 @@
     cursor: pointer;
     margin-bottom: 1rem;
     border-radius: 25px;
+    transition: 0.8s;
 }
 
 .card__column__left__button--one:hover, .card__column__left__button--two:hover {
     background-color: var(--beige);
-    transition: 0.8s;
+    color: white;
 }
 
 img {
@@ -107,11 +113,11 @@ img {
     height: 33.3%;
     width: 100%;
     background-color: var(--button-right);
+    transition: 0.8s;
 }
 
 .card__column__right__button:hover {
     background-color: var(--button-right-hover);
-    transition: 0.8s;
 }
 
 .card__column__right__button p {
@@ -124,6 +130,6 @@ img {
 @media only screen and (max-width: 600px) {
     .card {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
     }
   }

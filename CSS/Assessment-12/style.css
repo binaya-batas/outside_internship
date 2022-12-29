@@ -1,0 +1,87 @@
+.tooltip {
+    height: 50px;
+    display: flex;
+    border: 1px solid black;
+    width: 300px;
+    justify-content: space-between;
+    z-index: -1;
+}
+
+.tooltip__danger {
+    width: 33.33%;
+    position: relative;
+}
+
+.tooltip__danger i{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tooltip__danger__text {
+    visibility: hidden;
+    z-index: 1;
+
+}
+
+.tooltip__text {
+    border: 1px solid black;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    word-wrap: normal;
+    padding: auto 0; 
+}
+
+.tooltip__danger i:hover + .tooltip__danger__text {
+    visibility: visible;
+}
+
+.tooltip__fingerprint {
+    width: 33.33%;
+    position: relative;
+}
+
+.tooltip__fingerprint__text {
+    visibility: hidden;
+    /* z-index: 1; */
+}
+
+.tooltip__fingerprint img:hover + .tooltip__fingerprint__text {
+    visibility: visible;
+}
+
+.tooltip__fingerprint img {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tooltip__cow {
+    width: 33.33%;
+    position: relative;
+}
+
+.tooltip__cow__image {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(./cow.jpg);
+    background-size: 50px;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+}
+
+.tooltip__fingerprint__text {
+    visibility: hidden;
+}
+
+.tooltip__cow__image:hover + .tooltip__fingerprint__text {
+    visibility: visible;
+} 

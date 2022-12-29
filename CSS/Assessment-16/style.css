@@ -21,7 +21,7 @@ body {
     padding: 1rem;
     box-sizing: border-box;
     row-gap: 40px;
-    background-color: #FDF8EC;
+    background-color: var(--container-background);
 }
 
 body {
