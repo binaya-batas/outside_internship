@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+$font-size-list: (
+  27.6px,
+  19.2px,
+);
+
+@for $val from 1 through 2 {
+    .h#{$val} {
+    font-size: nth($font-size-list, $val);
+    }
+}
+
+.h1 {
+    line-height: 120%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.h2 {
+    line-height: 180%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.body-1 {
+    font-size: 16px;
+    line-height: 180%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.body-1--bold {
+    font-weight: 700;
+}
+
+.body-2 {
+    font-size: 14px;
+    line-height: 180%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}

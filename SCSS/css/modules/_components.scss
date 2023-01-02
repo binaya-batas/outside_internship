@@ -1,0 +1,6 @@
+.button {
+    @include button-styles($light-green, 20px, center, $white);
+    padding: 5px 10px;
+    width: 120px;
+}
+

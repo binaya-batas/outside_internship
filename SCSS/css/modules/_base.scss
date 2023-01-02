@@ -1,0 +1,17 @@
+// variables
+$white: #ffffff;
+$black: #3D3E48;
+$army-green: #295943;
+$light-green: #43B97F;
+
+// mixins
+@mixin button-styles($background-color, $border-radius, $text-align, $color) {
+    background-color: $background-color;
+    border-radius: $border-radius;
+    text-align: $text-align;
+    color: $color;
+}
+
+// @mixin background-image($url) {
+//     background-image: url;
+// }

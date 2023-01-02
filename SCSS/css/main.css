@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+.h1 {
+  font-size: 27.6px;
+}
+
+.h2 {
+  font-size: 19.2px;
+}
+
+.h1 {
+  line-height: 120%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.h2 {
+  line-height: 180%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.body-1 {
+  font-size: 16px;
+  line-height: 180%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.body-1--bold {
+  font-weight: 700;
+}
+
+.body-2 {
+  font-size: 14px;
+  line-height: 180%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.button {
+  background-color: #43B97F;
+  border-radius: 20px;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px 10px;
+  width: 120px;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.top-destination__sub-title {
+  color: #295943;
+}
+.top-destination__destinations {
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  row-gap: 30px;
+  justify-content: center;
+  margin-top: 80px;
+}
+.top-destination__destinations__card {
+  box-sizing: border-box;
+  padding: 10px;
+  max-width: 380px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+}
+.top-destination__destinations__card__image img {
+  max-width: 100%;
+  height: auto;
+}
+.top-destination__destinations__text {
+  text-align: start;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 80px;
+}
+.features__card {
+  width: 280px;
+  text-align: left;
+}
+.features__card__icon {
+  font-size: 40px;
+}/*# sourceMappingURL=main.css.map */
