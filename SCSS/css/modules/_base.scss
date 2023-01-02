@@ -12,6 +12,12 @@ $light-green: #43B97F;
     color: $color;
 }
 
+@mixin media($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
 // @mixin background-image($url) {
 //     background-image: url;
 // }

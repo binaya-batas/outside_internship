@@ -94,4 +94,14 @@
 }
 .features__card__icon {
   font-size: 40px;
+}
+
+@media screen and (max-width: 796px) {
+  .top-destination__destinations {
+    flex-wrap: nowrap;
+  }
+  .top-destination__card {
+    min-width: 380px;
+    width: 100%;
+  }
 }/*# sourceMappingURL=main.css.map */
