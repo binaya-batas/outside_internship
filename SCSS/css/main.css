@@ -80,6 +80,9 @@
 .top-destination__destinations__text {
   text-align: start;
 }
+.top-destination__destinations__text .float-right {
+  float: right;
+}
 
 .features {
   display: flex;
@@ -99,9 +102,16 @@
 @media screen and (max-width: 796px) {
   .top-destination__destinations {
     flex-wrap: nowrap;
+    justify-content: start;
+    overflow-x: auto;
+    padding: 20px 5px;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
   }
-  .top-destination__card {
+  .top-destination__destinations::-webkit-scrollbar {
+    display: none;
+  }
+  .top-destination__destinations__card {
     min-width: 380px;
-    width: 100%;
   }
 }/*# sourceMappingURL=main.css.map */
