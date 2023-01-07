@@ -96,6 +96,7 @@
     margin-bottom: 1rem;
     border-radius: 25px;
     transition: 0.8s;
+    width: 200px;
 }
 
 .card__column__left__button--one:hover, .card__column__left__button--two:hover {
@@ -109,7 +110,12 @@ img {
 }
 
 .card__column__right__button {
-    position: relative;
+    /* position: relative; */
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
     height: 33.3%;
     width: 100%;
     background-color: var(--button-right);
@@ -121,10 +127,10 @@ img {
 }
 
 .card__column__right__button p {
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }
 
 @media only screen and (max-width: 600px) {
