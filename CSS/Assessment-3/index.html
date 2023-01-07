@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Box-sizing</title>
 </head>
 <body>
-    
+    <div class="box">
+        Normally, an element height is calculated by adding its height + padding + border = actual height. <br>
+        And the width is calculated by adding its width + padding + border.
+    </div>
+
+    <div class = "box box-sizing">
+        But by using border-box: box-sizing; property, it allows to include padding and height in its total heigh and width.
+    </div>
     
 </body>
 </html>
