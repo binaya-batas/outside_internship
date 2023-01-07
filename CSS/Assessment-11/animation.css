@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.animation {
+    height: 200px;
+    width: 200px;
+    background-color: lightpink;
+    animation: circle 1.9s infinite cubic-bezier(.46,.03,.52,.96);
+}
+
+@keyframes circle {
+    50% {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: lightgreen;
+    }
+    55% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    
+}
