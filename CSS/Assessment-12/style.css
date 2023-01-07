@@ -22,23 +22,35 @@
 .tooltip__danger__text {
     visibility: hidden;
     z-index: 1;
+    color: red;
 
 }
 
 .tooltip__text {
-    border: 1px solid black;
+    box-shadow: 1px 1px 1px 1px #424040;
+    border-radius: 8px;
     width: 100%;
     height: 30px;
     position: absolute;
-    top: 30px;
+    top: 45px;
     left: 20px;
     word-wrap: normal;
-    padding: auto 0; 
+    padding: 5px 20px;
+    background-color: white;
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
+.tooltip__danger i:hover {
+    color: red;
+}
 .tooltip__danger i:hover + .tooltip__danger__text {
     visibility: visible;
 }
+
 
 .tooltip__fingerprint {
     width: 33.33%;
@@ -47,6 +59,7 @@
 
 .tooltip__fingerprint__text {
     visibility: hidden;
+    color: rgb(11, 164, 225);
     /* z-index: 1; */
 }
 
@@ -76,6 +89,15 @@
     width: 30px;
     height: 30px;
     background-repeat: no-repeat;
+}
+
+.tooltip__cow__text {
+    visibility: hidden;
+    color: red;
+}
+
+.tooltip__cow__image:hover + .tooltip__cow__text {
+    visibility: visible;
 }
 
 .tooltip__fingerprint__text {
