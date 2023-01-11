@@ -1,0 +1,97 @@
+$light-khaki: #F5F5F5;
+$dark-grey: #393939;
+$footer-text: #EAE7DE;
+
+.header__navbar {
+    background-color: $light-khaki;
+}
+
+.outer {
+    background-color: #F5F5F5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.accordion {
+    &-body {
+        padding: 0 !important;
+    }
+
+    &-item {
+        border: none !important;
+        margin-bottom: 1rem;
+        background-color: #F5F5F5 !important;
+    }
+
+    &-button {
+        background-color: #F5F5F5 !important;
+        color: black !important;
+        padding-left: 0px !important;
+
+        &::after {
+            background-image: url('../img/plus-sign-svgrepo-com.svg') !important;
+        }
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+
+    &-heading {
+        background-color: #F5F5F5 !important;
+    }
+}
+
+
+footer {
+    background-color: $dark-grey;
+    color: $footer-text;
+
+    img {
+        width: 426px;
+        height: auto;
+    }
+
+    ul {
+        li a{
+            color: $footer-text;
+            text-decoration: none;
+        }
+    }
+
+    // .card-title {
+    //     color: white;
+    // }
+}
+
+// .image {
+//     &__container {
+//         display: relative;
+//         text-align: center;
+//     }
+
+//     .centered {
+//         display: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//     }
+// }
+
+.card {
+    background-color: inherit !important;
+    border: transparent !important;
+
+    &-img-overlay {
+        top: 50% !important;
+        transform: translate(0, -50%);
+
+    }
+
+    .btn {
+        bottom: 30px;
+    }
+}

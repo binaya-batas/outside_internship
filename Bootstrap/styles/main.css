@@ -1,0 +1,60 @@
+.header__navbar {
+  background-color: #F5F5F5;
+}
+
+.outer {
+  background-color: #F5F5F5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.accordion-body {
+  padding: 0 !important;
+}
+.accordion-item {
+  border: none !important;
+  margin-bottom: 1rem;
+  background-color: #F5F5F5 !important;
+}
+.accordion-button {
+  background-color: #F5F5F5 !important;
+  color: black !important;
+  padding-left: 0px !important;
+}
+.accordion-button::after {
+  background-image: url("../img/plus-sign-svgrepo-com.svg") !important;
+}
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+.accordion-heading {
+  background-color: #F5F5F5 !important;
+}
+
+footer {
+  background-color: #393939;
+  color: #EAE7DE;
+}
+footer img {
+  width: 426px;
+  height: auto;
+}
+footer ul li a {
+  color: #EAE7DE;
+  text-decoration: none;
+}
+
+.card {
+  background-color: inherit !important;
+  border: transparent !important;
+}
+.card-img-overlay {
+  top: 50% !important;
+  transform: translate(0, -50%);
+}
+.card .btn {
+  bottom: 30px;
+}/*# sourceMappingURL=main.css.map */
