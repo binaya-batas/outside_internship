@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include('includes/head.html',{'pageTitle':'Final FED'})
+    </head>
+    <body>
+        <div class="theme-app d-flex flex-column">
+
+            @@include('./includes/navbar.html')
+            <!-- hero -->
+            
+            @@include('./includes/modules/section/home-hero.html', {
+                'sectionbgColor': 'bg-blush',
+                'img1': 'images/home/hero-1.jpg',
+                'img2': 'images/home/hero-2.png',
+                'img3': 'images/home/hero-3.jpg',
+                'eyebrow': 'Look deep into nature, and then you will understand everything better.',
+                'description': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
+                'btnText': 'Contact Us',
+                'bgColor': 'bg-transparent',
+                'borderColor': 'border-dark',
+                'color': '@@color',
+                'redirectTo': 'contactus.html',
+                'mb': '@@mb',
+                'state': 'd-none d-md-block'
+            })
+
+
+            
+            @@include('./includes/modules/section/section-with-video.html')
+
+            <!-- THINGS TO REMEMBER -->
+            @@include('./includes/modules/section/section-with-image.html', {
+                'sectionBgColor': 'bg-mint',
+                'img': 'images/home/img-2.png',
+                'title': 'THINGS TO REMEMBER',
+                'subTitleStyle': 'h4',
+                'subTitle': 'To People That Want To Start BLOGS But Are Affraid To Get Started',
+                'date': 'NOV 11 2021',
+                'text': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut porta diam. Nullam sed dolor in libero auctor gravida. Morbi eget nibh vel ligula consequat ultrices. Donec maximus dui sapien, ut ullamcorper nisi dignissim quis.</p>',
+                'btnText': 'More Articles',
+                'bgColor': 'bg-transparent',
+                'borderColor': 'border-dark',
+                'color': 'text-dark',
+                'mb': 'mb-6',
+                'redirectTo': 'blog-single.html',
+                'rowDirection': ''
+            })
+            <!-- END -->
+
+            <!-- OUR TEAM -->
+            @@include('./includes/modules/section/home-ourteam.html', {
+
+                'name': 'Sally Albana - Site Engineer',
+                'description': 'It is not so much for its beauty that the forest makes a claim upon mens hearts, as for that subtle something, that quality of air that emanation from old trees, that so wonderfully changes and renews a weary spirit.'
+            })
+
+
+            <!-- BLOGS -->
+            @@include('./includes/modules/section/section-with-image.html', {
+                'img': 'images/home/ballon.png',
+                'title': 'BLOGS',
+                'subTitleStyle': 'h3',
+                'subTitle': 'Proin pretium risus suscipit viverra mattis. Aliquam non nunc ligula',
+                'date': '',
+                'text': '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.</p><p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>',
+                'btnText': 'Learn More',
+                'bgColor': 'bg-sky',
+                'borderColor': 'border-sky',
+                'color': 'text-white',
+                'mb': 'mb-10',
+                'rowDirection': 'flex-row-reverse',
+                'redirectTo': 'blog-listing.html'
+            })
+            <!-- END-BLOGS -->
+
+            <!-- MORE INFO -->
+            @@include('./includes/modules/section/section-with-image.html', {
+                'sectionBgColor': 'bg-mint',
+                'img': 'images/home/more-info.png',
+                'title': 'MORE INFO',
+                'subTitleStyle': 'h4',
+                'subTitle': 'Proin pretium risus suscipit viverra mattis. Aliquam non nunc ligula',
+                'date': 'NOV 11, 2020',
+                'text': '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.</p><p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>',
+                'btnText': 'Learn More',
+                'bgColor': 'bg-transparent',
+                'borderColor': 'border-dark',
+                'color': 'text-dark',
+                'mb': 'mb-6',
+                'more-info': 'blog-single.html'
+            })
+            <!-- END -->
+
+            @@include('./includes/modules/section/home-testimonials.html', {
+                'name': 'Rani Campbell (Owner of CDG)',
+                'description': '“There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.”'
+            })
+
+            @@include('./includes/modules/section/above-the-footer.html', {
+                'sectionBgColor': 'bg-blush',
+                'heading': 'Proin pretium risus suscipit viverra mattis. Aliquam non nunc ligula.',
+                'mb': 'mb-2 mb-xl-4',
+                'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut porta diam.',
+                'mbDes': 'mb-6 mb-xl-10',
+                'btnText': 'See Our Blogs',
+                'redirectTo': 'blog-listing.html',
+                'color': 'text-white',
+                'bgColor': 'bg-sky',
+                borderColor: 'border-sky',
+                'redirectTo': 'blog-listing.html'
+            })
+
+            @@include('includes/footer.html')
+            @@include('includes/scripts.html')
+        </div>
+    </body>
+</html>

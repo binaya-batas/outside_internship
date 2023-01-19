@@ -1,0 +1,19 @@
+.about-our-services {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid $blush;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding-top: 12rem;
+        padding-bottom: 8rem;
+    }
+
+    &__eyebrow {
+        margin-bottom: 4rem;
+    }
+}

@@ -1,0 +1,75 @@
+<footer class="theme-footer bg-sky text-white py-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <img src="images/logo-lt.svg" alt="logo" srcset="" height="124px" width="273.25px" class="footer-logo">
+            </div>
+        </div>
+
+        <div class="row pt-10 pt-xl-20">
+            <div class="col-12 col-md-6 col-xl-3">
+                @@include('./modules/footer-card/footer-card.html', {
+                    'title': 'ABOUT US',
+                    'li1': 'Lorem ipsum dolor sit amet',
+                    'li2': 'Lorem ipsum dolor',
+                    'li3': 'Lorem ipsum dolor',
+                    'li4': ''
+                })
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+                @@include('./modules/footer-card/footer-card.html', {
+                    'title': 'OUR TEAM',
+                    'li1': 'Lorem ipsum dolor',
+                    'li2': 'Lorem ipsum dolor',
+                    'li3': 'Lorem ipsum dolor',
+                    'li4': ''
+                })
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+                @@include('./modules/footer-card/footer-card.html', {
+                    'title': 'WHO WE ARE',
+                    'li1': 'Lorem ipsum',
+                    'li2': 'Lorem ipsum',
+                    'li3': 'Lorem ipsum',
+                    'li4': ''
+                })
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+                @@include('./modules/footer-card/footer-card.html', {
+                    'title': 'RESOURCES',
+                    'li1': 'Lorem lst',
+                    'li2': 'Lorem',
+                    'li3': 'Lorem lst',
+                    'li4': 'Lorem lst'
+                })
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3 pt-xs-2 pt-xl-20">
+                @@include('./modules/footer-card/footer-card.html', {
+                    'title': 'CONTACT',
+                    'li1': 'Contact form',
+                    'li2': 'allowed@test.com',
+                    'li3': '',
+                    'li4': ''
+                })
+            </div>
+
+            <div class="col-12 col-xl-6 mt-10 mt-xl-20 d-md-block">
+                @@include('./modules/footer-card/footer-input-group.html', {
+                    'label': 'Sign up for our news letter:',
+                    'placeholder': 'Email Address',
+                })
+            </div>
+        </div>
+
+        <div class="row pt-10 pt-xl-20">
+            <div class="col-sm-12 ">
+                <p>Site content copyright &#169; 2021 Allowded Text Terms & Privacy</p>
+            </div>
+        </div>
+    </div>
+</footer>
+

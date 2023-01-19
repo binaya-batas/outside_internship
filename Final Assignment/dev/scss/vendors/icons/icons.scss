@@ -1,0 +1,115 @@
+@import "variables/variables";
+
+@font-face {
+    font-family: "#{$icomoon-font-family}";
+    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?4r1frz");
+    src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?4r1frz#iefix") format("embedded-opentype"),
+        url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?4r1frz") format("truetype"),
+        url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?4r1frz") format("woff"),
+        url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?4r1frz##{$icomoon-font-family}") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+} 
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "#{$icomoon-font-family}" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close {
+    &:before {
+      content: $icon-close; 
+    }
+  }
+  .icon-facebook {
+    &:before {
+      content: $icon-facebook; 
+    }
+  }
+  .icon-github {
+    &:before {
+      content: $icon-github; 
+    }
+  }
+  .icon-up_pointer {
+    &:before {
+      content: $icon-up_pointer; 
+    }
+  }
+  .icon-right_pointer {
+    &:before {
+      content: $icon-right_pointer; 
+    }
+  }
+  .icon-down_pointer {
+    &:before {
+      content: $icon-down_pointer; 
+    }
+  }
+  .icon-twitter {
+    &:before {
+      content: $icon-twitter; 
+    }
+  }
+  .icon-right_top_arrow {
+    &:before {
+      content: $icon-right_top_arrow; 
+    }
+  }
+  .icon-right_arrow {
+    &:before {
+      content: $icon-right_arrow; 
+    }
+  }
+  .icon-down_arrow {
+    &:before {
+      content: $icon-down_arrow; 
+    }
+  }
+  .icon-left_arrow {
+    &:before {
+      content: $icon-left_arrow; 
+    }
+  }
+  .icon-location {
+    &:before {
+      content: $icon-location; 
+    }
+  }
+  .icon-hamburger {
+    &:before {
+      content: $icon-hamburger; 
+    }
+  }
+  .icon-checkmark {
+    &:before {
+      content: $icon-checkmark; 
+    }
+  }
+  .icon-up_arrow {
+    &:before {
+      content: $icon-up_arrow; 
+    }
+  }
+  .icon-reload {
+    &:before {
+      content: $icon-reload; 
+    }
+  }
+  .icon-linkedin {
+    &:before {
+      content: $icon-linkedin; 
+    }
+  }

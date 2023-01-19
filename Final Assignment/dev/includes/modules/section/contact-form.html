@@ -1,0 +1,71 @@
+<section class="contact-form bg-mint">
+    <div class="container">
+        <form action="" class="contact-form__form bg-white">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-md-5">
+                        <label for="projectinquiries" class="h5">Let's talk about</label>
+                        <select class="form-select contact-form__form__select" aria-label="Default select example" name="projectinquiries" id="projectinquiries">
+                            <option selected>Project Inquiries</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-xl-5">
+                        @@include('../cards/card-input.html', {
+                            'id': 'firstName',
+                            'label': 'First Name',
+                            'inputType': 'text',
+                            'placeholder': 'Jane'
+                        })
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-5">
+                        @@include('../cards/card-input.html', {
+                            'id': 'lastName',
+                            'label': 'Last Name',
+                            'inputType': 'text',
+                            'placeholder': 'Doe'
+                        })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        @@include('../cards/card-input.html', {
+                            'id': 'email',
+                            'label': 'Email Address',
+                            'inputType': 'email',
+                            'placeholder': 'jane@domain.com'
+                        })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        @@include('../cards/card-input.html', {
+                            'id': 'message',
+                            'label': 'Message',
+                            'inputType': 'text',
+                            'placeholder': 'How can we help?'
+                        })
+                    </div>
+                </div>
+                <div class="row mb-24 mb-6 mb-md-10">
+                    <div class="col-12">
+                        <p>This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+                    </div>
+                </div>
+
+        
+
+                @@include('../button/button-global.html', {
+                    'btnText': 'Submit',
+                    'color': 'text-dark',
+                    'bgColor': 'bg-transparent',
+                    'borderColor': 'border border-dark',
+                })
+            </div>
+        </form>
+    </div>
+</section>

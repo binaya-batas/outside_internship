@@ -1,0 +1,38 @@
+<section class="related-blogs bg-blush">
+    <div class="container">
+        <div class="related-blogs__eyebrow h6">@@eyebrow</div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-4">
+                @@include('../cards/card-blog.html', {
+                    'img': 'image-1.jpg',
+                    'bgColor': 'bg-white',
+                    'imgAlt': 'A lady with a bicycle.',
+                    'boxShadow': 'blush',
+                    'date': 'june 11, 2021',
+                    'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                })
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+                @@include('../cards/card-blog.html', {
+                    'img': 'image-2.jpg',
+                    'bgColor': 'bg-blush',
+                    'boxShadow': 'peach',
+                    'imgAlt': 'Image with a yellow background',
+                    'date': 'june 11, 2021',
+                    'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                })
+            </div>
+            <div class="col-12 col-md-6 col-xl-4">
+                @@include('../cards/card-blog.html', {
+                    'display': 'd-md-none d-xl-block',
+                    'img': 'image-3.jpg',
+                    'bgColor': 'bg-white',
+                    'imgAlt': 'A lady with a hat.',
+                    'boxShadow': 'blush',
+                    'date': 'june 11, 2021',
+                    'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                })
+            </div>
+        </div>
+    </div>
+</section>

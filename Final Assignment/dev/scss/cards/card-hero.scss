@@ -1,0 +1,30 @@
+.card-hero {
+    border-top: 8px solid $sky;
+    padding-block: 4rem;
+    padding-inline: 2.4rem;
+
+    @include media-breakpoint-up(md) {
+        padding: 4rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding: 8rem;
+    }
+
+    &__eyebrow {
+        margin-bottom: 1.6rem;
+    }
+
+    &__description {
+        margin-bottom: 0;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 2.4rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            margin-bottom: 4rem;
+        }
+
+    }
+}

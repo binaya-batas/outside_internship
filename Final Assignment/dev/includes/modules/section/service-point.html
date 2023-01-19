@@ -1,0 +1,22 @@
+<section class="service-point service-point--@@border">
+    <div class="container">
+        <div class="row">
+            <h3 class="@@titleFont service-point__heading col-12 col-md-5 col-xl-4">
+                @@title
+            </h3>
+            <p class="service-point__description col-12 col-md-7 col-xl-8 order-3 order-md-2">
+                @@description
+            </p>
+            <div class="service-point__imageButton col-12 order-2 order-md-3">
+                <figure class="service-point__image">
+                    <img src=@@img alt=@@imgalt srcset="" height="480px" width="1280px">
+                </figure>
+                <div class="service-point__imageButton__button w-sm-100">
+                    @@include('../button/button-aboutus.html', {
+                        'bgColor': '@@bgColor'
+                    })
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>

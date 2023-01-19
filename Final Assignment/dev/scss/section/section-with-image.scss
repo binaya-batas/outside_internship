@@ -1,0 +1,9 @@
+.section-with-image {
+
+    &__card {
+        
+        @include media-breakpoint-down(sm) {
+            margin-top: 4rem;
+        }
+    }
+}

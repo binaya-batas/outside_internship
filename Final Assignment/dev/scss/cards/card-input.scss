@@ -1,0 +1,32 @@
+.card-input {
+    margin-bottom: 2.4rem;
+    
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: 4rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+
+    }
+
+    &__label {
+        margin-bottom: 0.8rem;
+    }
+
+    &__input {
+        border: 0.2rem solid $dark;
+        border-radius: 0rem;
+        padding: 1.2rem;
+        color: $dark;
+        
+        &::placeholder {
+            font-style: italic;
+            color: $dark;
+        }
+
+        @include media-breakpoint-up(md) {
+            padding: 1.6rem;
+        }
+    }
+}

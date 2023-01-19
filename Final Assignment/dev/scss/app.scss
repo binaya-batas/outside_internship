@@ -1,0 +1,112 @@
+// 1. Global
+@import 'global/path';
+@import 'global/fonts';
+
+
+// 2. Configuration
+@import '../../node_modules/bootstrap/scss/functions';
+@import './variables';
+@import '../../node_modules/bootstrap/scss/variables';
+@import "../../node_modules/bootstrap/scss/maps";
+@import '../../node_modules/bootstrap/scss/mixins';
+@import '../../node_modules/bootstrap/scss/utilities';
+
+
+// 3. Layout & components
+@import '../../node_modules/bootstrap/scss/root';
+@import '../../node_modules/bootstrap/scss/reboot';
+@import '../../node_modules/bootstrap/scss/type';
+@import '../../node_modules/bootstrap/scss/images';
+@import '../../node_modules/bootstrap/scss/containers';
+@import '../../node_modules/bootstrap/scss/grid';
+@import '../../node_modules/bootstrap/scss/navbar';
+@import '../../node_modules/bootstrap/scss/nav';
+@import '../../node_modules/bootstrap/scss/forms';
+@import '../../node_modules/bootstrap/scss/dropdown';
+@import '../../node_modules/bootstrap/scss/buttons';
+@import '../../node_modules/bootstrap/scss/button-group';
+@import '../../node_modules/bootstrap/scss/modal';
+@import '../../node_modules/bootstrap/scss/offcanvas';
+@import '../../node_modules/bootstrap/scss/transitions';
+
+
+// 4. Helpers
+@import '../../node_modules/bootstrap/scss/helpers';
+
+
+// 5. Helpers
+@import '../../node_modules/bootstrap/scss/utilities/api';
+
+
+// 6.Utilities
+@import 'vendors/icons/icons.scss';
+
+
+// 7. Mixins
+@import 'mixins/mixins';
+
+
+// 8. Base
+@import 'base/global-vars';
+@import 'base/grids';
+
+
+// 8. Utilities
+@import "utilities/helper";
+@import "utilities/placeholders";
+@import "utilities/typo";
+@import "utilities/config";
+
+
+// 9. Modules
+@import 'modules/buttons';
+@import 'modules/links';
+@import 'modules/forms';
+@import 'modules/thumbnail';
+@import 'modules/swiper';
+@import 'modules/dropdown';
+
+
+// 10. Global Components to use
+@import "layout/header";
+@import "layout/offcanvas";
+@import "layout/footer";
+@import "layout/main";
+@import "layout/post";
+@import "layout/hero";
+
+
+// 11. Cards
+@import 'cards/card-a01';
+@import 'cards/card-hero.scss';
+@import 'cards/card-home-1.scss';
+@import 'cards/card-blog.scss';
+@import 'cards/card-blog-hero.scss';
+@import 'cards/card-input.scss';
+
+//12. Footer
+@import 'footer/footer.scss';
+@import 'footer/footer-input-group.scss';
+
+//13. Sections
+@import 'section/section-with-video.scss';
+@import 'section/section-with-image.scss';
+@import 'section/home-ourteam.scss';
+@import 'section/home-testimonials.scss';
+@import 'section/home-hero.scss';
+@import 'section/service-point.scss';
+@import 'section/blog-moreblogs.scss';
+@import 'section/blog-hero.scss';
+@import 'section/blog-single-text.scss';
+@import 'section/contact-form.scss';
+@import 'section/related-blogs.scss';
+@import 'section/above-the-footer.scss';
+@import 'section/navbar.scss';
+@import 'section/about-our-services.scss';
+
+//buttons
+@import 'button/button-global.scss';
+@import 'button/button-aboutus.scss';
+
+//layout
+@import 'layout/layouts';

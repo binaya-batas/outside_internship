@@ -1,0 +1,19 @@
+.card-blog-hero {
+    padding: 2.4rem;
+
+    @include media-breakpoint-up(md) {
+        padding: 4rem 8rem;
+    }
+    
+    &--blush {
+        box-shadow: 1rem 1rem $blush;
+    }
+
+    &__date {
+        margin-bottom: 2.4rem;
+    }
+
+    &__text {
+        margin-bottom: 2.4rem;
+    }
+}

@@ -1,0 +1,33 @@
+.navbar {
+    padding-top: 1.45rem;
+    padding-bottom: 1.45rem;
+
+    @include media-breakpoint-down(md) {
+
+    }
+
+    @include media-breakpoint-up(md) {
+        padding-top: 2.4rem;
+        padding-bottom: 2.4rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding-top: 3.35rem;
+        padding-bottom: 3.35rem;
+    }
+
+    ul li {
+
+        @include media-breakpoint-down(md) {
+            // display: none;
+        }
+        
+        @include media-breakpoint-up(xl) {
+            margin-left: 4rem;
+        }
+    }
+}
+
+.collapse__ul {
+    
+}

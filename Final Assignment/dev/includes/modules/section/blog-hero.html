@@ -1,0 +1,32 @@
+<section class="blog-hero bg-mint @@paddingBottom blog-hero--@@borderBottom">
+    <div class="container">
+        <div class="row">
+            <div class="blog-hero__topsection">
+                <figure class="blog-hero__topsection__image col-12">
+                    <img src="images/blogs/@@img" class="@@offsetImg" alt=@@imgAlt srcset="" width="840px" height="473px">
+                </figure>
+                <div class="blog-hero__topsection__description bg-sky text-white col-12 col-md-8 @@offsetDes @@paddingxl blog-hero__topsection__@@variationContact">
+                    <h1 class="h1">@@heading</h1>
+                    <div class="@@paraStyle ">
+                        <p>@@description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="blog-hero__lowersection col-12 col-xl-10 @@display">
+                @@include('../cards/card-blog-hero.html', {
+                    'boxShadow': 'blush',
+                    'articleBgColor': 'bg-white',
+                    'date': 'November 11, 2021',
+                    'text': 'Morbi pellentesque justo non magna iaculis efficitur in quis magna. Vivamus consectetur placerat iaculis. Aenean in orci et libero auctor elementum non in diam. Suspendisse vel urna luctus, tristique purus a, commodo metus. Nam commodo turpis eget magna placerat, quis molestie mauris volutpat',
+                    'btnText': 'Read More',
+                    'bgColor': 'bg-transparent',
+                    'borderColor': 'border-dark',
+                    'color': 'dark',
+                    'mb': 'mb-6'
+                })
+            </div>
+        </div>
+    </div>
+</section>

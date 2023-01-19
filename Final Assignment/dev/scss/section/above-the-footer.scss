@@ -1,0 +1,9 @@
+.above-the-footer {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @include media-breakpoint-up(md) {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+}

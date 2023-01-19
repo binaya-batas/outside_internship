@@ -1,0 +1,30 @@
+<section class="section-with-video py-10 py-md-20 py-xl-30">
+  <div class="container">
+      <div class="row flex-row-reverse">
+          <div class="col-sm-12 col-md-6 order-sm-2">
+            <div class="section-with-video__video">
+              <p>HOW ABOUT US?</p>
+              <video loading="lazy" width="100%" height="276px" controls>
+                <source src="images/Elephant - 31773.mp4" type="video/mp4">
+                Your browser does not support the video tag. 
+              </video>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 section-with-video__card">
+              @@include('../cards/card-home-1.html', {
+                  'title': 'ABOUT US',
+                  'subTitleStyle': 'h3',
+                  'subTitle': 'Integer at neque ac metus fringilla dapibus et eu eros. Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum, quis condimentum turpis consequat.',
+                  'date': '',
+                  'text': '',
+                  'btnText': 'Learn More',
+                  'bgColor': 'bg-sky',
+                  'borderColor': 'border-sky',
+                  'color': 'text-white',
+                  'mb': 'mb-10',
+                  'redirectTo': 'about.html'
+              })
+          </div>
+      </div>
+  </div>
+</section>

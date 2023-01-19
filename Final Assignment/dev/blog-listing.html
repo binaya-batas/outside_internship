@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include('includes/head.html',{'pageTitle':'About Us'})
+    </head>
+    <body>
+        <div class="theme-app d-flex flex-column">
+            @@include('./includes/navbar.html')
+
+            @@include('./includes/modules/section/blog-hero.html', {
+                'img': 'blog-list-hero.jpg',
+                'imgAlt': 'Humming bird',
+                'heading': '',
+                'paraStyle': 'h2',
+                'description': 'Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum.',
+                'offsetDes': 'offset-md-4'
+            })
+            
+            @@include('./includes/modules/section/blogs-moreblogs.html', {
+                'eyebrow': 'more blog notes',
+            })
+
+            @@include('./includes/modules/section/above-the-footer.html', {
+                'sectionBgColor': 'bg-mint',
+                'heading': 'Proin pretium risus suscipit viverra mattis. Aliquam non nunc ligula.',
+                'mb': 'mb-2 mb-xl-4',
+                'description': 'Integer at neque ac metus fringilla dapibus et eu eros.',
+                'mbDes': 'mb-6 mb-xl-10',
+                'btnText': 'Contact',
+                'color': 'text-white',
+                'bgColor': 'bg-sky',
+                'borderColor': 'border-sky',
+                'redirectTo': 'contactus.html'
+            })
+            @@include('includes/footer.html')
+            @@include('includes/scripts.html')
+        </div>
+    </body>
+</html>

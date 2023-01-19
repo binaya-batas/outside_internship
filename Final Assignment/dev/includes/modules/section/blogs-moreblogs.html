@@ -1,0 +1,87 @@
+<section class="blogs-moreblogs py-10 py-md-20 py-xl-30">
+    <div class="container">
+        <div class="h6 blogs-moreblogs__eyebrow">
+            @@eyebrow
+        </div>
+        <div class="h6 blogs-moreblogs__categories">
+            Categories
+        </div>
+        <div class="blogs-moreblogs__searchDropdown row">
+            <div class="col-12 col-md-7 col-xl-5 blogs-moreblogs__searchDropdown__searchbar ">
+                <input type="text" class="border border-sky border-2 blogs-moreblogs__searchDropdown__searchbar--rounded-input">
+            </div>
+            <div class="col-12 col-md-5 col-xl-7 blogs-moreblogs__searchDropdown__dropdown">
+                <div class="dropdown">
+                    Latest
+                    <i class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    <ul class="dropdown-menu bg-mint rounded-0 border border-peach h6" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">alphabetical order</a></li>
+                        <li><a class="dropdown-item" href="#">featured</a></li>
+                        <li><a class="dropdown-item" href="#">latest</a></li>
+                        <li><a class="dropdown-item" href="#">oldest</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="blogs-moreblogs__items">
+            <div class="row">
+                <div class="col-12 col-md-6 col-xl-4">
+                    @@include('../cards/card-blog.html', {
+                        'img': 'image-1.jpg',
+                        'imgAlt': 'A lady with a bicycle.',
+                        'boxShadow': 'blush',
+                        'date': 'june 11, 2021',
+                        'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                    })
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    @@include('../cards/card-blog.html', {
+                        'img': 'image-2.jpg',
+                        'bgColor': 'bg-blush',
+                        'boxShadow': 'peach',
+                        'imgAlt': 'Image with a yellow background',
+                        'date': 'june 11, 2021',
+                        'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                    })
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    @@include('../cards/card-blog.html', {
+                        'img': 'image-3.jpg',
+                        'imgAlt': 'A lady with a hat.',
+                        'boxShadow': 'blush',
+                        'date': 'june 11, 2021',
+                        'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                    })
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    @@include('../cards/card-blog.html', {
+                        'img': 'image-4.jpg',
+                        'imgAlt': 'Rock climbing.',
+                        'boxShadow': 'blush',
+                        'date': 'june 11, 2021',
+                        'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                    })
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    @@include('../cards/card-blog.html', {
+                        'img': 'image-5.jpg',
+                        'imgAlt': 'Children playing in water.',
+                        'boxShadow': 'blush',
+                        'date': 'june 11, 2021',
+                        'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                    })
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    @@include('../cards/card-blog.html', {
+                        'img': 'image-6.jpg',
+                        'imgAlt': 'A lady with a long hair.',
+                        'boxShadow': 'blush',
+                        'date': 'june 11, 2021',
+                        'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
+                    })
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

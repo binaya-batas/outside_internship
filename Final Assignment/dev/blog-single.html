@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @@include('includes/head.html',{'pageTitle':'About Us'})
+    </head>
+    <body>
+        <div class="theme-app d-flex flex-column">
+            @@include('./includes/navbar.html')
+
+            @@include('./includes/modules/section/blog-hero.html', {
+                'img': 'blog-list-hero.jpg',
+                'imgAlt': 'Humming bird',
+                'heading': '',
+                'paraStyle': 'h2',
+                'description': 'Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum.',
+                'display': 'd-none',
+                'offsetDes': 'offset-md-4',
+            })
+
+            @@include('./includes/modules/section/blog-single-text.html', {
+                'para1': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit gravida eleifend. Mauris fringilla urna at lectus dapibus laoreet. Proin id sem consequat arcu ultrices porta ac a leo. Quisque quis blandit magna, ut bibendum nibh. Donec pulvinar risus nulla, vel fermentum quam tempus ac. Vivamus nunc massa, egestas at auctor nec, vehicula sed ipsum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+                'para2': 'Aenean placerat pulvinar quam, et convallis arcu feugiat et. Duis aliquet iaculis dapibus. Aenean blandit massa vel lacus luctus cursus. Sed aliquam ipsum non nibh commodo, non efficitur magna tempus. Curabitur eget mi magna. Maecenas mollis lectus nulla, nec laoreet justo efficitur et. Maecenas ac justo eget sapien hendrerit sollicitudin in et ipsum.',
+                'li1': 'Aenean placerat pulvinar quam, et convallis arcu feugiat et. ',
+                'li2': 'Duis aliquet iaculis dapibus. ',
+                'li3': 'Aenean blandit massa vel lacus luctus cursus. ',
+                'li4': 'Sed aliquam ipsum non nibh commodo, non efficitur magna tempus. ',
+                'li5': 'Curabitur eget mi magna. Maecenas mollis lectus nulla, nec laoreet justo efficitur et. Maecenas ac justo eget sapien hendrerit sollicitudin in et ipsum.',
+                'img': 'blog-highway.jpg',
+                'imgAlt': 'Highway',
+                'para3': 'Vestibulum ornare dapibus elit vitae commodo. Donec nec tellus velit. Duis sem leo, tempus quis arcu ac, suscipit consectetur odio. Maecenas mattis lacinia arcu, sed tempor ligula blandit a.',
+                'paraHeading': 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit',
+                'para4': 'Aenean placerat pulvinar quam, et convallis arcu feugiat et. Duis aliquet iaculis dapibus. Aenean blandit massa vel lacus luctus cursus. Sed aliquam ipsum non nibh commodo, non efficitur magna tempus. Curabitur eget mi magna. Maecenas mollis lectus nulla, nec laoreet justo efficitur et. Maecenas ac justo eget sapien hendrerit sollicitudin in et ipsum.'
+            })
+
+            @@include('./includes/modules/section/related-blogs.html', {
+                'eyebrow': 'related blogs'
+            })
+
+
+            @@include('includes/footer.html')
+            @@include('includes/scripts.html')
+
+        </div>
+    </body>
+</html>

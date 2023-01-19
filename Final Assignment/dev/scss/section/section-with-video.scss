@@ -1,0 +1,13 @@
+.section-with-video {
+    &__card {
+
+        @include media-breakpoint-down(sm) {
+            margin-top: 4rem;
+        }
+    }
+
+    &__video {
+        background-color: $gray-shade;
+        padding: 2.4rem;
+    }
+}

@@ -1,0 +1,27 @@
+<section class="section-with-image py-10 py-md-20 py-xl-30 @@sectionBgColor">
+    <div class="container">
+        <div class="row @@rowDirection">
+            <div class="col-sm-12 col-md-6 d-flex justify-content-end align-items-end">
+                <figure>
+                    <img src=@@img alt="nature" class="home-ttr">
+                </figure>
+            </div>
+            <div class="col-sm-12 col-md-6 section-with-image__card">
+                @@include('../cards/card-home-1.html', {
+                    'title': '@@title',
+                    'subTitleStyle': '@@subTitleStyle',
+                    'subTitle': '@@subTitle',
+                    'date': '@@date',
+                    'text': '@@text',
+                    'btnText': '@@btnText',
+                    'bgColor': '@@bgColor',
+                    'borderColor': '@@borderColor',
+                    'color': '@@color',
+                    'mb': '@@mb'
+                })
+            </div>
+        </div>
+
+        
+    </div>
+</section>

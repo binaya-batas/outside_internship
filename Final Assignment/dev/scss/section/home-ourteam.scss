@@ -1,0 +1,106 @@
+.home-ourteam {
+
+    &__card {
+
+        &__name {
+            margin-top: 2.4rem;
+            margin-bottom: 4rem;
+
+            @include media-breakpoint-up(md) {
+                margin-top: 0rem;
+                margin-bottom: 3.2rem;
+            }
+        }
+
+    }
+    // &__container {
+    //     box-sizing: border-box;
+    //     padding-left: 3.1rem;
+    //     padding-right: 3.1rem;
+    // }
+
+    // &__card {
+    //     box-sizing: border-box;
+    //     display: flex;
+    //     border-top: 8px solid $sky;
+    //     gap: 7.2rem;
+
+    //     @include media-breakpoint-down(md) {
+    //         flex-direction: column;
+    //     }
+
+    //     &__img {
+    //         height: 100%;
+    //         width: 50%;
+
+    //         @include media-breakpoint-down(md) {
+    //             width: 100%;
+    //         }
+
+    //     }
+
+    //     &__description {
+    //         width: 50%;
+    //         display: flex;
+    //         flex-direction: column;
+    //         justify-content: center;
+    //         // padding-left: 7.2rem;
+
+    //         @include media-breakpoint-down(md) {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
+    
+    &__wrapper {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+
+    &__card {
+
+        &__img {
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__slider {
+        margin-top: 4rem;
+
+        .arrow {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background-color: $gray-100;
+            // padding: 1.2rem;
+            border-radius: 50%;
+        }
+
+        &__indicators {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            align-items: center;
+
+            .circle {
+                cursor: pointer;
+                box-sizing: border-box;
+                height: 0.8rem;
+                width: 0.8rem;
+                border: 1px solid $teal;
+                border-radius: 50%;
+            }
+
+            .fill {
+                background-color: $teal;
+            }
+        }
+    }
+}
+
