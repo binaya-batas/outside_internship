@@ -1,6 +1,18 @@
 .blogs-moreblogs {
 
-    ul li {
+    .tab-layout {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+        flex-wrap: wrap;
+
+        li {
+            margin-right: 2.4rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .dropdown li {
         margin: 0 2.1rem;
         padding: 1.2rem 0rem;
         border-bottom: 1px solid $dark;
@@ -24,6 +36,8 @@
     }
 
     &__categories {
+        display: flex;
+        align-items: baseline;
         margin-bottom: 4rem;
 
         // @include media-breakpoint-up(md) {
@@ -68,12 +82,43 @@
                 }
             }
 
+            .show {
+
+                @include media-breakpoint-down(sm) {
+                    position: relative !important;
+                }
+            }
+
         }
 
     }
     
     &__items {
         
+    }
+
+    &__pagination {
+
+        .arrow {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            color: white;
+            background-color: $dark;
+            // padding: 1.2rem;
+            border-radius: 50%;
+        }
+
+        .pages {
+
+            ul li {
+                
+                margin-right: 1rem;
+            }
+        }
     }
 }
 

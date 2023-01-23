@@ -93,3 +93,8 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     box-shadow: 0 0 0 13rem $white inset !important;
 }
+
+input:invalid {
+    border: 2px solid red;
+    color: red;
+}

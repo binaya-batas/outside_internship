@@ -1,8 +1,37 @@
 .button {
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 
     &__icon {
         margin-left: 0.8rem;
     }
+
+    &--hoverDark {
+        
+        
+        &:hover {
+            background-color: $dark !important;
+            border: 2px solid $dark !important;
+        }
+
+        &:disabled {
+            border: 2px solid $blush;
+            background-color: $blush !important;
+        }
+    }
+
+    &--hoverTransparent {
+
+        &:hover {
+            border: 2px solid $teal !important;
+            color: $teal !important;
+        }
+
+        &:disabled {
+            border: 2px solid $blush;
+            color: $blush;
+        }
+    }
+
 }

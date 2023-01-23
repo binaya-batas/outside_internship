@@ -3,8 +3,17 @@
         <div class="h6 blogs-moreblogs__eyebrow">
             @@eyebrow
         </div>
-        <div class="h6 blogs-moreblogs__categories">
-            Categories
+        <div class="blogs-moreblogs__categories">
+            <div class="body">
+                Category:
+            </div>
+            <ul class="h6 tab-layout">
+                <li><a href="#">news</a></li>
+                <li><a href="#">travel</a></li>
+                <li><a href="#">blogs</a></li>
+                <li><a href="#">facts</a></li>
+                <li><a href="#">global</a></li>
+            </ul>
         </div>
         <div class="blogs-moreblogs__searchDropdown row">
             <div class="col-12 col-md-7 col-xl-5 blogs-moreblogs__searchDropdown__searchbar ">
@@ -14,7 +23,7 @@
                 <div class="dropdown">
                     Latest
                     <i class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></i>
-                    <ul class="dropdown-menu bg-mint rounded-0 border border-peach h6" aria-labelledby="dropdownMenuButton1">
+                    <ul class="dropdown-menu bg-mint rounded-0 border border-peach h6" style="position: relative;" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="#">alphabetical order</a></li>
                         <li><a class="dropdown-item" href="#">featured</a></li>
                         <li><a class="dropdown-item" href="#">latest</a></li>
@@ -79,6 +88,30 @@
                         'date': 'june 11, 2021',
                         'blogTitle': 'Interesting Facts I Bet You Never Knew About BLOGS',
                     })
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class=" col-4 d-flex justify-content-between blogs-moreblogs__pagination">
+                    <div class="left-arrow arrow">
+                        <i class="icon-left_arrow"></i>
+                    </div>
+
+                    <div class="pages">
+                        <ul class="d-flex align-items-baseline h6">
+                            <li class="text-underline"><a href="#pages">1</a></li>
+                            <li><a href="#pages">2</a></li>
+                            <li><a href="#pages">3</a></li>
+                            <li><a href="#pages">4</a></li>
+                            <li><a href="#pages">5</a></li>
+                            <li><a href="#pages">6</a></li>
+                            <li><a href="#pages">7</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="right-arrow arrow">
+                        <i class="icon-right_arrow"></i>
+                    </div>
                 </div>
             </div>
         </div>

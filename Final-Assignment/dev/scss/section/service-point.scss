@@ -37,5 +37,16 @@
             }
         }
 
+        .ratio-327x230 {
+
+            @include media-breakpoint-up(md) {
+                --bs-aspect-ratio: 53.9%;
+            }
+
+            @include media-breakpoint-up(xl) {
+                --bs-aspect-ratio: 38.70%;
+            }
+        }
+
     }
 }

@@ -1,0 +1,7 @@
+.button {
+  display: flex;
+  align-items: center;
+}
+.button__icon {
+  margin-left: 0.8rem;
+}/*# sourceMappingURL=button-global.css.map */
