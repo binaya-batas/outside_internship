@@ -5,6 +5,7 @@ let cssProjects = [];
 let htmlProjects = ['Assessment-1', 'Assessment-2', 'Assessment-3'];
 let cssContainer = document.querySelector('.css-container');
 let htmlContainer = document.querySelector('.html-container');
+// debugger
 
 //loop to add assignments for css.
 for (let i=1; i<=16; i++) {
@@ -13,10 +14,11 @@ for (let i=1; i<=16; i++) {
 
 
 const createProjects = (projects, container) => {
+    // debugger
     for (let i=0; i<=projects.length-1; i++) {
         let assignmentCard = document.createElement('div');
         assignmentCard.setAttribute('class', 'card m-2');
-        assignmentCard.setAttribute('style', 'width: 18rem;');
+        // assignmentCard.setAttribute('style', 'width: 100%;');
     
         let cardBody = document.createElement('div');
         cardBody.setAttribute('class', 'card-body');
@@ -47,5 +49,5 @@ const createProjects = (projects, container) => {
     }
 }
 
-createProjects(cssProjects, cssContainer);
-createProjects(htmlProjects, htmlContainer);
+if(htmlContainer !== null) {createProjects(htmlProjects, htmlContainer);}
+if(cssContainer !== null) {createProjects(cssProjects, cssContainer);}

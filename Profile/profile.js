@@ -1,4 +1,4 @@
-let container = document.getElementsByClassName('container');
+let container = document.querySelector('.container');
 
 let row = document.createElement('div');
 row.setAttribute('class', 'row');
@@ -13,4 +13,5 @@ img.setAttribute('src', './potrait.jpg');
 
 column.appendChild(img);
 
+row.appendChild(column);
 row.appendChild(column);
