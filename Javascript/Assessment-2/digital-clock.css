@@ -9,8 +9,12 @@
   cursor: pointer;
   margin-right: 0.5rem;
 }
+.clock button:disabled {
+  opacity: 0.2;
+}
 .clock .show {
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 .clock .hidden {
   display: none;
@@ -33,6 +37,14 @@
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-bottom: 2rem;
+}
+.clock__ui__stopwatch {
+  display: flex;
+  justify-content: center;
+}
+.clock__ui__stopwatch > div:not(:last-child):after {
+  content: ":";
+  margin-right: 2px;
 }
 .clock__functions__button {
   all: unset;
