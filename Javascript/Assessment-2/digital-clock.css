@@ -1,0 +1,45 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock button {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+.clock .show {
+  display: block;
+}
+.clock .hidden {
+  display: none;
+}
+.clock__options {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.clock__options__button {
+  all: unset;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  background-color: rgb(27, 129, 127);
+}
+.clock__ui {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.clock__functions__button {
+  all: unset;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  padding: 0.4rem 1rem;
+  background-color: rgb(134, 134, 0);
+}/*# sourceMappingURL=digital-clock.css.map */
