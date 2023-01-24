@@ -55,6 +55,15 @@ let htmlProjects = ['Assessment-1', 'Assessment-2', 'Assessment-3'];
 let htmlContainer = document.querySelector('.html-container');
 if(htmlContainer !== null) {createProjects(htmlProjects, htmlContainer, 'HTML/');}
 
+let scssProjects = ['Assessment-1'];
+let scssContainer = document.querySelector('.scss-container');
+if(htmlContainer !== null) {createProjects(scssProjects, scssContainer, 'SCSS/');}
+
+let bootstrapProjects = ['Assessment-1'];
+let bootstrapContainer = document.querySelector('.bootstrap-container');
+if(bootstrapContainer !== null) {createProjects(bootstrapProjects, bootstrapContainer, 'BOOTSTRAP/');}
+
+
 
 ////////
 let assignments = document.querySelector('.assignments'); //assignments list.
