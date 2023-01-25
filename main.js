@@ -22,13 +22,13 @@ const createProjects = (projects, container, folder) => {
         cardTitle.innerText = cssProjects[i];
     
         let codeLink = document.createElement('a');
-        codeLink.setAttribute('href', 'https://github.com/binaya-batas/outside_internship/blob/main/'+ folder + cssProjects[i]);
+        codeLink.setAttribute('href', 'https://github.com/binaya-batas/outside_internship/blob/main/'+ folder + projects[i]);
         codeLink.setAttribute('class', 'btn btn-primary me-2');
         codeLink.setAttribute('target', '_blank');
         codeLink.innerHTML = "Code"
     
         let demoLink = document.createElement('a');
-        demoLink.setAttribute('href', folder + cssProjects[i]);
+        demoLink.setAttribute('href', folder + projects[i]);
         demoLink.setAttribute('class', 'btn btn-success');
         demoLink.setAttribute('target', '_blank');
         demoLink.innerHTML = "Demo";
@@ -63,7 +63,9 @@ let bootstrapProjects = ['Assessment-1'];
 let bootstrapContainer = document.querySelector('.bootstrap-container');
 if(bootstrapContainer !== null) {createProjects(bootstrapProjects, bootstrapContainer, 'BOOTSTRAP/');}
 
-
+let javascriptProjects = ['Assessment-2', 'Assessment-3'];
+let javascriptContianer = document.querySelector('.javascript-container');
+if(javascriptContianer !==null) {createProjects(javascriptProjects, javascriptContianer, 'Javascript/');}
 
 ////////
 let assignments = document.querySelector('.assignments'); //assignments list.
