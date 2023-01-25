@@ -134,24 +134,27 @@ clockFunctions.appendChild(buttonReset);
 
 function startTimer() {
     ms+=10;
+    millSeconds.innerText = ms;
 
-
-    if(ms == 100){
+    if(ms == 1000){
         ms = 0;
         sec++;
 
+        seconds.innerText = sec;
         console.log("sec", sec)
 
         if(sec == 60){
             sec = 0;
             min++;
-
+            
+            minutes.innerText = min;
             console.log("min", min)
 
             if(min == 60){
                 min = 0;
                 hrs++;
-
+                
+                hours.innerText = hrs;
                 console.log("hrs", hrs)
             }
         }
