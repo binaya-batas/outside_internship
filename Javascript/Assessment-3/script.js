@@ -19,34 +19,47 @@ function generatePassword() {
     let symbols = "!@#%^&*_+-=?";
     let password = "";
 
-    for (let i=0; password.length<=length; i++) {
+    for (let i=0; i<length; i++) {
         let randomSmallChar = Math.floor(Math.random() * smallChar.length);
         password += smallChar.substring(randomSmallChar, randomSmallChar+1);
         password.length++;
-        console.log('pl', password.length)
         
         if (uppercase) {
             let randomUpChar = Math.floor(Math.random() * upChar.length);
             password += upChar.substring(randomUpChar, randomUpChar + 1);
             password.length+=1;
+
+            console.log(password.length, length)
+            if (password.length == length) {
+                generatedPassword.innerText = password;
+                return password
+            }
         }
 
         if (numbers) {
             let randomNum = Math.floor(Math.random() * nums.length);
             password += nums.substring(randomNum, randomNum + 1);
             password.length+=1;
+
+            if (password.length == length) {
+                generatedPassword.innerText = password;
+                return password
+            }
         }
 
         if(specialChar) {
             let randomSymbol = Math.floor(Math.random() * symbols.length);
             password += symbols.substring(randomSymbol, randomSymbol + 1);
             password.length+=1;
+
+            if (password.length == length) {
+                generatedPassword.innerText = password;
+                return password
+            }
         }
 
-    }
 
-    console.log(password)
-    console.log(password.length)
+    }
     generatedPassword.innerText = password;
     return password
 }
