@@ -7,12 +7,14 @@
 .container .profile {
   display: flex;
 }
-.container .profile__image img {
+.container .profile__image {
   width: 300px;
-  height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
+}
+.container .profile__image img {
+  max-width: 100%;
+  height: auto;
   border-radius: 20px;
+  max-width: 100%;
 }
 .container .profile__info {
   display: flex;
@@ -72,5 +74,19 @@
   }
   50% {
     border-color: orange;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0;
+    justify-content: center;
+  }
+  .profile {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile__info {
+    flex-direction: row;
   }
 }/*# sourceMappingURL=styles.css.map */

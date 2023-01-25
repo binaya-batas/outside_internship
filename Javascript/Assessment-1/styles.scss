@@ -8,11 +8,13 @@
         display: flex;
 
         &__image {
+            width: 300px;
+
             img {
-                width: 300px;
-                height: 300px;
-                object-fit: cover;
+                max-width: 100%;
+                height: auto;
                 border-radius: 20px;
+                max-width: 100%;
             }
         }
 
@@ -28,7 +30,7 @@
                 font-size: 30px;
                 cursor: pointer;
                 color: black;
-                
+
                 &:hover {
                     color: #4267B2;
 
@@ -71,3 +73,19 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0;
+        justify-content: center;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+
+        &__info {
+            flex-direction: row;
+        }
+    }
+  }
