@@ -1,0 +1,72 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    width: 500px;
+    overflow: hidden;
+    position: relative;
+
+    &__images {
+        width: 100%;
+        display: flex;
+        transition: transform .8s ease;
+
+        img {
+
+            max-width: 100%;
+            height: auto;
+            margin-right: 10px;
+        }
+    }
+
+    &__buttons {
+
+        .disable {
+            pointer-events: none;
+            opacity: 0.2;
+        }
+
+        &__prev {
+            cursor: pointer;
+            font-size: 50px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            z-index: 2;
+        }
+
+        &__next {
+            cursor: pointer;
+            font-size: 50px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            z-index: 2;
+        }
+    }
+
+    &__indicators {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+
+        .circle {
+            cursor: pointer;
+            height: 0.5rem;
+            width: 0.5rem;
+            border-radius: 50%;
+            border: 1px solid black;
+
+            &--active {
+                background-color: black;
+            }
+        }
+    }
+}
