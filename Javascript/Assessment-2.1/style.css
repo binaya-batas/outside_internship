@@ -3,4 +3,9 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.container .form {
+  background-color: rgb(231, 237, 234);
+  padding: 20px 20px;
+  border-radius: 20px;
 }/*# sourceMappingURL=style.css.map */
