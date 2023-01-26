@@ -1,12 +1,3 @@
-let projects = [
-    {title: 'figma', href: 'figma-projects.html'},
-    {title: 'html', href: 'html-projects.html'},
-    {title: 'css', href: 'css-projects.html'},
-    {title: 'scss', href: 'scss-projects.html'},
-    {title: 'bootstrap', href: 'bootstrap-projects.html'},
-    {title: 'final fed', href: 'final-assignment.html'},  
-];
-
 const createProjects = (projects, container, folder) => {
     // debugger
     for (let i=0; i<=projects.length-1; i++) {
@@ -64,8 +55,18 @@ let bootstrapContainer = document.querySelector('.bootstrap-container');
 if(bootstrapContainer !== null) {createProjects(bootstrapProjects, bootstrapContainer, 'BOOTSTRAP/');}
 
 let javascriptProjects = ['Assessment-1', 'Assessment-2', 'Assessment-2.1', 'Assessment-3'];
-let javascriptContianer = document.querySelector('.javascript-container');
-if(javascriptContianer !==null) {createProjects(javascriptProjects, javascriptContianer, 'Javascript/');}
+let javascriptContainer = document.querySelector('.javascript-container');
+if(javascriptContainer !==null) {createProjects(javascriptProjects, javascriptContainer, 'Javascript/');}
+
+let projects = [
+    {title: 'figma', href: 'figma-projects.html', container: 'figmaContainer'},
+    {title: 'html', href: 'html-projects.html', container: htmlContainer},
+    {title: 'css', href: 'css-projects.html', container: cssContainer},
+    {title: 'scss', href: 'scss-projects.html', container: scssContainer},
+    {title: 'bootstrap', href: 'bootstrap-projects.html', container: bootstrapContainer},
+    {title: 'final fed', href: 'final-assignment.html', container: 'finalfedContainer'},
+    {title: 'javascript', container: javascriptContainer}  
+];
 
 ////////
 let assignments = document.querySelector('.assignments'); //assignments list.
@@ -76,8 +77,15 @@ for (let i=0; i<=projects.length-1; i++) {
     a.classList.add('btn');
     a.classList.add('btn-primary');
     a.classList.add('m-2');
-    a.setAttribute('href', projects[i].href)
+    // a.setAttribute('href', projects[i].href)
     a.innerText = projects[i].title.toUpperCase();
+
+    a.addEventListener('click', () => {
+        console.log(projects[i].container)
+        projects[i].container.classList.remove('hide')
+        projects[i].container.classList.add('show')
+        // console.log(projcts.filter)
+    })
 
 
     //Appending a tag to project(li).
@@ -87,5 +95,4 @@ for (let i=0; i<=projects.length-1; i++) {
     assignments.appendChild(project);
 }
 
-//End of javascript for main index.html
 

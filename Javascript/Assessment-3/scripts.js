@@ -5,12 +5,13 @@ let images = document.querySelectorAll('.carousel__images img');
 let indicators = document.querySelector('.carousel__indicators');
 
 let index = 0;
-let width = images[index].clientWidth; //returns width of an element including padding but not border.
+//const width = images[index].clientWidth; //returns width of an element including padding but not border.
+let width = 500;
 console.log(width)
+console.log(index)
 
 next.addEventListener('click', onClickNext)
 function onClickNext() {
-    console.log("hello")
     index++;
 
     console.log(index)
@@ -25,7 +26,6 @@ function onClickNext() {
 
 prev.addEventListener('click', onClickPrev)
 function onClickPrev() {
-    console.log("hello")
     index--;
 
     console.log(index)
@@ -63,7 +63,7 @@ dots.forEach((dot, ind) => {
             }
             
         } else {
-
+            dots[ind].classList.remove('circle--active');
         }
     })
 })
