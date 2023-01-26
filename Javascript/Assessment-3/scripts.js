@@ -1,8 +1,8 @@
-let prev = document.querySelector('.carousel__buttons__prev');
-let next = document.querySelector('.carousel__buttons__next');
-let slider = document.querySelector('.carousel__images');
-let images = document.querySelectorAll('.carousel__images img');
-let indicators = document.querySelector('.carousel__indicators');
+const prev = document.querySelector('.carousel__buttons__prev');
+const next = document.querySelector('.carousel__buttons__next');
+const slider = document.querySelector('.carousel__images');
+const images = document.querySelectorAll('.carousel__images img');
+const indicators = document.querySelector('.carousel__indicators');
 
 let index = 0;
 //const width = images[index].clientWidth; //returns width of an element including padding but not border.
@@ -10,8 +10,13 @@ let width = 500;
 console.log(width)
 console.log(index)
 
+if (index === 0) {
+    prev.classList.add('disable');
+}
+
 next.addEventListener('click', onClickNext)
 function onClickNext() {
+    prev.classList.remove('disable')
     index++;
 
     console.log(index)
@@ -26,6 +31,7 @@ function onClickNext() {
 
 prev.addEventListener('click', onClickPrev)
 function onClickPrev() {
+    next.classList.remove('disable')
     index--;
 
     console.log(index)
@@ -58,8 +64,16 @@ dots.forEach((dot, ind) => {
                 prev.classList.add('disable')
             }
 
+            if (ind > 0) {
+                prev.classList.remove('disable')
+            }
+
+            if (ind < images.length-1) {
+                next.classList.remove('disable');
+            }
+
             if (ind ===images.length-1) {
-                next.classList.add('disable')
+                next.classList.add('disable');
             }
             
         } else {

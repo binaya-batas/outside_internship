@@ -1,4 +1,4 @@
-const createProjects = (projects, container, folder) => {
+const createProjects = (projects, subTitle, container, folder) => {
     // debugger
     for (let i=0; i<=projects.length-1; i++) {
         let assignmentCard = document.createElement('div');
@@ -10,7 +10,8 @@ const createProjects = (projects, container, folder) => {
     
         let cardTitle = document.createElement('h5');
         cardTitle.setAttribute('class', 'card-title');
-        cardTitle.innerText = projects[i];
+        cardTitle.innerText = projects[i] + " (" + subTitle + ")";
+        console.log(projects[i]);
     
         let codeLink = document.createElement('a');
         codeLink.setAttribute('href', 'https://github.com/binaya-batas/outside_internship/blob/main/'+ folder + projects[i]);
@@ -39,32 +40,30 @@ for (let i=1; i<=16; i++) {
     cssProjects.push('Assessment-' + i);
 }
 let cssContainer = document.querySelector('.css-container');
-if(cssContainer !== null) {createProjects(cssProjects, cssContainer, 'CSS/');}
-
+if(cssContainer !== null) {createProjects(cssProjects, 'CSS', cssContainer, 'CSS/');}
 
 let htmlProjects = ['Assessment-1', 'Assessment-2', 'Assessment-3'];
 let htmlContainer = document.querySelector('.html-container');
-if(htmlContainer !== null) {createProjects(htmlProjects, htmlContainer, 'HTML/');}
+if(htmlContainer !== null) {createProjects(htmlProjects, 'HTML', htmlContainer, 'HTML/');}
 
 let scssProjects = ['Assessment-1'];
 let scssContainer = document.querySelector('.scss-container');
-if(htmlContainer !== null) {createProjects(scssProjects, scssContainer, 'SCSS/');}
+if(htmlContainer !== null) {createProjects(scssProjects, 'SCSS', scssContainer, 'SCSS/');}
 
 let bootstrapProjects = ['Assessment-1'];
 let bootstrapContainer = document.querySelector('.bootstrap-container');
-if(bootstrapContainer !== null) {createProjects(bootstrapProjects, bootstrapContainer, 'BOOTSTRAP/');}
+if(bootstrapContainer !== null) {createProjects(bootstrapProjects, 'BOOTSTRAP', bootstrapContainer, 'BOOTSTRAP/');}
 
 let javascriptProjects = ['Assessment-1', 'Assessment-2', 'Assessment-2.1', 'Assessment-3'];
 let javascriptContainer = document.querySelector('.javascript-container');
-if(javascriptContainer !==null) {createProjects(javascriptProjects, javascriptContainer, 'Javascript/');}
+if(javascriptContainer !==null) {createProjects(javascriptProjects, 'JAVASCRIPT', javascriptContainer, 'Javascript/');}
+
 
 let projects = [
-    {title: 'figma', href: 'figma-projects.html', container: 'figmaContainer'},
     {title: 'html', href: 'html-projects.html', container: htmlContainer},
     {title: 'css', href: 'css-projects.html', container: cssContainer},
     {title: 'scss', href: 'scss-projects.html', container: scssContainer},
     {title: 'bootstrap', href: 'bootstrap-projects.html', container: bootstrapContainer},
-    {title: 'final fed', href: 'final-assignment.html', container: 'finalfedContainer'},
     {title: 'javascript', container: javascriptContainer}  
 ];
 
@@ -72,6 +71,8 @@ let projects = [
 let assignments = document.querySelector('.assignments'); //assignments list.
 for (let i=0; i<=projects.length-1; i++) {
     let project = document.createElement('li');
+    
+    
 
     let a = document.createElement('a'); // a tag inside of li.
     a.classList.add('btn');
@@ -81,10 +82,10 @@ for (let i=0; i<=projects.length-1; i++) {
     a.innerText = projects[i].title.toUpperCase();
 
     a.addEventListener('click', () => {
-        console.log(projects[i].container)
-        projects[i].container.classList.remove('hide')
-        projects[i].container.classList.add('show')
-        // console.log(projcts.filter)
+
+    projects[i].container.classList.remove('hide')
+    projects[i].container.classList.add('show')
+        
     })
 
 
