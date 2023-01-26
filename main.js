@@ -19,7 +19,7 @@ const createProjects = (projects, container, folder) => {
     
         let cardTitle = document.createElement('h5');
         cardTitle.setAttribute('class', 'card-title');
-        cardTitle.innerText = cssProjects[i];
+        cardTitle.innerText = projects[i];
     
         let codeLink = document.createElement('a');
         codeLink.setAttribute('href', 'https://github.com/binaya-batas/outside_internship/blob/main/'+ folder + projects[i]);
@@ -63,7 +63,7 @@ let bootstrapProjects = ['Assessment-1'];
 let bootstrapContainer = document.querySelector('.bootstrap-container');
 if(bootstrapContainer !== null) {createProjects(bootstrapProjects, bootstrapContainer, 'BOOTSTRAP/');}
 
-let javascriptProjects = ['Assessment-2', 'Assessment-3'];
+let javascriptProjects = ['Assessment-1', 'Assessment-2', 'Assessment-2.1', 'Assessment-3'];
 let javascriptContianer = document.querySelector('.javascript-container');
 if(javascriptContianer !==null) {createProjects(javascriptProjects, javascriptContianer, 'Javascript/');}
 
