@@ -59,6 +59,21 @@ dots.forEach((dot, ind) => {
         if (dot === dots[ind]) {
             dots[ind].classList.add('circle--active');
             slider.style.transform = `translate(${-ind * (width + 10)}px)`;
+
+            if(ind === 0) {
+                dots[1].classList.remove('circle--active');
+                dots[2].classList.remove('circle--active');
+            }
+
+            if(ind === 1) {
+                dots[0].classList.remove('circle--active');
+                dots[2].classList.remove('circle--active');
+            }
+
+            if(ind === 2) {
+                dots[0].classList.remove('circle--active');
+                dots[1].classList.remove('circle--active');
+            }
             
             if (ind === 0) {
                 prev.classList.add('disable')
