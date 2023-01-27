@@ -1,1 +1,7 @@
-/*# sourceMappingURL=styles.css.map */
+.container {
+  margin-left: 30px;
+}
+
+.box {
+  transition: 0.2s;
+}/*# sourceMappingURL=styles.css.map */
