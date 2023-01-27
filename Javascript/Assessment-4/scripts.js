@@ -1,95 +1,98 @@
-const WIDTH = "800px";
-const HEIGHT = "800px";
+const CONTAINER_WIDTH = 800;
+const CONTAINER_HEIGHT = 800;
+const BOX_WIDTH = 30;
+const BOX_HEIGHT = 30;
+const MAXIMUM_POSITION = 771;
+const NUMBER_OF_BOXES = 10
 
 let container = document.querySelector(".container");
-container.style.width = WIDTH;
-container.style.height = HEIGHT;
+container.style.width = CONTAINER_WIDTH + "px";
+container.style.height = CONTAINER_WIDTH + "px";
 container.style.backgroundColor = "red";
 container.style.position = "relative";
+
 
 /**
  *
  * @returns number
  */
-function generateUniqueRandomNumbers() {
-  return Math.floor(Math.random() * 771); //Random number below 771 will keep the box inside of the container.
+function generateUniqueRandomNumbers(maximum) {
+  return Math.floor(Math.random() * maximum); //Random number below 771 will keep the box inside of the container.
 }
 
-let boxPositionTop;
-let boxPositionRight;
 
-let initialPosition;
-let direction;
-
-
-function createBox() {
-  direction = 1;
-  // boxPositionTop = generateUniqueRandomNumbers();
-  // boxPositionRight = generateUniqueRandomNumbers();
-  let movingbox = document.createElement("div");
-  movingbox.setAttribute("class", "box");
-  movingbox.style.width = "10px";
-  movingbox.style.height = "10px";
-  movingbox.style.backgroundColor = "black";
-//   movingbox.style.marginRight = initialPosition + "px";
-//   movingbox.style.marginLeft = initialPosition + "px";
-  movingbox.style.position = "absolute";
-  // movingbox.style.top = boxPositionTop + 'px';
-  // movingbox.style.right = boxPositionRight + 'px';
-  container.appendChild(movingbox);
+/**
+ * creates a single box.
+ * @param {*} topPosition 
+ * @param {*} leftPosition 
+ * @returns void
+ */
+function createBox(leftPosition, topPosition) {
+  let box = document.createElement("div");
+  let directionX = 1;
+  let directionY = 1
+  box.setAttribute("class", "box");
+  box.style.width = BOX_WIDTH + "px";
+  box.style.height = BOX_HEIGHT + "px";
+  box.style.backgroundColor = "black";
+  box.style.position = "absolute";
+  box.style.top = topPosition + "px";
+  box.style.left = leftPosition + "px";
+  container.appendChild(box);
+  animateBox(topPosition, leftPosition, directionX, directionY, box);
 }
 
-setInterval(function () {
-  let boxes = document.querySelectorAll(".box");
-  boxes.forEach((box, index) => {
-    if (index % 2 === 0) {
-        initialPosition = generateUniqueRandomNumbers();
-        initialPosition += 10 * direction;
-        box.style.right = initialPosition + "px";
-        box.style.top = initialPosition + "px";
-    
-        if (initialPosition >= 790) {
-          direction = -1;
-          initialPosition = initialPosition + 10 * direction;
-          box.style.right = initialPosition + "px";
-          box.style.top = initialPosition + "px";
-          console.log(box.style.marginLeft);
-        } else if (initialPosition <= -5) {
-          direction = +1;
-          initialPosition = initialPosition + 5 * direction;
-          box.style.right = initialPosition + "px";
-          box.style.top = initialPosition + "px";
-        }
-    } else {
-        initialPosition = generateUniqueRandomNumbers();
-        initialPosition += 5 * direction;
-        box.style.left = initialPosition + "px";
-        box.style.top = initialPosition + "px";
-    
-        if (initialPosition >= 790) {
-          direction = -1;
-          initialPosition = initialPosition + 5 * direction;
-          box.style.left = initialPosition + "px";
-          box.style.top = initialPosition + "px";
-        } else if (initialPosition <= 0) {
-          direction = +1;
-          initialPosition = initialPosition + 5 * direction;
-          box.style.left = initialPosition + "px";
-          box.style.top = initialPosition + "px";
-        }
-    }
-
-
-    // box.style.top = box.getBoundingClientRect().top + 10 + 'px';
-    //box.style.right = box.getBoundingClientRect().right;
-  });
-}, 300);
-
-
-function createBoxes() {
-  for (let i = 0; i < 10; i++) {
-    createBox();
+/**
+ * creates boxes according to the NUMBER_OF_BOXES.
+ */
+function initializeBoxes() {
+  for (let i = 0; i < NUMBER_OF_BOXES; i++) {
+    let initialPositionX = generateUniqueRandomNumbers(CONTAINER_WIDTH - BOX_WIDTH);
+    let initialPositionY = generateUniqueRandomNumbers(CONTAINER_HEIGHT - BOX_HEIGHT);
+    // let direction = Math.floor(Math.random() * 2);
+    createBox(initialPositionX, initialPositionY);
   }
 }
 
-createBoxes();
+
+function animateBox(TopPosition, leftPosition, directionX, directionY, box) {
+  setInterval(() => {
+      if (leftPosition + BOX_WIDTH >= CONTAINER_WIDTH) {
+        directionX = -1;
+      }
+
+      if (leftPosition <= 0) {
+        directionX = 1;
+      }
+
+      if (TopPosition + BOX_HEIGHT >= CONTAINER_HEIGHT) {
+        directionY = -1;
+      }
+
+      if (TopPosition <= 0) {
+        directionY = 1;
+      }
+      
+      TopPosition += 10 * directionY;
+      leftPosition += 10 * directionX;
+
+      box.style.top = TopPosition + "px";
+      box.style.left = leftPosition+ "px"; 
+  }, 100)
+  collisionDetection(topPosition, leftPosition, directionX, directionY, box);
+}
+
+
+/**
+ * Detects whether the boxes have collided.
+ * @returns boolean
+ */
+function collisionDetection() {
+  console.log("collided.")
+
+  return true;
+}
+
+
+
+initializeBoxes();
