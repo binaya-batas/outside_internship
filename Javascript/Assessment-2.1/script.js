@@ -6,8 +6,8 @@ onSubmit.addEventListener('click', generatePassword)
 
 
 function generatePassword() {
-    
-    let length = parseInt(document.querySelector('.form__length').value);
+    let length = document.querySelector('.form__length').value;
+    let lowercase = document.querySelector('.form__lowercase').checked;
     let uppercase = document.querySelector('.form__uppercase').checked;
     let specialChar = document.querySelector('.form__specialchar').checked;
     let generatedPassword = document.querySelector('.form__generated__password');
@@ -20,9 +20,40 @@ function generatePassword() {
     let password = "";
 
     for (let i=0; i<length; i++) {
-        let randomSmallChar = Math.floor(Math.random() * smallChar.length);
-        password += smallChar.substring(randomSmallChar, randomSmallChar+1);
-        password.length++;
+
+        console.log(length);
+        
+        if(length=="") {
+            alert("Please give a desired length for password.")
+            return;
+        }
+
+        if(length=="") {
+            alert("j")
+            return; 
+        }
+
+        if(length<8) {
+            alert("The password length must be above 8 characters.")
+            document.querySelector('.form__length').value = "";
+            return;
+        }
+
+        if (!lowercase && !uppercase && !numbers && !specialChar) {
+            alert('Please select options for generating password.')
+            return;
+        }
+
+        if (lowercase) {
+            let randomSmallChar = Math.floor(Math.random() * smallChar.length);
+            password += smallChar.substring(randomSmallChar, randomSmallChar + 1);
+            password.length+=1;
+
+            if (password.length == length) {
+                generatedPassword.innerText = password;
+                return password
+            }
+        }
         
         if (uppercase) {
             let randomUpChar = Math.floor(Math.random() * upChar.length);
