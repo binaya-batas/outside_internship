@@ -24,18 +24,12 @@ let direction;
 
 function createBox() {
   direction = 1;
-  // boxPositionTop = generateUniqueRandomNumbers();
-  // boxPositionRight = generateUniqueRandomNumbers();
   let movingbox = document.createElement("div");
   movingbox.setAttribute("class", "box");
   movingbox.style.width = "10px";
   movingbox.style.height = "10px";
   movingbox.style.backgroundColor = "black";
-//   movingbox.style.marginRight = initialPosition + "px";
-//   movingbox.style.marginLeft = initialPosition + "px";
   movingbox.style.position = "absolute";
-  // movingbox.style.top = boxPositionTop + 'px';
-  // movingbox.style.right = boxPositionRight + 'px';
   container.appendChild(movingbox);
 }
 
