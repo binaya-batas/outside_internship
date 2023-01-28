@@ -14,7 +14,7 @@ const createProjects = (projects, subTitle, container, folder) => {
         console.log(projects[i]);
     
         let codeLink = document.createElement('a');
-        codeLink.setAttribute('href', 'https://github.com/binaya-batas/outside_internship/blob/main/'+ folder + projects[i]);
+        codeLink.setAttribute('href', 'https://github.com/binaya-batas/outside_internship/blob/main/'+ subTitle + projects[i]);
         codeLink.setAttribute('class', 'btn btn-primary me-2');
         codeLink.setAttribute('target', '_blank');
         codeLink.innerHTML = "Code"
@@ -40,23 +40,23 @@ for (let i=1; i<=16; i++) {
     cssProjects.push('Assessment-' + i);
 }
 let cssContainer = document.querySelector('.css-container');
-if(cssContainer !== null) {createProjects(cssProjects, 'CSS', cssContainer, '../CSS/');}
+if(cssContainer !== null) {createProjects(cssProjects, 'CSS/', cssContainer, '../CSS/');}
 
 let htmlProjects = ['Assessment-1', 'Assessment-2', 'Assessment-3'];
 let htmlContainer = document.querySelector('.html-container');
-if(htmlContainer !== null) {createProjects(htmlProjects, 'HTML', htmlContainer, '../HTML/');}
+if(htmlContainer !== null) {createProjects(htmlProjects, 'HTML/', htmlContainer, '../HTML/');}
 
 let scssProjects = ['Assessment-1'];
 let scssContainer = document.querySelector('.scss-container');
-if(scssContainer !== null) {createProjects(scssProjects, 'SCSS', scssContainer, '../SCSS/');}
+if(scssContainer !== null) {createProjects(scssProjects, 'SCSS/', scssContainer, '../SCSS/');}
 
 let bootstrapProjects = ['Assessment-1'];
 let bootstrapContainer = document.querySelector('.bootstrap-container');
-if(bootstrapContainer !== null) {createProjects(bootstrapProjects, 'BOOTSTRAP', bootstrapContainer, '../BOOTSTRAP/');}
+if(bootstrapContainer !== null) {createProjects(bootstrapProjects, 'BOOTSTRAP/', bootstrapContainer, '../BOOTSTRAP/');}
 
 let javascriptProjects = ['Assessment-1', 'Assessment-2', 'Assessment-2.1', 'Assessment-3', 'Assessment-4'];
 let javascriptContainer = document.querySelector('.javascript-container');
-if(javascriptContainer !==null) {createProjects(javascriptProjects, 'JAVASCRIPT', javascriptContainer, '../Javascript/');}
+if(javascriptContainer !==null) {createProjects(javascriptProjects, 'Javascript/', javascriptContainer, '../Javascript/');}
 
 
 let projects = [
