@@ -1,10 +1,10 @@
 const CONTAINER_WIDTH = 800;
 const CONTAINER_HEIGHT = 800;
-const BOX_WIDTH = 30;
-const BOX_HEIGHT = 30;
+const BOX_WIDTH = 100;
+const BOX_HEIGHT = 100;
 const MAXIMUM_POSITION = 771;
-const NUMBER_OF_BOXES = 10;
-const SPEED = 10;
+const NUMBER_OF_BOXES = 3;
+const SPEED = 20;
 
 let container = document.querySelector(".container");
 container.style.width = CONTAINER_WIDTH + "px";
