@@ -3,7 +3,8 @@ const CONTAINER_HEIGHT = 800;
 const BOX_WIDTH = 30;
 const BOX_HEIGHT = 30;
 const MAXIMUM_POSITION = 771;
-const NUMBER_OF_BOXES = 10
+const NUMBER_OF_BOXES = 10;
+const SPEED = 10;
 
 let container = document.querySelector(".container");
 container.style.width = CONTAINER_WIDTH + "px";
@@ -23,76 +24,93 @@ function generateUniqueRandomNumbers(maximum) {
 
 /**
  * creates a single box.
- * @param {*} topPosition 
- * @param {*} leftPosition 
+ * @param {*} box 
  * @returns void
  */
-function createBox(leftPosition, topPosition) {
-  let box = document.createElement("div");
-  let directionX = 1;
-  let directionY = 1
-  box.setAttribute("class", "box");
-  box.style.width = BOX_WIDTH + "px";
-  box.style.height = BOX_HEIGHT + "px";
-  box.style.backgroundColor = "black";
-  box.style.position = "absolute";
-  box.style.top = topPosition + "px";
-  box.style.left = leftPosition + "px";
-  container.appendChild(box);
-  animateBox(topPosition, leftPosition, directionX, directionY, box);
+function createBox(box) {
+  let boxElement = document.createElement("div");
+  boxElement.setAttribute("class", "box");
+  boxElement.style.width = BOX_WIDTH + "px";
+  boxElement.style.height = BOX_HEIGHT + "px";
+  boxElement.style.backgroundColor = "black";
+  boxElement.style.position = "absolute";
+  boxElement.style.top = box.topPosition + "px";
+  boxElement.style.left = box.leftPosition + "px";
+  container.appendChild(boxElement);
+  animateBox(box, boxElement);
 }
 
 /**
  * creates boxes according to the NUMBER_OF_BOXES.
  */
+let boxes = []
 function initializeBoxes() {
   for (let i = 0; i < NUMBER_OF_BOXES; i++) {
     let initialPositionX = generateUniqueRandomNumbers(CONTAINER_WIDTH - BOX_WIDTH);
     let initialPositionY = generateUniqueRandomNumbers(CONTAINER_HEIGHT - BOX_HEIGHT);
-    // let direction = Math.floor(Math.random() * 2);
-    createBox(initialPositionX, initialPositionY);
+
+    let box = {
+      leftPosition: initialPositionX,
+      topPosition: initialPositionY,
+      directionX: 1,
+      directionY: 1
+    }
+    boxes.push(box);
+    createBox(box);
   }
 }
 
 
-function animateBox(TopPosition, leftPosition, directionX, directionY, box) {
+function animateBox(box, boxElement) {
   setInterval(() => {
-      if (leftPosition + BOX_WIDTH >= CONTAINER_WIDTH) {
-        directionX = -1;
+      if (box.leftPosition + BOX_WIDTH >= CONTAINER_WIDTH) {
+        box.directionX = -1;
       }
 
-      if (leftPosition <= 0) {
-        directionX = 1;
+      if (box.leftPosition <= 0) {
+        box.directionX = 1;
       }
 
-      if (TopPosition + BOX_HEIGHT >= CONTAINER_HEIGHT) {
-        directionY = -1;
+      if (box.topPosition + BOX_HEIGHT >= CONTAINER_HEIGHT) {
+        box.directionY = -1;
       }
 
-      if (TopPosition <= 0) {
-        directionY = 1;
+      if (box.topPosition <= 0) {
+        box.directionY = 1;
       }
       
-      TopPosition += 10 * directionY;
-      leftPosition += 10 * directionX;
+      box.topPosition += SPEED * box.directionY;
+      box.leftPosition += SPEED * box.directionX;
 
-      box.style.top = TopPosition + "px";
-      box.style.left = leftPosition+ "px"; 
+      boxElement.style.top = box.topPosition + "px";
+      boxElement.style.left = box.leftPosition+ "px";
+      
+      collisionDetection()
   }, 100)
-  collisionDetection(topPosition, leftPosition, directionX, directionY, box);
 }
-
 
 /**
  * Detects whether the boxes have collided.
- * @returns boolean
+ * @returns
  */
 function collisionDetection() {
-  console.log("collided.")
-
-  return true;
+  for (let i=0; i<boxes.length; i++) {
+    for (let j=0; j<i; j++) {
+      if (
+        boxes[j].leftPosition <= boxes[i].leftPosition + BOX_WIDTH &&
+        boxes[j].leftPosition + BOX_WIDTH >= boxes[i].leftPosition &&
+        boxes[j].topPosition <= boxes[i].topPosition + BOX_HEIGHT &&
+        BOX_HEIGHT + boxes[j].topPosition >= boxes[i].topPosition
+      ) {
+        boxes[j].directionX *= -1;
+        boxes[j].directionY *= -1;
+        boxes[i].directionX *= -1;
+        boxes[i].directionY *= -1;
+      }
+    }
+  }
 }
 
-
+// collisionDetection()
 
 initializeBoxes();
