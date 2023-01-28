@@ -6,6 +6,8 @@ const MAXIMUM_POSITION = 771;
 const NUMBER_OF_BOXES = 3;
 const SPEED = 20;
 
+
+
 let container = document.querySelector(".container");
 container.style.width = CONTAINER_WIDTH + "px";
 container.style.height = CONTAINER_WIDTH + "px";
@@ -48,6 +50,11 @@ function initializeBoxes() {
   for (let i = 0; i < NUMBER_OF_BOXES; i++) {
     let initialPositionX = generateUniqueRandomNumbers(CONTAINER_WIDTH - BOX_WIDTH);
     let initialPositionY = generateUniqueRandomNumbers(CONTAINER_HEIGHT - BOX_HEIGHT);
+
+    while (boxes.some(box => Math.abs(box.topPosition - initialPositionX) <= BOX_WIDTH && Math.abs(box.leftPosition - initialPositionY) <= BOX_HEIGHT)) {
+      initialPositionX = generateUniqueRandomNumbers(CONTAINER_WIDTH - BOX_WIDTH);
+      initialPositionY = generateUniqueRandomNumbers(CONTAINER_HEIGHT - BOX_HEIGHT);
+    }
 
     let box = {
       leftPosition: initialPositionX,
