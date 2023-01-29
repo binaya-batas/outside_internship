@@ -1,9 +1,9 @@
 const CONTAINER_WIDTH = 800;
 const CONTAINER_HEIGHT = 800;
-const BOX_WIDTH = 100;
-const BOX_HEIGHT = 100;
-const MAXIMUM_POSITION = 771;
-const NUMBER_OF_BOXES = 3;
+const BOX_WIDTH = 50;
+const BOX_HEIGHT = 50;
+const MAXIMUM_POSITION = CONTAINER_WIDTH - BOX_WIDTH;
+const NUMBER_OF_BOXES = 4;
 const SPEED = 20;
 
 
@@ -70,19 +70,19 @@ function initializeBoxes() {
 
 function animateBox(box, boxElement) {
   setInterval(() => {
-      if (box.leftPosition + BOX_WIDTH >= CONTAINER_WIDTH) {
+      if (box.leftPosition + BOX_WIDTH + SPEED/2  >= CONTAINER_WIDTH) {
         box.directionX = -1;
       }
 
-      if (box.leftPosition <= 0) {
+      if (box.leftPosition - SPEED/2 <= 0) {
         box.directionX = 1;
       }
 
-      if (box.topPosition + BOX_HEIGHT >= CONTAINER_HEIGHT) {
+      if (box.topPosition + BOX_HEIGHT + SPEED/2 >= CONTAINER_HEIGHT) {
         box.directionY = -1;
       }
 
-      if (box.topPosition <= 0) {
+      if (box.topPosition - SPEED/2 <= 0) {
         box.directionY = 1;
       }
       
@@ -102,12 +102,12 @@ function animateBox(box, boxElement) {
  */
 function collisionDetection() {
   for (let i=0; i<boxes.length; i++) {
-    for (let j=0; j<i; j++) {
+    for (let j=i+1; j<boxes.length; j++) {
       if (
-        boxes[j].leftPosition <= boxes[i].leftPosition + BOX_WIDTH &&
-        boxes[j].leftPosition + BOX_WIDTH >= boxes[i].leftPosition &&
-        boxes[j].topPosition <= boxes[i].topPosition + BOX_HEIGHT &&
-        BOX_HEIGHT + boxes[j].topPosition >= boxes[i].topPosition
+        boxes[j].leftPosition <= boxes[i].leftPosition + BOX_WIDTH + SPEED &&
+        boxes[j].leftPosition + BOX_WIDTH >= boxes[i].leftPosition + SPEED &&
+        boxes[j].topPosition <= boxes[i].topPosition + BOX_HEIGHT + SPEED &&
+        BOX_HEIGHT + boxes[j].topPosition >= boxes[i].topPosition + SPEED
       ) {
         boxes[j].directionX *= -1;
         boxes[j].directionY *= -1;
