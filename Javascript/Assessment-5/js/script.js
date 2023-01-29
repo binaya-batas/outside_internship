@@ -71,8 +71,9 @@ function destroyParticle(event) {
       y >= particle.y &&
       y <= particle.y + particle.height
     ) {
-      console.log("hello");
       cancelAnimationFrame(animationId);
+      let sound = new Audio('assets/smash.mp3');
+      sound.play();
       ctx.clearRect(particle.x, particle.y, particle.width, particle.height);
     }
   });
