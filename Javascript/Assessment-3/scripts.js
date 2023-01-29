@@ -10,7 +10,6 @@ console.log(width)
 
 next.addEventListener('click', onClickNext)
 function onClickNext() {
-    console.log("hello")
     index++;
 
     console.log(index)
@@ -25,7 +24,6 @@ function onClickNext() {
 
 prev.addEventListener('click', onClickPrev)
 function onClickPrev() {
-    console.log("hello")
     index--;
 
     console.log(index)
@@ -34,7 +32,6 @@ function onClickPrev() {
     if (index === 0) {
         prev.classList.add('disable')
     } else {
-        console.log('else')
         prev.classList.remove('disable')
     }
 }

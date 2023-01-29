@@ -103,7 +103,6 @@ let buttonStart = document.createElement('button');
 buttonStart.setAttribute('class', 'clock__functions__button clock__functions--start');
 buttonStart.innerText = "Start";
 buttonStart.addEventListener('click', () => {
-    console.log(1)
     if(int !== null){
         clearInterval(int);
     }
