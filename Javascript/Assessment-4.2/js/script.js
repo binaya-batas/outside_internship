@@ -60,21 +60,23 @@ canvas.addEventListener("click", destroyParticle);
 function destroyParticle(event) {
   let x = event.clientX - canvas.offsetLeft;
   let y = event.clientY - canvas.offsetTop;
+  let sound = new Audio("assets/smash.mp3");
 
-  particlesArray.forEach((particle) => {
+  particlesArray.forEach((particle, index) => {
     if (
       x > particle.x &&
       x <= particle.x + particle.width &&
       y >= particle.y &&
       y <= particle.y + particle.height
     ) {
-      cancelAnimationFrame(animationId);
-      let sound = new Audio("assets/smash.mp3");
+      //cancelAnimationFrame(animationId);
       sound.play();
+      particlesArray.splice(index,1);
       ctx.clearRect(particle.x, particle.y, particle.width, particle.height);
     }
   });
 }
+
 
 /**
  * creates boxes according to the NUMBER_OF_BOXES
@@ -107,7 +109,7 @@ function init() {
     particlesArray.push(new Particle({ x: particleX, y: particleY }));
   }
 }
-console.log(particlesArray);
+
 /**
  * loops through particlesArray(list of boxes) and peforms action such as update position, draw the boxes in the canvas and check wall collision.
  */
