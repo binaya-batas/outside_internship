@@ -14,9 +14,9 @@ const ctx = canvas.getContext("2d");
  * class to create partices(boxes)
  */
 class Particle {
-  constructor() {
-    this.x = Math.floor(Math.random() * (canvas.width - BOX_WIDTH));
-    this.y = Math.floor(Math.random() * (canvas.height - BOX_HEIGHT));
+  constructor(props) {
+    this.x = props.x;
+    this.y = props.y;
     (this.vx = VELOCITY_X),
     (this.vy = VELOCITY_Y),
     (this.height = BOX_HEIGHT),
@@ -84,10 +84,32 @@ function destroyParticle(event) {
  */
 function init() {
   for (let i = 0; i < NUMBER_OF_BOXES; i++) {
-    particlesArray.push(new Particle());
+    let particleX, particleY;
+    let overlapping = true;
+  
+    while (overlapping) {
+      particleX = Math.floor(Math.random() * (canvas.width - BOX_WIDTH));
+      particleY = Math.floor(Math.random() * (canvas.height - BOX_HEIGHT));
+      overlapping = false;
+    
+      for (let j = 0; j < particlesArray.length; j++) {
+        const otherParticle = particlesArray[j];
+        const distance = Math.sqrt(
+          (particleX - otherParticle.x) ** 2 +
+          (particleY - otherParticle.y) ** 2
+        );
+      
+        if (distance < BOX_WIDTH) {
+          overlapping = true;
+          break;
+        }
+      }
+    }
+
+    particlesArray.push(new Particle({x: particleX, y: particleY}));
   }
 }
-
+console.log(particlesArray);
 /**
  * loops through particlesArray(list of boxes) and peforms action such as update position, draw the boxes in the canvas and check wall collision.
  */
