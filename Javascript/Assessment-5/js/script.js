@@ -86,7 +86,8 @@ function init() {
   for (let i = 0; i < NUMBER_OF_BOXES; i++) {
     let particleX, particleY;
     let overlapping = true;
-  
+    
+    //checks whether there are any overlaps while generating the boxes.
     while (overlapping) {
       particleX = Math.floor(Math.random() * (canvas.width - BOX_WIDTH));
       particleY = Math.floor(Math.random() * (canvas.height - BOX_HEIGHT));
