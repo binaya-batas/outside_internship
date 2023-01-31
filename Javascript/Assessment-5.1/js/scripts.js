@@ -22,6 +22,11 @@ background.onload = function () {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 };
 
+let obstacleImage = new Image();
+obstacleImage.src = "assets/villian.png";
+obstacleImage.onload = function () {
+  ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
+};
 
 class Obstacles {
   constructor(props) {
@@ -30,13 +35,11 @@ class Obstacles {
       (this.vy = props.vy),
       (this.height = OBSTACLES_HEIGHT),
       (this.width = OBSTACLES_WIDTH),
-      (this.color = "blue");
+      (this.image = obstacleImage)
   }
 
   draw() {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
   move() {
@@ -91,13 +94,11 @@ function drawAndMoveObstacles() {
   });
 }
 
-
 let carImage = new Image();
 carImage.src = "assets/car.png";
 carImage.onload = function () {
   ctx.drawImage(carImage, this.x, this.y, this.width, this.height);
 };
-
 
 class Car {
   constructor() {
@@ -109,7 +110,7 @@ class Car {
   }
 
   draw() {
-    ctx.drawImage(carImage, this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
   moveRight() {
@@ -121,10 +122,8 @@ class Car {
   }
 }
 
-
 //car object.
 let car1 = new Car();
-
 
 /**
  * animates obstacles.
@@ -142,7 +141,6 @@ function animate() {
   animationId = requestAnimationFrame(animate);
 }
 
-
 //event listener for right arrow.
 window.addEventListener("keydown", pressRightArrow);
 function pressRightArrow(event) {
@@ -154,7 +152,6 @@ function pressRightArrow(event) {
   }
 }
 
-
 //event listener for left arrow.
 window.addEventListener("keydown", pressLeftArrow);
 function pressLeftArrow(event) {
@@ -165,7 +162,6 @@ function pressLeftArrow(event) {
     car1.moveLeft();
   }
 }
-
 
 let gameOn = false;
 let score = 0;
@@ -180,14 +176,12 @@ function startGame() {
   }
 }
 
-
 function setHighScore() {
   if (score > localStorage.getItem("highscore")) {
     localStorage.setItem("highscore", score);
   }
   highScorePoint.innerHTML = `Highscore: ${localStorage.getItem("highscore")}`;
 }
-
 
 startGame();
 createObstacles();
