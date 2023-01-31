@@ -28,6 +28,8 @@ obstacleImage.onload = function () {
   ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
 };
 
+let sound = new Audio("assets/smash.mp3");
+
 class Obstacles {
   constructor(props) {
     (this.x = props.x),
@@ -50,6 +52,7 @@ class Obstacles {
     scorePoint.innerHTML = `Score: ${score}`;
     setHighScore();
     if (this.y + this.height - this.vy >= car1.y && this.x === car1.x) {
+      sound.play();
       const playAgain = confirm(`Game over ☠️. Do you want to play again?`);
       if (playAgain) {
         location.reload();
