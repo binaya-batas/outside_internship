@@ -2,7 +2,7 @@ let ms = 0;
 let sec = 0;
 let min = 0;
 let hrs = 0;
-let int = null;
+let interval;
 
 window.onload = () => {
     buttonTime.click();
@@ -103,24 +103,24 @@ let buttonStart = document.createElement('button');
 buttonStart.setAttribute('class', 'clock__functions__button clock__functions--start');
 buttonStart.innerText = "Start";
 buttonStart.addEventListener('click', () => {
-    console.log(1)
-    if(int !== null){
-        clearInterval(int);
-    }
-    int = setInterval(startTimer,10);
+    interval = setInterval(startTimer,10);
 })
 
 let buttonStop = document.createElement('button');
 buttonStop.setAttribute('class', 'clock__functions__button clock__functions--stop');
 buttonStop.innerText = "Stop";
 buttonStop.addEventListener('click', () => {
-    clearInterval(int);
+    clearInterval(interval);
 })
 
 let buttonReset = document.createElement('button');
 buttonReset.setAttribute('class', 'clock__functions__button clock__functions--reset');
 buttonReset.innerText = "Reset";
 buttonReset.addEventListener('click', () => {
+    ms = 0;
+    sec = 0;
+    min = 0;
+    hrs = 0;
     hours.innerText = 00;
     minutes.innerText = 00;
     seconds.innerText = 00;
