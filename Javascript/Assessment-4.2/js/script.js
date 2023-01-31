@@ -17,10 +17,10 @@ class Particle {
     this.x = props.x;
     this.y = props.y;
     (this.vx = VELOCITY_X),
-      (this.vy = VELOCITY_Y),
-      (this.height = BOX_HEIGHT),
-      (this.width = BOX_WIDTH),
-      (this.color = "blue");
+    (this.vy = VELOCITY_Y),
+    (this.height = BOX_HEIGHT),
+    (this.width = BOX_WIDTH),
+    (this.color = "blue");
   }
 
   update() {
