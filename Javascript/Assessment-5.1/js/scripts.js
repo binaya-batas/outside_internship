@@ -9,6 +9,9 @@ const OBSTACLES_WIDTH = 150;
 const OBSTACLES_VELOCITY_Y = 7;
 const NUMBER_OF_OBSTACLES_PER_ROW = 2;
 
+const scorePoint = document.getElementById("score");
+const highScorePoint = document.getElementById("high-score");
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -19,20 +22,26 @@ background.onload = function () {
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 };
 
+let obstacleImage = new Image();
+obstacleImage.src = "assets/villian.png";
+obstacleImage.onload = function () {
+  ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
+};
+
+let sound = new Audio("assets/smash.mp3");
+
 class Obstacles {
   constructor(props) {
     (this.x = props.x),
-    (this.y = OBSTACLES_Y_POSITION),
-    (this.vy = OBSTACLES_VELOCITY_Y),
-    (this.height = OBSTACLES_HEIGHT),
-    (this.width = OBSTACLES_WIDTH),
-    (this.color = "blue");
+      (this.y = OBSTACLES_Y_POSITION),
+      (this.vy = props.vy),
+      (this.height = OBSTACLES_HEIGHT),
+      (this.width = OBSTACLES_WIDTH),
+      (this.image = obstacleImage)
   }
 
   draw() {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
   move() {
@@ -40,40 +49,36 @@ class Obstacles {
   }
 
   checkCarCollision() {
-    let scoreList = [];
+    scorePoint.innerHTML = `Score: ${score}`;
+    setHighScore();
     if (this.y + this.height - this.vy >= car1.y && this.x === car1.x) {
-        scoreList.push(score);
-        localStorage.setItem("highScore", scoreList )
-        console.log(localStorage.getItem("highScore"));
-        const playAgain = confirm(`Game over ☠️. Your score was ${score}. Do you want to play again?`);
-        if (playAgain) {
-            location.reload();
-        } else {
-            window.close();
-        }
+      sound.play();
+      const playAgain = confirm(`Game over ☠️. Do you want to play again?`);
+      if (playAgain) {
+        location.reload();
+      } else {
+        window.close();
+      }
     }
   }
-
-  increaseSpeed() {
-    this.vy +=1;
-  }
 }
-
 
 /**
  * creates obstacles every one second.
  */
 let obstacles = [];
 function createObstacles() {
-    setInterval(function() {
-        for (let i = 0; i < NUMBER_OF_OBSTACLES_PER_ROW; i++) {
-          const random = Math.floor(Math.random() * OBSTACLES_X_POSITION.length);
-          const positionX = OBSTACLES_X_POSITION[random];
-          const newvy = 2;
-          obstacles.push(new Obstacles({ x: positionX }));
-          obstacles[i].increaseSpeed();
-        }
-    }, 1000)
+  let newvy = OBSTACLES_VELOCITY_Y;
+
+  setInterval(function () {
+    newvy += 0.5; //increases speed of obstacles by 0.5 in every 1000ms
+
+    for (let i = 0; i < NUMBER_OF_OBSTACLES_PER_ROW; i++) {
+      const random = Math.floor(Math.random() * OBSTACLES_X_POSITION.length);
+      const positionX = OBSTACLES_X_POSITION[random];
+      obstacles.push(new Obstacles({ x: positionX, vy: newvy }));
+    }
+  }, 1000);
 }
 
 /**
@@ -84,11 +89,19 @@ function drawAndMoveObstacles() {
     obstacle.draw();
     obstacle.move();
     obstacle.checkCarCollision();
+
+    //checks if obstacles have gone outside of the canvas.
     if (obstacle.y >= canvas.height) {
-        obstacles.splice(index, 1);
+      obstacles.splice(index, 1);
     }
   });
 }
+
+let carImage = new Image();
+carImage.src = "assets/car.png";
+carImage.onload = function () {
+  ctx.drawImage(carImage, this.x, this.y, this.width, this.height);
+};
 
 class Car {
   constructor() {
@@ -96,17 +109,11 @@ class Car {
     this.y = canvas.height - CAR_HEIGHT;
     this.width = CAR_WIDTH;
     this.height = CAR_HEIGHT;
-    this.color = "red";
+    this.image = carImage;
   }
 
   draw() {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    // let image = new Image();
-    // image.onloadsrc = "assets/car.png";
-    // console.log(image);
-    // ctx.drawImage(image, this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 
   moveRight() {
@@ -161,20 +168,23 @@ function pressLeftArrow(event) {
 
 let gameOn = false;
 let score = 0;
+let highscore = 0;
 function startGame() {
-    const restartGame = alert("Do you want to start the game?");
-    gameOn = true;
-    if (gameOn) {
-        setInterval(function() {
-            score++;
-        }, 1000)
-    }
+  const startGame = alert("Do you want to start the game?");
+  gameOn = true;
+  if (gameOn) {
+    setInterval(function () {
+      score++;
+    }, 1000);
+  }
 }
 
-ctx.font = "30px Arial";
-ctx.fillStyle = "white"; 
-ctx.fillText("Hello World", 10, 50);
-
+function setHighScore() {
+  if (score > localStorage.getItem("highscore")) {
+    localStorage.setItem("highscore", score);
+  }
+  highScorePoint.innerHTML = `Highscore: ${localStorage.getItem("highscore")}`;
+}
 
 startGame();
 createObstacles();

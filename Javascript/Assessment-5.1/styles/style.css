@@ -1,3 +1,13 @@
 /* #canvas {
     background-color: red;
 } */
+
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.score-info {
+    
+}
