@@ -1,16 +1,15 @@
 let onSubmit = document.querySelector('.form__button');
 let form = document.querySelector('.form');
-let copyPassword = document.querySelector('.password-copy');
 
 onSubmit.addEventListener('click', generatePassword)
 
 
+let generatedPassword = document.querySelector('.form__generated__password');
 function generatePassword() {
     let length = document.querySelector('.form__length').value;
     let lowercase = document.querySelector('.form__lowercase').checked;
     let uppercase = document.querySelector('.form__uppercase').checked;
     let specialChar = document.querySelector('.form__specialchar').checked;
-    let generatedPassword = document.querySelector('.form__generated__password');
     let numbers = document.querySelector('.form__numbers').checked;
 
     let smallChar = "abcdefghijklmnopqrstuvwxyz";
@@ -96,7 +95,9 @@ function generatePassword() {
 }
 
 
-// copyPassword.addEventListener('click', copyPassword)
-// function copyPassword() {
-//     navigator.clipboard.writeText(generatedPassword);
-// }
+let copyPassword = document.querySelector('.copy-password');
+copyPassword.addEventListener('click', copyGeneratedPassword)
+function copyGeneratedPassword() {
+    navigator.clipboard.writeText(generatedPassword.textContent);
+}
+
