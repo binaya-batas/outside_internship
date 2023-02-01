@@ -1,18 +1,26 @@
-const LANE_WIDTH = 200;
+const CANVAS_HEIGHT = window.innerHeight;
+const CANVAS_WIDTH = (CANVAS_HEIGHT * 6) / 8;
+const LANE_WIDTH = CANVAS_WIDTH / 3;
 const LANE_GAP = 20;
-const CAR_WIDTH = 150;
-const CAR_HEIGHT = 100;
+const CAR_HEIGHT = CANVAS_HEIGHT / 8;
+const CAR_WIDTH = CANVAS_WIDTH / 3 - 50;
 const OBSTACLES_Y_POSITION = 20;
-const OBSTACLES_X_POSITION = [20, 220, 420];
-const OBSTACLES_HEIGHT = 100;
-const OBSTACLES_WIDTH = 150;
+const OBSTACLES_X_POSITION = [
+  LANE_GAP,
+  LANE_WIDTH + LANE_GAP,
+  LANE_WIDTH * 2 + LANE_GAP,
+];
+const OBSTACLES_HEIGHT = CANVAS_HEIGHT / 8;
+const OBSTACLES_WIDTH = CANVAS_WIDTH / 3 - 50;
 const OBSTACLES_VELOCITY_Y = 7;
 const NUMBER_OF_OBSTACLES_PER_ROW = 2;
+const OBSTACLES_VELOCITY_Y_INCREASE = 0.1;
 
-const scorePoint = document.getElementById("score");
-const highScorePoint = document.getElementById("high-score");
+let isPlaying;
 
 const canvas = document.getElementById("canvas");
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
 const ctx = canvas.getContext("2d");
 
 let background = new Image();
@@ -25,7 +33,7 @@ background.onload = function () {
 let obstacleImage = new Image();
 obstacleImage.src = "assets/villian.png";
 obstacleImage.onload = function () {
-  ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
+  // ctx.drawImage(obstacleImage, this.x, this.y, this.width, this.height);
 };
 
 let sound = new Audio("assets/smash.mp3");
@@ -37,7 +45,7 @@ class Obstacles {
       (this.vy = props.vy),
       (this.height = OBSTACLES_HEIGHT),
       (this.width = OBSTACLES_WIDTH),
-      (this.image = obstacleImage)
+      (this.image = obstacleImage);
   }
 
   draw() {
@@ -49,16 +57,12 @@ class Obstacles {
   }
 
   checkCarCollision() {
-    scorePoint.innerHTML = `Score: ${score}`;
     setHighScore();
     if (this.y + this.height - this.vy >= car1.y && this.x === car1.x) {
       sound.play();
-      const playAgain = confirm(`Game over ☠️. Do you want to play again?`);
-      if (playAgain) {
-        location.reload();
-      } else {
-        window.close();
-      }
+      isPlaying = false;
+      document.location.reload();
+      // cancelAnimationFrame(animationId);
     }
   }
 }
@@ -71,7 +75,7 @@ function createObstacles() {
   let newvy = OBSTACLES_VELOCITY_Y;
 
   setInterval(function () {
-    newvy += 0.5; //increases speed of obstacles by 0.5 in every 1000ms
+    newvy += OBSTACLES_VELOCITY_Y_INCREASE; //increases speed of obstacles by 0.5 in every 1000ms
 
     for (let i = 0; i < NUMBER_OF_OBSTACLES_PER_ROW; i++) {
       const random = Math.floor(Math.random() * OBSTACLES_X_POSITION.length);
@@ -100,8 +104,9 @@ function drawAndMoveObstacles() {
 let carImage = new Image();
 carImage.src = "assets/car.png";
 carImage.onload = function () {
-  ctx.drawImage(carImage, this.x, this.y, this.width, this.height);
+  // ctx.drawImage(carImage, this.x, this.y, this.width, this.height);
 };
+
 
 class Car {
   constructor() {
@@ -135,8 +140,17 @@ let animationId;
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  //renders background image.
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+  ctx.font = "40px Calibri";
+  ctx.fillStyle = "white";
+  ctx.fillText(`Score: ${score}`, 50, 50);
+
+  ctx.font = "40px Calibri";
+  ctx.fillStyle = "white";
+  ctx.fillText(`Highscore: ${localStorage.getItem("highscore")}`, 50, 100);
+
+  //renders background image.
 
   //renders car
   car1.draw();
@@ -145,8 +159,8 @@ function animate() {
 }
 
 //event listener for right arrow.
-window.addEventListener("keydown", pressRightArrow);
-function pressRightArrow(event) {
+window.addEventListener("keydown", pressDownRightArrow);
+function pressDownRightArrow(event) {
   if (event.key === "ArrowRight") {
     if (car1.x > LANE_WIDTH * 2) {
       return;
@@ -156,8 +170,8 @@ function pressRightArrow(event) {
 }
 
 //event listener for left arrow.
-window.addEventListener("keydown", pressLeftArrow);
-function pressLeftArrow(event) {
+window.addEventListener("keydown", pressDownLeftArrow);
+function pressDownLeftArrow(event) {
   if (event.key === "ArrowLeft") {
     if (car1.x < LANE_WIDTH) {
       return;
@@ -166,13 +180,16 @@ function pressLeftArrow(event) {
   }
 }
 
-let gameOn = false;
 let score = 0;
 let highscore = 0;
 function startGame() {
-  const startGame = alert("Do you want to start the game?");
-  gameOn = true;
-  if (gameOn) {
+  if (!isPlaying) {
+    ctx.font = "40px Calibri";
+    ctx.fillStyle = "white";
+    ctx.fillText("Press enter to start", 50, 100, 200);
+  }
+  isPlaying = true;
+  if (isPlaying) {
     setInterval(function () {
       score++;
     }, 1000);
@@ -183,9 +200,15 @@ function setHighScore() {
   if (score > localStorage.getItem("highscore")) {
     localStorage.setItem("highscore", score);
   }
-  highScorePoint.innerHTML = `Highscore: ${localStorage.getItem("highscore")}`;
 }
 
-startGame();
-createObstacles();
-animate();
+window.addEventListener("keyup", function (event) {
+  if (isPlaying) {
+    return;
+  }
+  if (event.key === "Enter") {
+    startGame();
+    createObstacles();
+    animate();
+  }
+});
