@@ -1,9 +1,9 @@
 const CONTAINER_WIDTH = 800;
 const CONTAINER_HEIGHT = 800;
-const BOX_WIDTH = 100;
-const BOX_HEIGHT = 100;
+const BOX_WIDTH = 50;
+const BOX_HEIGHT = 50;
 const MAXIMUM_POSITION = CONTAINER_WIDTH - BOX_WIDTH;
-const NUMBER_OF_BOXES = 3;
+const NUMBER_OF_BOXES = 10;
 const SPEED = 20;
 
 let container = document.querySelector(".container");
@@ -104,8 +104,9 @@ function animateBox(box, boxElement) {
 
     boxElement.style.top = box.topPosition + "px";
     boxElement.style.left = box.leftPosition + "px";
-
+    
     collisionDetection();
+
   }, 100);
 }
 
@@ -117,15 +118,15 @@ function collisionDetection() {
   for (let i = 0; i < boxes.length; i++) {
     for (let j = i + 1; j < boxes.length; j++) {
       if (
-        boxes[j].leftPosition <= boxes[i].leftPosition + BOX_WIDTH + SPEED &&
-        boxes[j].leftPosition + BOX_WIDTH >= boxes[i].leftPosition + SPEED &&
-        boxes[j].topPosition <= boxes[i].topPosition + BOX_HEIGHT + SPEED &&
-        BOX_HEIGHT + boxes[j].topPosition >= boxes[i].topPosition + SPEED
+        boxes[j].leftPosition <= boxes[i].leftPosition + BOX_WIDTH &&
+        boxes[j].leftPosition + BOX_WIDTH >= boxes[i].leftPosition &&
+        boxes[j].topPosition <= boxes[i].topPosition + BOX_HEIGHT &&
+        BOX_HEIGHT + boxes[j].topPosition >= boxes[i].topPosition
       ) {
-        boxes[j].directionX *= -1;
-        boxes[j].directionY *= -1;
-        boxes[i].directionX *= -1;
-        boxes[i].directionY *= -1;
+        boxes[j].directionX = -boxes[j].directionX;
+        boxes[j].directionY = -boxes[j].directionY;
+        boxes[i].directionX = -boxes[i].directionX;
+        boxes[i].directionY = -boxes[i].directionY;
       }
     }
   }
