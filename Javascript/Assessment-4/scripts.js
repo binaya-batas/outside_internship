@@ -1,9 +1,9 @@
 const CONTAINER_WIDTH = 800;
 const CONTAINER_HEIGHT = 800;
-const BOX_WIDTH = 50;
-const BOX_HEIGHT = 50;
+const BOX_WIDTH = 100;
+const BOX_HEIGHT = 100;
 const MAXIMUM_POSITION = CONTAINER_WIDTH - BOX_WIDTH;
-const NUMBER_OF_BOXES = 10;
+const NUMBER_OF_BOXES = 3;
 const SPEED = 20;
 
 let container = document.querySelector(".container");
