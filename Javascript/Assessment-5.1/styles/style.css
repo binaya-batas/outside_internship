@@ -11,3 +11,15 @@ body {
 .score-info {
     
 }
+
+.start-game {
+    background-color: white;
+    display: none;
+    color: black;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+}

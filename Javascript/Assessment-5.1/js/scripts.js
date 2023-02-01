@@ -17,6 +17,7 @@ const NUMBER_OF_OBSTACLES_PER_ROW = 2;
 const OBSTACLES_VELOCITY_Y_INCREASE = 0.1;
 
 let isPlaying;
+let startGameElem = document.querySelector('.start-game');
 
 const canvas = document.getElementById("canvas");
 canvas.width = CANVAS_WIDTH;
@@ -183,6 +184,7 @@ function pressDownLeftArrow(event) {
 let score = 0;
 let highscore = 0;
 function startGame() {
+  startGameElem.style.display = "none";
   if (!isPlaying) {
     ctx.font = "40px Calibri";
     ctx.fillStyle = "white";
@@ -202,11 +204,14 @@ function setHighScore() {
   }
 }
 
+startGameElem.style.display = "block"
 window.addEventListener("keyup", function (event) {
   if (isPlaying) {
     return;
   }
+
   if (event.key === "Enter") {
+    // startGameElem.style.display = "none";
     startGame();
     createObstacles();
     animate();
