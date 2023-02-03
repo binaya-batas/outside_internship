@@ -185,7 +185,6 @@ class Bird {
     }
 
     if (bird1.y + bird1.height >= BASE_Y_POSITION) {
-      console.log("collapsed");
       gameOver = true;
       isPlaying = false;
     }
@@ -247,7 +246,6 @@ function startGame() {
 }
 
 function main() {
-  console.log("main");
   startGame();
 }
 

@@ -54,7 +54,7 @@ let bootstrapProjects = ['Assessment-1'];
 let bootstrapContainer = document.querySelector('.bootstrap-container');
 if(bootstrapContainer !== null) {createProjects(bootstrapProjects, 'BOOTSTRAP/', bootstrapContainer, '../BOOTSTRAP/');}
 
-let javascriptProjects = ['Assessment-1', 'Assessment-2', 'Assessment-2.1', 'Assessment-3', 'Assessment-4', 'Assessment-4.2', 'Assessment-5.1'];
+let javascriptProjects = ['Assessment-1', 'Assessment-2', 'Assessment-2.1', 'Assessment-3', 'Assessment-4', 'Assessment-4.2', 'Assessment-5.1', 'Assessment-6'];
 let javascriptContainer = document.querySelector('.javascript-container');
 if(javascriptContainer !==null) {createProjects(javascriptProjects, 'Javascript/', javascriptContainer, '../Javascript/');}
 
