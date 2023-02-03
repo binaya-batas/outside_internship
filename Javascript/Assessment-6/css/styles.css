@@ -1,21 +1,26 @@
-/* #canvas {
-    background-color: red;
-} */
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
 
 body {
     display: flex;
     justify-content: center;
-    flex-direction: row-reverse;
+    align-items: center;
 }
 
-.score-info {
-    
+#game {
+    position: relative;
 }
 
-.start-game {
-    background-color: white;
+#canvas {
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+#game-over {
     display: none;
-    color: black;
     font-size: 30px;
     position: absolute;
     top: 50%;
