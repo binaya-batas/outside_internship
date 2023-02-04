@@ -206,16 +206,26 @@ function animate() {
   bird1.draw();
   bird1.checkBaseCollision();
 
+  ctx.font = "20px Calibri";
+  ctx.fillStyle = "white";
+  ctx.fillText(`High score: ${localStorage.getItem("highScore")}`, 50, 50);
+
+  ctx.font = "40px Calibri";
+  ctx.fillStyle = "white";
+  ctx.fillText(`${finalScore}`, CANVAS_WIDTH/2, CANVAS_HEIGHT/2 - 100);
+
   if (gameOver) {
     gameOverElem.style.display = "block";
     isPlaying = false;
     pipes = [];
+    spacePressed = false;
 
     window.addEventListener("keyup", function (event) {
       if (event.key === " ") {
         if (isPlaying) {
           return;
         }
+
         document.location.reload();
         isPlaying = true;
         gameOver = false;
