@@ -68,7 +68,7 @@ function animate() {
   });
 
   buildings.forEach((building) => {
-    building.draw();
+    building.update();
     building.target = null;
 
     const validateEnemies = enemies.filter(enemy => {
@@ -78,7 +78,7 @@ function animate() {
       return distance < enemy.radius + building.radius;
     })
 
-    
+    building.target = validateEnemies[0];
     
     for (let i = building.projectiles.length - 1; i >= 0; i--) {
       const projectile = building.projectiles[i];

@@ -87,8 +87,8 @@ class Projectile {
     update() {
         this.draw();
 
-        const yDistance = enemies[0].position.y - this.position.y;
-        const xDistance = enemies[0].position.x - this.position.x;
+        const yDistance = this.enemy.position.y - this.position.y;
+        const xDistance = this.enemy.position.x - this.position.x;
         const angle = Math.atan2(yDistance, xDistance);
         const speed = 5;
 
@@ -109,17 +109,10 @@ class Building {
             x: this.position.x + this.width/2,
             y: this.position.y + this.height/2
         };
-        this.projectiles = [
-            new Projectile({
-                position: {
-                    x: this.center.x,
-                    y: this.center.y
-                },
-                enemy: enemies[0], 
-            })
-        ];
+        this.projectiles = [];
         this.radius = 250;
         this.target;
+        this.frames = 0;
     }
 
     draw() {
@@ -130,6 +123,24 @@ class Building {
         ctx.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
         ctx.fill();
+    }
+
+    update() {
+        this.draw();
+
+        if (this.frames % 100 === 0 && this.target) {
+            this.projectiles.push(
+                new Projectile({
+                    position: {
+                        x: this.center.x,
+                        y: this.center.y
+                    },
+                    enemy: this.target, 
+                })
+            )
+        }
+
+        this.frames++;
     }
 }
  
