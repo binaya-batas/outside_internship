@@ -69,7 +69,34 @@ function animate() {
 
   buildings.forEach((building) => {
     building.draw();
+    building.target = null;
+
+    const validateEnemies = enemies.filter(enemy => {
+      const xDifference = enemy.position.x - building.position.x;
+      const yDifference = enemy.position.y - building.position.y;
+      const distance = Math.hypot(xDifference, yDifference);
+      return distance < enemy.radius + building.radius;
+    })
+
+    
+    
+    for (let i = building.projectiles.length - 1; i >= 0; i--) {
+      const projectile = building.projectiles[i];
+      console.log(projectile.radius)
+
+      projectile.update();
+
+      const xDifference = projectile.enemy.position.x - projectile.position.x;
+      const yDifference = projectile.enemy.position.y - projectile.position.y;
+      const distance = Math.hypot(xDifference, yDifference);
+      
+      if (distance < projectile.enemy.radius + projectile.radius) {
+        building.projectiles.splice(i, 1);
+      }
+      console.log(distance);
+    }
   })
+
 }
 
 animate();
