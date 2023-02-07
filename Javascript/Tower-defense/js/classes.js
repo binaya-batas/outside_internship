@@ -37,6 +37,11 @@ class Enemy {
       y: this.position.y + this.height / 2,
     };
     this.waypointIndex = 0;
+    this.health = 100;
+    this.velocity = {
+        x: 0,
+        y: 0
+    }
   }
 
   draw() {
@@ -44,6 +49,13 @@ class Enemy {
     ctx.beginPath();
     ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
+
+    //health bar
+    ctx.fillStyle = "red"
+    ctx.fillRect(this.position.x - this.radius, this.position.y - this.radius - 15, this.width, 10);
+
+    ctx.fillStyle = "green"
+    ctx.fillRect(this.position.x - this.radius, this.position.y - this.radius - 15, this.width * this.health/100, 10);
   }
 
   update() {
@@ -53,12 +65,18 @@ class Enemy {
     const yDistance = waypoint.y - this.position.y;
     const xDistance = waypoint.x - this.position.x;
     const angle = Math.atan2(yDistance, xDistance);
-    this.position.x += Math.cos(angle);
-    this.position.y += Math.sin(angle);
+
+    const speed = 3
+
+    this.velocity.x = Math.cos(angle) * speed;
+    this.velocity.y = Math.sin(angle) * speed;
+
+    this.position.x += this.velocity.x
+    this.position.y += this.velocity.y
 
     if (
-      Math.abs(Math.round(this.position.x)) === Math.abs(Math.round(waypoint.x)) &&
-      Math.abs(Math.round(this.position.y)) === Math.abs(Math.round(waypoint.y)) &&
+      Math.abs(Math.round(this.position.x) - Math.round(waypoint.x)) < Math.abs(this.velocity.x * speed) &&
+      Math.abs(Math.round(this.position.y) - Math.round(waypoint.y)) < Math.abs(this.velocity.y * speed) &&
       this.waypointIndex < waypoints.length - 1
     ) {
       this.waypointIndex++;
@@ -119,6 +137,7 @@ class Building {
         ctx.fillStyle = "blue";
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
 
+        //defense tower range
         ctx.beginPath();
         ctx.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(0, 0, 255, 0.2)";

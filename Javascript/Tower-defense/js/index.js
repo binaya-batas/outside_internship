@@ -39,12 +39,16 @@ gameMapImage.onload = () => {
 gameMapImage.src = "assets/game-map.png";
 
 const enemies = [];
-for (let i = 1; i < 10; i++) {
-  const xOffset = i * 150;
-  enemies.push(
-    new Enemy((position = { x: waypoints[0].x - xOffset, y: waypoints[0].y }))
-  );
+
+function spawnEnemies(spawnCount) {
+  for (let i = 1; i < (spawnCount+1); i++) {
+    const xOffset = i * 150;
+    enemies.push(
+      new Enemy((position = { x: waypoints[0].x - xOffset, y: waypoints[0].y }))
+    );
+  }
 }
+spawnEnemies(2);
 
 const mouse = {
   x: undefined,
@@ -59,9 +63,10 @@ function animate() {
   ctx.drawImage(gameMapImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   // looping enemies array to update their position
-  enemies.forEach((enemy) => {
+  for (let i = enemies.length - 1; i >= 0; i--) {
+    const enemy = enemies[i];
     enemy.update();
-  });
+  }
 
   placementTiles.forEach((tile) => {
     tile.update(mouse);
@@ -71,32 +76,47 @@ function animate() {
     building.update();
     building.target = null;
 
-    const validateEnemies = enemies.filter(enemy => {
+    const validateEnemies = enemies.filter((enemy) => {
       const xDifference = enemy.position.x - building.position.x;
       const yDifference = enemy.position.y - building.position.y;
       const distance = Math.hypot(xDifference, yDifference);
-      return distance < enemy.radius + building.radius;
-    })
+      return distance < building.radius; // + enemy.radius;
+    });
 
     building.target = validateEnemies[0];
-    
+
     for (let i = building.projectiles.length - 1; i >= 0; i--) {
       const projectile = building.projectiles[i];
-      console.log(projectile.radius)
 
       projectile.update();
 
       const xDifference = projectile.enemy.position.x - projectile.position.x;
       const yDifference = projectile.enemy.position.y - projectile.position.y;
       const distance = Math.hypot(xDifference, yDifference);
-      
-      if (distance < projectile.enemy.radius + projectile.radius) {
-        building.projectiles.splice(i, 1);
-      }
-      console.log(distance);
-    }
-  })
 
+      //condition check when projectile hits enemy.
+      if (distance < projectile.enemy.radius + projectile.radius) {
+        console.log(distance);
+        projectile.enemy.health -= 20;
+
+        if (projectile.enemy.health <= 0) {
+          const enemyIndex = enemies.findIndex((enemy) => {
+            return projectile.enemy === enemy;
+          });
+
+          //condition check to prevent deletion of wrong enemy
+          //enemyIndex is -1 if enemyIndex returns false
+          if (enemyIndex > -1) enemies.splice(enemyIndex, 1);
+        }
+
+        building.projectiles.splice(i, 1);
+
+        if (enemies.length === 0) {
+          spawnEnemies(3)
+        };
+       }
+    }
+  });
 }
 
 animate();
@@ -121,14 +141,16 @@ window.addEventListener("mousemove", (event) => {
   }
 });
 
-canvas.addEventListener('click', () => {
+canvas.addEventListener("click", () => {
   if (activeTile && !activeTile.isOccupied) {
-    buildings.push(new Building({
-      position: {
-        x: activeTile.position.x,
-        y: activeTile.position.y
-      }
-    }))
+    buildings.push(
+      new Building({
+        position: {
+          x: activeTile.position.x,
+          y: activeTile.position.y,
+        },
+      })
+    );
     activeTile.isOccupied = true;
   }
-})
+});
