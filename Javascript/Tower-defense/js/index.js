@@ -38,7 +38,16 @@ gameMapImage.onload = () => {
 };
 gameMapImage.src = "assets/game-map.png";
 
+const mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+const buildings = [];
 const enemies = [];
+let enemyCount = 0;
+let livesCount = 10;
+let coins = 100;
 
 function spawnEnemies(spawnCount) {
   for (let i = 1; i < (spawnCount+1); i++) {
@@ -48,17 +57,10 @@ function spawnEnemies(spawnCount) {
     );
   }
 }
-spawnEnemies(2);
-
-const mouse = {
-  x: undefined,
-  y: undefined,
-};
-
-const buildings = [];
+spawnEnemies(enemyCount);
 
 function animate() {
-  requestAnimationFrame(animate);
+  const animationId = requestAnimationFrame(animate);
   // ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   ctx.drawImage(gameMapImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
@@ -66,7 +68,27 @@ function animate() {
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
     enemy.update();
+
+    //checks if the x position of enemy is bigger than width of the canvas.
+    if (enemy.position.x > CANVAS_WIDTH) {
+      livesCount -= 1;
+      document.querySelector('.resources__lives__count').innerHTML = livesCount;
+      enemies.splice(i, 1);
+      console.log(livesCount);
+
+      //stops animation/movement if the lives count reaches 0.
+      if (livesCount === 0) {
+        cancelAnimationFrame(animationId);
+      }
+    }
+
   }
+  
+  //new enemies spawns if all the existing enemies are killed.
+  if (enemies.length === 0) {
+    enemyCount += 2;
+    spawnEnemies(enemyCount)
+  };
 
   placementTiles.forEach((tile) => {
     tile.update(mouse);
@@ -77,8 +99,9 @@ function animate() {
     building.target = null;
 
     const validateEnemies = enemies.filter((enemy) => {
-      const xDifference = enemy.position.x - building.position.x;
-      const yDifference = enemy.position.y - building.position.y;
+      const xDifference = enemy.position.x - building.center.x;
+      const yDifference = enemy.position.y - building.center.y;
+      console.log(xDifference, yDifference);
       const distance = Math.hypot(xDifference, yDifference);
       return distance < building.radius; // + enemy.radius;
     });
@@ -96,9 +119,9 @@ function animate() {
 
       //condition check when projectile hits enemy.
       if (distance < projectile.enemy.radius + projectile.radius) {
-        console.log(distance);
         projectile.enemy.health -= 20;
 
+        //enemy is removed if its health is smaller or equal to 0.
         if (projectile.enemy.health <= 0) {
           const enemyIndex = enemies.findIndex((enemy) => {
             return projectile.enemy === enemy;
@@ -106,14 +129,15 @@ function animate() {
 
           //condition check to prevent deletion of wrong enemy
           //enemyIndex is -1 if enemyIndex returns false
-          if (enemyIndex > -1) enemies.splice(enemyIndex, 1);
+          if (enemyIndex > -1) {
+            enemies.splice(enemyIndex, 1);
+            coins += 25;
+            document.querySelector('.resouces__coins__count').innerHTML = coins;
+          }
+            
         }
 
         building.projectiles.splice(i, 1);
-
-        if (enemies.length === 0) {
-          spawnEnemies(3)
-        };
        }
     }
   });
@@ -142,7 +166,10 @@ window.addEventListener("mousemove", (event) => {
 });
 
 canvas.addEventListener("click", () => {
-  if (activeTile && !activeTile.isOccupied) {
+  if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) {
+    coins -= 50;
+    document.querySelector('.resouces__coins__count').innerHTML = coins;
+
     buildings.push(
       new Building({
         position: {

@@ -66,7 +66,7 @@ class Enemy {
     const xDistance = waypoint.x - this.position.x;
     const angle = Math.atan2(yDistance, xDistance);
 
-    const speed = 3
+    const speed = 1;
 
     this.velocity.x = Math.cos(angle) * speed;
     this.velocity.y = Math.sin(angle) * speed;
@@ -84,9 +84,9 @@ class Enemy {
   }
 }
 
-class Projectile {
+class Projectile extends Sprite {
     constructor({ position = { x: 0, y: 0}, enemy }) {
-        this.position = position;
+        super({ position }, "projectile")
         this.velocity = {
             x: 0,
             y: 0
@@ -95,12 +95,12 @@ class Projectile {
         this.enemy = enemy;
     }
 
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "orange";
-        ctx.fill();
-    }
+    // draw() {
+    //     ctx.beginPath();
+    //     ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
+    //     ctx.fillStyle = "orange";
+    //     ctx.fill();
+    // }
 
     update() {
         this.draw();
