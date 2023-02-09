@@ -47,7 +47,9 @@ const buildings = [];
 const enemies = [];
 let enemyCount = 0;
 let livesCount = 10;
-let coins = 100;
+let coins = 500;
+let activeTile;
+let activeTileIndex;
 
 function spawnEnemies(spawnCount) {
   for (let i = 1; i < (spawnCount+1); i++) {
@@ -58,6 +60,48 @@ function spawnEnemies(spawnCount) {
   }
 }
 spawnEnemies(enemyCount);
+
+window.addEventListener("mousemove", (event) => {
+  mouse.x = event.clientX;
+  mouse.y = event.clientY;
+
+  for (let i = 0; i <= placementTiles.length - 1; i++) {
+    const tile = placementTiles[i];
+
+    if (
+      mouse.x > tile.position.x &&
+      mouse.x < tile.position.x + tile.size &&
+      mouse.y > tile.position.y &&
+      mouse.y < tile.position.y + tile.size
+    ) {
+      activeTile = tile;
+      break;
+    }
+  }
+});
+
+
+canvas.addEventListener("click", () => {
+  if (coins < 50) {
+    console.log("Not enough coins!!!")
+  }
+
+  if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) {
+    coins -= 50;
+    document.querySelector('.resouces__coins__count').innerHTML = coins;
+
+    buildings.push(
+      new Building({
+        position: {
+          x: activeTile.position.x,
+          y: activeTile.position.y,
+        },
+      })
+    );
+    activeTile.isOccupied = true;
+    console.log("click", activeTile);
+  }
+});
 
 function animate() {
   const animationId = requestAnimationFrame(animate);
@@ -74,7 +118,6 @@ function animate() {
       livesCount -= 1;
       document.querySelector('.resources__lives__count').innerHTML = livesCount;
       enemies.splice(i, 1);
-      console.log(livesCount);
 
       //stops animation/movement if the lives count reaches 0.
       if (livesCount === 0) {
@@ -94,7 +137,7 @@ function animate() {
     tile.update(mouse);
   });
 
-  buildings.forEach((building) => {
+  buildings.forEach((building, index) => {
     building.update();
     building.target = null;
 
@@ -136,6 +179,14 @@ function animate() {
             
         }
 
+        building.projectileCount++;
+
+        if (building.projectileCount === 2) {
+          buildings.splice(index, 1);
+          activeTile.isOccupied = false;
+          console.log(activeTile);
+        }
+
         building.projectiles.splice(i, 1);
        }
     }
@@ -144,40 +195,4 @@ function animate() {
 
 animate();
 
-let activeTile;
-window.addEventListener("mousemove", (event) => {
-  mouse.x = event.clientX;
-  mouse.y = event.clientY;
 
-  for (let i = 0; i <= placementTiles.length - 1; i++) {
-    const tile = placementTiles[i];
-
-    if (
-      mouse.x > tile.position.x &&
-      mouse.x < tile.position.x + tile.size &&
-      mouse.y > tile.position.y &&
-      mouse.y < tile.position.y + tile.size
-    ) {
-      activeTile = tile;
-      break;
-    }
-  }
-});
-
-canvas.addEventListener("click", () => {
-  if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) {
-    coins -= 50;
-    document.querySelector('.resouces__coins__count').innerHTML = coins;
-
-    buildings.push(
-      new Building({
-        position: {
-          x: activeTile.position.x,
-          y: activeTile.position.y,
-        },
-      })
-    );
-    activeTile.isOccupied = true;
-    console.log(buildings)
-  }
-});

@@ -17,9 +17,9 @@ class Building extends Sprite {
       y: this.position.y + this.height / 2,
     };
     this.projectiles = [];
+    this.projectileCount = 0;
     this.radius = 250;
     this.projectileInterval = 0;
-    this.builtTime = 25;
   }
 
   draw() {
