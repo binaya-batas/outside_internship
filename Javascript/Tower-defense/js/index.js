@@ -101,7 +101,6 @@ function animate() {
     const validateEnemies = enemies.filter((enemy) => {
       const xDifference = enemy.position.x - building.center.x;
       const yDifference = enemy.position.y - building.center.y;
-      console.log(xDifference, yDifference);
       const distance = Math.hypot(xDifference, yDifference);
       return distance < building.radius; // + enemy.radius;
     });
@@ -179,5 +178,6 @@ canvas.addEventListener("click", () => {
       })
     );
     activeTile.isOccupied = true;
+    console.log(buildings)
   }
 });
