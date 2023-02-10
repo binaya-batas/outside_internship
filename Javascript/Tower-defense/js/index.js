@@ -8,14 +8,18 @@ const ENEMIES_OFFSET = 150;
 const BUILDING_COST = 50;
 const BUILDING_AMMO = 10;
 
-const buildings = [];
-const enemies = [];
+let buildings = [];
+let enemies = [];
 let enemyCount = 0;
 let livesCount = 10;
 let coins = 300;
 let enemyKills = 0;
 let animationId;
 let activeTile;
+
+//game state
+let gameOver = false;
+let isPlaying = false;
 
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
@@ -95,6 +99,12 @@ window.addEventListener("mousemove", (event) => {
   }
 });
 
+// canvas.addEventListener("mousedown", () => {
+//   if (coins < 50) {
+//     document.querySelector(".no-coins").style.display = "block";
+//   } 
+// })
+
 //click event handler on canvas.
 canvas.addEventListener("click", () => {
   if (activeTile && !activeTile.isOccupied && coins - BUILDING_COST >= 0) {
@@ -134,8 +144,11 @@ function updateEnemies() {
       enemies.splice(i, 1);
 
       //stops animation/movement if the lives count reaches 0.
-      if (livesCount === 0) {
+      if (livesCount === 9) {
         cancelAnimationFrame(animationId);
+        gameOver = true;
+        isPlaying = false;
+        document.querySelector(".game-over").style.display = "block";
       }
     }
 
@@ -153,6 +166,7 @@ function respawnEnemies() {
 }
 
 function animate() {
+
   animationId = requestAnimationFrame(animate);
 
   ctx.drawImage(gameMapImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -160,7 +174,6 @@ function animate() {
   updateEnemies();
   
   respawnEnemies();
-
 
   placementTiles.forEach((tile) => {
     tile.update(mouse);
@@ -174,7 +187,7 @@ function animate() {
       const xDifference = enemy.position.x - building.center.x;
       const yDifference = enemy.position.y - building.center.y;
       const distance = Math.hypot(xDifference, yDifference);
-      return distance < building.radius; // + enemy.radius;
+      return distance < building.radius + enemy.radius;
     });
 
     building.target = validateEnemies[0];
@@ -190,7 +203,7 @@ function animate() {
 
       //condition check when projectile hits enemy.
       if (distance < projectile.enemy.radius + projectile.radius) {
-        projectile.enemy.health -= 20;
+        projectile.enemy.health -= 10;
 
         //enemy is removed if its health is smaller or equal to 0.
         if (projectile.enemy.health <= 0) {
@@ -204,6 +217,12 @@ function animate() {
             enemies.splice(enemyIndex, 1);
             coins += 25;
             enemyKills++;
+
+            if (enemyKills === 20) {
+              cancelAnimationFrame(animationId);
+              document.querySelector(".win").style.display = "block";
+            }
+
             document.querySelector('.kills__count').innerHTML = enemyKills;
             document.querySelector('.resouces__coins__count').innerHTML = coins;
           }
@@ -219,13 +238,39 @@ function animate() {
           //sets the occupied status to false so that we can place the building on same place again.
           building.activeTile.isOccupied = false;
         }
-        
+
         building.projectiles.splice(i, 1);
        }
     }
   });
 }
 
-animate();
+function main() {
+  isPlaying = true;
+  if (isPlaying) {
+    document.querySelector(".start-game").style.display = "none";
+    animate();
+  }
+}
 
+window.addEventListener("keydown", (event) => {
+  if (isPlaying) return;
+
+  
+  if (event.key === " ") {
+    if (gameOver) {
+      enemies = [];
+      buildings = [];
+      enemyCount = 0;
+      livesCount = 10;
+      coins = 300;
+      enemyKills = 0;
+      gameOver = false;
+      document.querySelector(".game-over").style.display = "none";
+      main();
+      return;
+    }
+    main();
+  }
+})
 

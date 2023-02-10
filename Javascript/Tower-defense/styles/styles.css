@@ -3,7 +3,12 @@
     padding: 0px;
 }
 
+body {
+    overflow: hidden;
+}
+
 .game {
+    width: fit-content;
     position: relative;
 }
 
@@ -12,7 +17,7 @@
     gap: 20px;
     position: absolute;
     top: 10px;
-    right: 20%;
+    right: 5%;
     color: white;
     font-weight: bold;
     font-size: 20px;
@@ -45,4 +50,21 @@
     height: 50px;
     justify-content: center;
     align-items: center;
+}
+
+.start-game, .game-over, .game-paused, .no-coins, .win {
+    display: none;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 15px;
+    font-size: 90px;
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start-game {
+    display: block;
 }
