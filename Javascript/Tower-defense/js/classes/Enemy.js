@@ -23,10 +23,6 @@ class Enemy extends Sprite {
 
   draw() {
     super.draw();
-    // ctx.fillStyle = "red";
-    // ctx.beginPath();
-    // ctx.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
-    // ctx.fill();
 
     //health bar
     ctx.fillStyle = "red";

@@ -12,6 +12,10 @@
     <div class="game">
       <canvas id="canvas"></canvas>
       <div class="resources">
+        <div class="kills">
+          <img src="assets/orc.png" alt="" srcset="">
+          <div class="kills__count">0</div>
+        </div>
         <div class="resources__lives">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -20,6 +24,7 @@
             strokeWidth="{1.5}"
             stroke="black"
             className="w-6 h-6"
+            height="50px"
           >
             <path
               strokeLinecap="round"
@@ -39,6 +44,7 @@
             stroke-width="1.5"
             stroke="black"
             class="w-6 h-6"
+            height="50px"
           >
             <path
               stroke-linecap="round"
@@ -47,7 +53,7 @@
             />
           </svg>
           <div class="resouces__coins__count">
-              100
+              300
           </div>
         </div>
       </div>
@@ -60,7 +66,6 @@
     <script src="js/classes/Building.js"></script>
     <script src="js/classes/PlacementTile.js"></script>
     <script src="js/classes/Projectile.js"></script>
-    <!-- <script src="js/classes/classes.js"></script> -->
     <script src="js/index.js"></script>
   </body>
 </html>

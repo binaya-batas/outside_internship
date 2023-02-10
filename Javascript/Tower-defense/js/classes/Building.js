@@ -1,5 +1,5 @@
 class Building extends Sprite {
-  constructor({ position = { x: 0, y: 0 } }) {
+  constructor({ position = { x: 0, y: 0 }, activeTile }) {
     super({
       position,
       imgSrc: "assets/tower.png",
@@ -20,6 +20,7 @@ class Building extends Sprite {
     this.projectileCount = 0;
     this.radius = 250;
     this.projectileInterval = 0;
+    this.activeTile = activeTile;
   }
 
   draw() {
@@ -28,10 +29,10 @@ class Building extends Sprite {
     super.draw();
 
     //defense tower range
-    ctx.beginPath();
-    ctx.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
-    ctx.fill();
+    // ctx.beginPath();
+    // ctx.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2);
+    // ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
+    // ctx.fill();
   }
 
   update() {

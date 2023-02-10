@@ -19,6 +19,18 @@
     letter-spacing: 2px;
 }
 
+.kills {
+    display: flex;
+    width: 80px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.kills img {
+    height: 50px;
+}
+
 .resources__lives {
     display: flex;
     width: 80px;
