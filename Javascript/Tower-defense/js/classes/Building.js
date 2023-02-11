@@ -3,14 +3,14 @@ class Building extends Sprite {
     super({
       position,
       imgSrc: "assets/tower.png",
-      frames: { max: 19 },
+      frames: { max: BUILDING_FRAMES },
       offset: {
         x: 0,
-        y: -80,
+        y: BUILDING_Y_OFFSET,
       },
     });
     this.position = position;
-    this.height = 64;
+    this.height = TILE_SIZE;
     this.width = this.height * 2;
     this.center = {
       x: this.position.x + this.width / 2,
@@ -18,7 +18,7 @@ class Building extends Sprite {
     };
     this.projectiles = [];
     this.projectileCount = 0;
-    this.radius = 250;
+    this.radius = BUILDING_RADIUS;
     this.projectileInterval = 0;
     this.activeTile = activeTile;
   }

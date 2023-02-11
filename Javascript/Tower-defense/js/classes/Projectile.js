@@ -1,3 +1,5 @@
+
+
 class Projectile extends Sprite {
     constructor({ position = { x: 0, y: 0 }, enemy }) {
       super({ position, imgSrc: "assets/projectile.png" });
@@ -5,7 +7,7 @@ class Projectile extends Sprite {
         x: 0,
         y: 0,
       };
-      this.radius = 10;
+      this.radius = PROJECTILE_RADIUS;
       this.enemy = enemy;
     }
   
@@ -15,7 +17,8 @@ class Projectile extends Sprite {
       const yDistance = this.enemy.position.y - this.position.y;
       const xDistance = this.enemy.position.x - this.position.x;
       const angle = Math.atan2(yDistance, xDistance);
-      const speed = 5;
+      
+      const speed = PROJECTILE_SPEED;
   
       this.velocity.x = Math.cos(angle) * speed;
       this.velocity.y = Math.sin(angle) * speed;

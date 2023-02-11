@@ -1,13 +1,3 @@
-const CANVAS_HEIGHT = 768;
-const CANVAS_WIDTH = 1280;
-
-const NUMBER_OF_TILES_IN_ROW = 20;
-
-const ENEMIES_OFFSET = 150;
-
-const BUILDING_COST = 50;
-const BUILDING_AMMO = 10;
-
 let buildings = [];
 let enemies = [];
 let enemyCount = 0;
@@ -40,8 +30,8 @@ placementTilesData2D.forEach((row, indexY) => {
       placementTiles.push(
         new PlacementTile({
           position: {
-            x: indexX * 64,
-            y: indexY * 64,
+            x: indexX * TILE_SIZE,
+            y: indexY * TILE_SIZE,
           },
         })
       );
@@ -99,12 +89,6 @@ window.addEventListener("mousemove", (event) => {
   }
 });
 
-// canvas.addEventListener("mousedown", () => {
-//   if (coins < 50) {
-//     document.querySelector(".no-coins").style.display = "block";
-//   } 
-// })
-
 //click event handler on canvas.
 canvas.addEventListener("click", () => {
   if (activeTile && !activeTile.isOccupied && coins - BUILDING_COST >= 0) {
@@ -144,7 +128,7 @@ function updateEnemies() {
       enemies.splice(i, 1);
 
       //stops animation/movement if the lives count reaches 0.
-      if (livesCount === 9) {
+      if (livesCount === 0) {
         cancelAnimationFrame(animationId);
         gameOver = true;
         isPlaying = false;
@@ -160,13 +144,12 @@ function updateEnemies() {
  */
 function respawnEnemies() {
   if (enemies.length === 0) {
-    enemyCount += 2;
+    enemyCount += INCREASE_ENEMY_COUNT;
     spawnEnemies(enemyCount)
   };
 }
 
 function animate() {
-
   animationId = requestAnimationFrame(animate);
 
   ctx.drawImage(gameMapImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -203,7 +186,7 @@ function animate() {
 
       //condition check when projectile hits enemy.
       if (distance < projectile.enemy.radius + projectile.radius) {
-        projectile.enemy.health -= 10;
+        projectile.enemy.health -= AMMO_DAMAGE;
 
         //enemy is removed if its health is smaller or equal to 0.
         if (projectile.enemy.health <= 0) {
@@ -215,10 +198,11 @@ function animate() {
           //enemyIndex is -1 if enemyIndex returns false
           if (enemyIndex > -1) {
             enemies.splice(enemyIndex, 1);
-            coins += 25;
+            coins += ENEMY_KILL_REWARD;
             enemyKills++;
 
-            if (enemyKills === 20) {
+            //stops animation if max number of enemies are killed.
+            if (enemyKills === MAX_ENEMY_KILLS) {
               cancelAnimationFrame(animationId);
               document.querySelector(".win").style.display = "block";
             }
@@ -256,7 +240,6 @@ function main() {
 window.addEventListener("keydown", (event) => {
   if (isPlaying) return;
 
-  
   if (event.key === " ") {
     if (gameOver) {
       enemies = [];

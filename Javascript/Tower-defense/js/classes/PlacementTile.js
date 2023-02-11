@@ -1,7 +1,7 @@
 class PlacementTile{
     constructor({ position }) {
       this.position = position;
-      this.size = 64;
+      this.size = TILE_SIZE;
       this.color = "rgba(255, 255, 255, 0.15)";
       this.isOccupied = false;
     }

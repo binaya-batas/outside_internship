@@ -3,18 +3,18 @@ class Enemy extends Sprite {
     super({
       position,
       imgSrc: "assets/goblin.png",
-      frames: { max: 7 },
+      frames: { max: ENEMY_FRAMES },
     });
     this.position = position;
-    this.width = 100;
-    this.height = 100;
-    this.radius = 50;
+    this.width = ENEMY_WIDTH;
+    this.height = ENEMY_HEIGHT;
+    this.radius = ENEMY_RADIUS;
     this.center = {
       x: this.position.x + this.width / 2,
       y: this.position.y + this.height / 2,
     };
     this.waypointIndex = 0;
-    this.health = 100;
+    this.health = ENEMY_HEALTH;
     this.velocity = {
       x: 0,
       y: 0,
@@ -45,7 +45,7 @@ class Enemy extends Sprite {
     const xDistance = waypoint.x - this.center.x;
     const angle = Math.atan2(yDistance, xDistance);
 
-    const speed = 2;
+    const speed = ENEMY_SPEED;
 
     this.velocity.x = Math.cos(angle) * speed;
     this.velocity.y = Math.sin(angle) * speed;
