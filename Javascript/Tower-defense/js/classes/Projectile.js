@@ -1,5 +1,3 @@
-
-
 class Projectile extends Sprite {
     constructor({ position = { x: 0, y: 0 }, enemy }) {
       super({ position, imgSrc: "assets/projectile.png" });

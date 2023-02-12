@@ -24,8 +24,6 @@ class Building extends Sprite {
   }
 
   draw() {
-    // ctx.fillStyle = "blue";
-    // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     super.draw();
 
     //defense tower range
