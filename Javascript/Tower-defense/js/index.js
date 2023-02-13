@@ -216,7 +216,7 @@ function animate() {
         building.projectileCount++;
 
         //destroys tower/building after it shoots certain number of projectiles.
-        if (building.projectileCount === BUILDING_AMMO) {
+        if (building.projectileCount === BUILDING_AMMO - 1) {
           buildings.splice(index, 1);
 
           //sets the occupied status to false so that we can place the building on same place again.
