@@ -10,6 +10,7 @@ let activeTile;
 //game state
 let gameOver = false;
 let isPlaying = false;
+let gamePaused = false;
 
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
@@ -242,8 +243,24 @@ function main() {
   }
 }
 
+
+
 window.addEventListener("keydown", (event) => {
-  if (isPlaying) return;
+  if (gamePaused) {
+    if (event.key === "p") {
+      gamePaused = false;
+      animate();
+      return;
+    }
+  }
+
+  if (isPlaying) {
+    if (event.key === 'p') {
+      gamePaused = true;
+      cancelAnimationFrame(animationId);
+    }
+   return; 
+  }
 
   if (event.key === " ") {
     if (gameOver) {
@@ -254,6 +271,7 @@ window.addEventListener("keydown", (event) => {
       coins = 300;
       enemyKills = 0;
       gameOver = false;
+      gamePaused = false;
       document.querySelector(".game-over").style.display = "none";
       main();
       return;
