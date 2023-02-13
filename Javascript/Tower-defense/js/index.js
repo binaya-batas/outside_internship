@@ -46,6 +46,10 @@ gameMapImage.onload = () => {
 };
 gameMapImage.src = "assets/game-map.png";
 
+//background sound
+const backgroundSound = new Audio();
+backgroundSound.src = "assets/background.mp3";
+
 //mouse coordinates.
 const mouse = {
   x: undefined,
@@ -233,6 +237,7 @@ function main() {
   isPlaying = true;
   if (isPlaying) {
     document.querySelector(".start-game").style.display = "none";
+    backgroundSound.play();
     animate();
   }
 }
