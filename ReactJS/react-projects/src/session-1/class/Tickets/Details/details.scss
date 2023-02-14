@@ -1,0 +1,22 @@
+.ticket__details {
+
+    &__table {
+        width: 100%;
+
+        &__head {
+            padding: 12px 32px;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            color: #9FA2B4;
+
+            th {
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+.hide-img {
+    display: none;
+}

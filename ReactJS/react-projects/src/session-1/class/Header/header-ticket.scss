@@ -1,0 +1,13 @@
+.ticket__header {
+    display: flex;
+    justify-content: space-between;
+
+    &__leftsection {
+        font-size: 24px;
+        letter-spacing: 0.3px;
+    }
+
+    &__rightsection {
+        display: flex;
+    }
+}
