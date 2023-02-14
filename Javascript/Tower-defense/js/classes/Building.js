@@ -21,10 +21,23 @@ class Building extends Sprite {
     this.radius = BUILDING_RADIUS;
     this.projectileInterval = 0;
     this.activeTile = activeTile;
+    this.health = 100;
   }
 
   draw() {
     super.draw();
+
+    //health bar
+    ctx.fillStyle = "red";
+    ctx.fillRect(this.position.x, this.position.y - 100, this.width, 10);
+
+    ctx.fillStyle = "green";
+    ctx.fillRect(
+      this.position.x,
+      this.position.y - 100,
+      (this.width * this.health) / 100,
+      10
+    );
 
     //defense tower range
     ctx.beginPath();
@@ -44,6 +57,7 @@ class Building extends Sprite {
             y: this.center.y - 80,
           },
           enemy: this.target,
+          health: this.health
         })
       );
     }
