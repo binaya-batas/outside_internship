@@ -12,6 +12,7 @@ let gameOver = false;
 let isPlaying = false;
 let gamePaused = false;
 
+//canvas
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = CANVAS_WIDTH;
@@ -192,6 +193,7 @@ function animate() {
       //condition check when projectile hits enemy.
       if (distance < projectile.enemy.radius + projectile.radius) {
         projectile.enemy.health -= AMMO_DAMAGE;
+        building.health -= 10;
 
         //enemy is removed if its health is smaller or equal to 0.
         if (projectile.enemy.health <= 0) {
