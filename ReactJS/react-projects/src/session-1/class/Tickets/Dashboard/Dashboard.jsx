@@ -1,4 +1,4 @@
-import HeaderTicket from '../../Header/HeaderTicket';
+import Header from '../../Header/Header';
 import Details from '../Details/Details';
 
 import './dashboard.scss';
@@ -6,7 +6,7 @@ import './dashboard.scss';
 function Dashboard() {
 return (
         <div className="ticket__dashboard">
-            <HeaderTicket text="All tickets" />
+            <Header text="All tickets" />
             <Details />
         </div>
     )

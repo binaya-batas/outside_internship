@@ -1,5 +1,5 @@
-import HeaderSidebar from '../Header/HeaderSidebar';
-import MenuSidebar from '../Menu/MenuSidebar';
+import HeaderSidebar from './Header/HeaderSidebar';
+import MenuSidebar from './Menu/MenuSidebar';
 
 import './sidebar.scss';
 

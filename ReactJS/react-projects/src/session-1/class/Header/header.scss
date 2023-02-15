@@ -1,0 +1,30 @@
+.ticket__header {
+    display: flex;
+    justify-content: space-between;
+
+    &__leftsection {
+        font-size: 24px;
+        letter-spacing: 0.3px;
+    }
+
+    &__rightsection {
+        display: flex;
+        align-items: center;
+
+        &__input {
+            height: 24px;
+            // border-radius: 8px;
+        }
+
+        &__icons {
+            display: flex;
+            gap: 28px;
+            margin-left: 32px;
+            margin-right: 32px;
+
+            &__notifications {
+            }
+        }
+
+    }
+}

@@ -1,3 +1,5 @@
+@import '../../../variables.scss';
+
 .btn {
     padding: 5px 12px;
     border-radius: 100px;
@@ -7,13 +9,13 @@
 }
 
 .btn-red {
-    background-color: red;
+    background-color: $dark-red;
 }
 
 .btn-green {
-    background-color: lightgreen;
+    background-color: $light-green;
 }
 
 .btn-yellow {
-    background-color: rgb(237, 244, 32);
+    background-color: $lime-yellow;
 }
