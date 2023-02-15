@@ -1,0 +1,112 @@
+@import "./variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?aakgny');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?aakgny#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?aakgny') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?aakgny') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?aakgny##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-three_dots {
+  &:before {
+    content: $icon-three_dots;     
+    color: #c5c7cd;
+  }
+}
+.icon-sort {
+  &:before {
+    content: $icon-sort;     
+    color: #c5c7cd;
+  }
+}
+.icon-filter {
+  &:before {
+    content: $icon-filter;     
+    color: #c5c7cd;
+  }
+}
+.icon-search {
+  &:before {
+    content: $icon-search; 
+  }
+}
+.icon-notification {
+  &:before {
+    content: $icon-notification;     
+    color: #c5c7cd;
+  }
+}
+.icon-search_one {
+  &:before {
+    content: $icon-search_one; 
+  }
+}
+.icon-ticket {
+  &:before {
+    content: $icon-ticket;     
+    color: #dde2ff;
+  }
+}
+.icon-badge {
+  &:before {
+    content: $icon-badge;     
+    color: #9fa2b4;
+  }
+}
+.icon-settings {
+  &:before {
+    content: $icon-settings;     
+    color: #9fa2b4;
+  }
+}
+.icon-book {
+  &:before {
+    content: $icon-book;     
+    color: #9fa2b4;
+  }
+}
+.icon-profile {
+  &:before {
+    content: $icon-profile;     
+    color: #9fa2b4;
+  }
+}
+.icon-group {
+  &:before {
+    content: $icon-group;     
+    color: #9fa2b4;
+  }
+}
+.icon-bulb {
+  &:before {
+    content: $icon-bulb;     
+    color: #9fa2b4;
+  }
+}
+.icon-pie_chart {
+  &:before {
+    content: $icon-pie_chart;     
+    color: #9fa2b4;
+  }
+}
+

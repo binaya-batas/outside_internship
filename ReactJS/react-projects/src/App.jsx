@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Sidebar from './session-1/class/Sidebar/Sidebar'
-import Ticket from './session-1/class/Tickets/Ticket'
+import Sidebar from './assignment/class/Sidebar/Sidebar'
+import Ticket from './assignment/class/Tickets/Ticket'
 
 import './app.scss';
 import './variables.scss';
@@ -8,7 +8,7 @@ import './variables.scss';
 
 function App() {
   return (
-    <div className="App" style={{display: 'flex', height: '100vh'}}>
+    <div className="App" style={{display: 'flex', height: '100%'}}>
       <Sidebar />
       <Ticket />
     </div>
