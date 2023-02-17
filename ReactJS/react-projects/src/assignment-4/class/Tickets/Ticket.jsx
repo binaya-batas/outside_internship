@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
+
 import Header from "../Header/Header";
 import Dashboard from "./Dashboard/Dashboard";
 
@@ -101,6 +102,8 @@ const ticketArray = [
     },
 ];
 
+export const SearchContext = createContext();
+
 function Ticket() {
     const [tickets, setTickets] = useState(ticketArray)
     const [searchInput, setSearchInput] = useState("")
@@ -114,16 +117,16 @@ function Ticket() {
     }
 
     const handleSearchInput = (e) => {
-
         setSearchInput(e.target.value);
     }
 
     return (
-        <div className="ticket">
-            <Header text="Tickets" name="Jones Ferdinand" imgSrc={avatar} handleSearchInput={handleSearchInput} />
-            <Dashboard tickets={tickets} handleDeleteIcon={handleDeleteIcon} searchInput={searchInput} />
-
-        </div>
+        <SearchContext.Provider value={searchInput}>
+            <div className="ticket">
+                <Header text="Tickets" name="Jones Ferdinand" imgSrc={avatar} handleSearchInput={handleSearchInput}/>
+                <Dashboard tickets={tickets} handleDeleteIcon={handleDeleteIcon} />
+            </div>
+        </SearchContext.Provider>
     )
 }
 

@@ -15,8 +15,8 @@ const options = [
 function OptionSidebar() {
     return (
         <div className="sidebar-option">
-            {options.map((option, index) => (
-                <TabsSidebar key={index} text={option.name} iconName={option.iconName} />
+            {options.map(option => (
+                <TabsSidebar text={option.name} iconName={option.iconName} />
             ))}
         </div>
     )

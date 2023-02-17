@@ -1,15 +1,17 @@
-import { useState, useRef } from "react";
+import { useContext, useState } from "react";
 
-import { BiSearchAlt } from "react-icons/bi";
-import { GrNotification } from "react-icons/gr";
 import Modal from "react-modal";
 import Button from "../Tickets/Priority/Priority";
 import Notification from "../Notification/Notification";
 
+
+import { BiSearchAlt } from "react-icons/bi";
+import { GrNotification } from "react-icons/gr";
+
 import "./header.scss";
 
 const modalStyles = {
-    content: {
+content: {
         width: "400px",
         top: "90px",
         left: "200",
@@ -33,12 +35,10 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const [profileIsOpen, setProfileIsOpen] = useState(false);
     const [notificationIsOpen, setNotificationIsOpen] = useState(false);
-
-    const inputRef = useRef(null);
+    
 
     const handleSearchIcon = () => {
         setShowSearchBar(!showSearchBar);
-        inputRef.current.focus();
     };
 
     const openModal = () => {
@@ -62,7 +62,7 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
             <div className="ticket__header__leftsection">{text}</div>
             <div className="ticket__header__rightsection">
                 {showSearchBar && (
-                    <input type="text" ref={inputRef} className="ticket__header__rightsection__input"  />
+                    <input type="text" className="ticket__header__rightsection__input" onChange={handleSearchInput} />
                 )}
 
                 <div className="ticket__header__rightsection__icons">
@@ -114,7 +114,7 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
                         className="ticket__header__rightsection__img"
                         onClick={openModal}
                     >
-                        <img src={imgSrc} alt="profile-img" />
+                        <img src={imgSrc} alt="profile-image" />
                     </figure>
                 )}
             </div>

@@ -1,14 +1,17 @@
-import { useReducer, useState } from 'react';
+import { useContext, useState } from 'react';
+
+import { SearchContext } from '../Ticket';
+
 import Priority from "../Priority/Priority";
 
 
 
-import { AiOutlineDelete } from 'react-icons/ai';
+import { AiOutlineConsoleSql, AiOutlineDelete } from 'react-icons/ai';
 
 import "./details.scss";
 
 
-function Details({ tickets, handleDeleteIcon, priority, searchInput }) {
+function Details({ tickets, handleDeleteIcon, priority }) {
     return (
         <div className="ticket__details">
             <table className="ticket__details__table">
@@ -22,7 +25,7 @@ function Details({ tickets, handleDeleteIcon, priority, searchInput }) {
                     </tr>
                 </thead>
                 <tbody className="ticket__details__table__body">
-                    <TableRow tickets={tickets} handleDeleteIcon={handleDeleteIcon} priority={priority} searchInput={searchInput} />
+                    <TableRow tickets={tickets} handleDeleteIcon={handleDeleteIcon} priority={priority} />
                 </tbody>
             </table>
         </div>
@@ -31,7 +34,9 @@ function Details({ tickets, handleDeleteIcon, priority, searchInput }) {
 
 export default Details;
 
-const TableRow = ({ tickets, handleDeleteIcon, priority, searchInput }) => {
+const TableRow = ({ tickets, handleDeleteIcon, priority }) => {
+    const search = useContext(SearchContext);
+
     return (
         <>
             {
@@ -43,7 +48,7 @@ const TableRow = ({ tickets, handleDeleteIcon, priority, searchInput }) => {
                 }
             })
             .filter((ticket) => {
-                return ticket.name.toLowerCase().includes(searchInput.toLowerCase());
+                return ticket.name.toLowerCase().includes(search.toLowerCase());
             })
             .map((ticket, index) => (
                 <tr key={index}>
