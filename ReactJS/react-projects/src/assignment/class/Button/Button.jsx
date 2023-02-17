@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import './button.scss';
+import './button.scss'
 
-function Button({text, btnColor}) {
-    // const [btnColor, setBtnColor] = useState("");
-
+function Button({ text }) {
     return (
-        <button className={`btn btn-${btnColor}`}>
+        <button className='button'>
             {text}
         </button>
     )
 }
 
-export default Button
+export default Button;

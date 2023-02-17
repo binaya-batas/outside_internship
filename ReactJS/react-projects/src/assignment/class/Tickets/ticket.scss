@@ -2,6 +2,8 @@
 
 .ticket {
     padding: 36px 30px;
-    width: 100%;
+    margin-left: 255px;
+    // width: 100%;
+    width: calc(100% - 255px);
     background-color: #f6f9fc;
 }
