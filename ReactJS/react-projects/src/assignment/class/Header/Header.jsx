@@ -55,7 +55,7 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
             <div className="ticket__header__leftsection">{text}</div>
             <div className="ticket__header__rightsection">
                 {showSearchBar && (
-                    <input type="text" ref={inputRef} className="ticket__header__rightsection__input"  />
+                    <input type="text" ref={inputRef} className="ticket__header__rightsection__input" onChange={handleSearchInput}  />
                 )}
 
                 <div className="ticket__header__rightsection__icons">
