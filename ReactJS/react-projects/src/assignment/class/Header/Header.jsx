@@ -38,14 +38,6 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
         setProfileIsOpen(false);
     };
 
-    const openNotification = () => {
-        setNotificationIsOpen(true);
-    }
-
-    const closeNotification = () => {
-        setNotificationIsOpen(false);
-    }
-
     const toggleNotificationState = () => {
         setNotificationIsOpen(!notificationIsOpen)
     }
@@ -85,11 +77,9 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
                                         width: '400px',
                                         top: '50px',
                                         right: '20%',
-                                        textAlign: 'center',
-                                        paddingBlock: '20px'
+                                        textAlign: 'center'
                                     }}
                                 > 
-                                    <div className="">Notifications</div>  
                                     {notifications.map((notification, index) => (
                                         <Notification key={index} text={notification} />
                                     ))}
