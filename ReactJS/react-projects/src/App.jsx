@@ -1,9 +1,9 @@
 import { useState } from 'react'
-// import Sidebar from './assignment/class/Sidebar/Sidebar'
-// import Ticket from './assignment/class/Tickets/Ticket'
+import Sidebar from './assignment/class/Sidebar/Sidebar'
+import Ticket from './assignment/class/Tickets/Ticket'
 
-import Sidebar from './assignment-4/class/Sidebar/Sidebar'
-import Ticket from './assignment-4/class/Tickets/Ticket'
+// import Sidebar from './assignment-4/class/Sidebar/Sidebar'
+// import Ticket from './assignment-4/class/Tickets/Ticket'
 
 import './app.scss';
 import './variables.scss';
@@ -14,11 +14,11 @@ import Signup from './assignment/class/SignUp/Signup';
 function App() {
   return (
       <div className="App" style={{display: 'flex', height: '100%'}}>
-        {/* <Sidebar />
-        <Ticket /> */}
+        <Sidebar />
+        <Ticket />
 
-        <Login />
-        <Signup />
+        {/* <Login />
+        <Signup /> */}
       </div>
   )
 }
