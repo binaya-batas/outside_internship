@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 
 import Modal from "react-modal";
 import Button from "../Tickets/Priority/Priority";
@@ -35,10 +35,12 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const [profileIsOpen, setProfileIsOpen] = useState(false);
     const [notificationIsOpen, setNotificationIsOpen] = useState(false);
-    
+
+    const inputRef = useRef();
 
     const handleSearchIcon = () => {
         setShowSearchBar(!showSearchBar);
+        inputRef.current.focus();
     };
 
     const openModal = () => {
@@ -62,7 +64,7 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
             <div className="ticket__header__leftsection">{text}</div>
             <div className="ticket__header__rightsection">
                 {showSearchBar && (
-                    <input type="text" className="ticket__header__rightsection__input" onChange={handleSearchInput} />
+                    <input ref={inputRef} type="text" className="ticket__header__rightsection__input" onChange={handleSearchInput} />
                 )}
 
                 <div className="ticket__header__rightsection__icons">

@@ -8,15 +8,17 @@ import Ticket from './assignment-4/class/Tickets/Ticket'
 import './app.scss';
 import './variables.scss';
 import Login from './assignment/class/Login/Login';
+import Signup from './assignment/class/SignUp/Signup';
 
 
 function App() {
   return (
       <div className="App" style={{display: 'flex', height: '100%'}}>
-        <Sidebar />
-        <Ticket />
+        {/* <Sidebar />
+        <Ticket /> */}
 
-        {/* <Login /> */}
+        <Login />
+        <Signup />
       </div>
   )
 }

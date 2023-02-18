@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
+import FormHeader from './FormHeader/FormHeader';
 import InputField from './InputField/InputField';
 
 import './login.scss';
@@ -23,6 +24,8 @@ function Login() {
 
     return (
         <form action="" className='login-form'>
+            <FormHeader />
+
             <div className="login-form__title">
                 Log In to Dashboard Kit
             </div>
@@ -30,8 +33,8 @@ function Login() {
                 Enter your email and password below
             </div>
 
-            <InputField type="text" inputName="email" text="Email" handleChange={handleChange} formInfo={formInfo.email} />
-            <InputField type="password" inputName="password" text="Password" handleChange={handleChange} formInfo={formInfo.password}/>
+            <InputField type="text" name="email" text="Email" onChange={handleChange} formInfo={formInfo.email} />
+            <InputField type="password" name="password" text="Password" onChange={handleChange} formInfo={formInfo.password}/>
             
             <input type="checkbox" name="rememberMe" className='login-form__remember-me' onChange={handleChange} checked={formInfo.rememberMe} />
             <label htmlFor="rememberMe">Remember me</label>

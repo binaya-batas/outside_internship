@@ -38,7 +38,6 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
 
     const handleSearchIcon = () => {
         setShowSearchBar(!showSearchBar);
-        inputRef.current.focus();
     };
 
     const openModal = () => {
