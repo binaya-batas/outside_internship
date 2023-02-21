@@ -4,8 +4,8 @@ import './priority.scss';
 function Priority({text, btnColor}) {
     // const [btnColor, setBtnColor] = useState("");
 
-    return (
-        <button className={`btn btn-${btnColor}`}>
+    return (  
+        <button className={`btn btn-${text === 'high' ? 'red' : text=== 'normal' ? 'green' : 'yellow'}`}>
             {text}
         </button>
     )

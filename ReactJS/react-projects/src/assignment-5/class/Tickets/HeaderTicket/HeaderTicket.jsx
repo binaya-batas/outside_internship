@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 import Modal from "react-modal";
 import Input from '../../Input/Input';
 import AddTicket from '../AddTicket/AddTicket';
@@ -8,6 +9,7 @@ import './header-ticket.scss';
 function HeaderTicket({ text, filterTickets, handlePriority }) {
     const [showFilterOptions, setShowFilterOptions] = useState(false);
     const [showAddModal, setShowAddModal] = useState(false);
+
 
     const openAddModal = () => {
         setShowAddModal(true);
@@ -19,7 +21,8 @@ function HeaderTicket({ text, filterTickets, handlePriority }) {
 
     const modalStyles = {
         content: {
-            width: '500px',
+            height: '100%',
+            width: '400px',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
@@ -36,7 +39,7 @@ function HeaderTicket({ text, filterTickets, handlePriority }) {
                         <div className="" onClick={openAddModal}>Add Tickets</div>
                         <Modal isOpen={showAddModal} style={modalStyles}>
                             <button className="ticket__header__rightsection__button" onClick={closeAddModal}>X</button>
-                            <AddTicket />
+                            <AddTicket/>
                         </Modal>
                     </div>
                     <div className="sort">

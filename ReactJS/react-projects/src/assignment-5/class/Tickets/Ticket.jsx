@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import useTickets from '../../hooks/useTickets';
 
 import Header from "../Header/Header";
 import Dashboard from "./Dashboard/Dashboard";
@@ -15,99 +16,18 @@ import customer7 from '../../images/customer-7.png';
 
 import './ticket.scss';
 
-const ticketArray = [
-    {
-        'id': 0,
-        'name': 'Contact email not linked',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Tom Cruise',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'high',
-        'btnColor': 'red',
-        'imgSrc': customer1
-    },
-    {
-        'id': 1,
-        'name': 'Adding Images to Featured Posts',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Matt Damon',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'normal',
-        'btnColor': 'green',
-        'imgSrc': customer2
-    },
-    {
-        'id': 2,
-        'name': 'When will I be charged this month?',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Robert Downey',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'low',
-        'btnColor': 'yellow',
-        'imgSrc': customer3
-    },
-    {
-        'id': 3,
-        'name': 'Payment not going through',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Robert Downey',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'low',
-        'btnColor': 'yellow',
-        'imgSrc': customer4
-    },
-    {
-        'id': 4,
-        'name': 'Unable to add replies',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Robert Downey',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'normal',
-        'btnColor': 'green',
-        'imgSrc': customer5
-    },
-    {
-        'id': 5,
-        'name': 'Referral Bonus',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Robert Downey',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'low',
-        'btnColor': 'yellow',
-        'imgSrc': customer6
-    },
-    {
-        'id': 6,
-        'name': 'Downtime since last week',
-        'timeStatus': 'Updated 1 day ago',
-        'customerName': 'Robert Downey',
-        'date': '24.05.2019',
-        'deadline': 'May 26, 2019',
-        'time': '6:30 PM',
-        'btnText': 'high',
-        'btnColor': 'red',
-        'imgSrc': customer7
-    },
-];
-
 export const SearchContext = createContext();
 
+
 function Ticket() {
-    const [tickets, setTickets] = useState(ticketArray)
+    const {tickets, ticketLoading, ticketAddLoading, getTickets} = useTickets();
     const [searchInput, setSearchInput] = useState("")
 
+    useEffect(() => {
+        getTickets();
+    }, [])
+    
+    console.log(tickets);
     const handleDeleteIcon = (index) => {
         setTickets(current => 
             current.filter(ticket => {
@@ -124,7 +44,7 @@ function Ticket() {
         <SearchContext.Provider value={searchInput}>
             <div className="ticket">
                 <Header text="Tickets" name="Jones Ferdinand" imgSrc={avatar} handleSearchInput={handleSearchInput}/>
-                <Dashboard tickets={tickets} handleDeleteIcon={handleDeleteIcon} />
+                <Dashboard tickets={tickets} handleDeleteIcon={handleDeleteIcon} ticketLoading={ticketLoading} ticketAddLoading={ticketAddLoading} />
             </div>
         </SearchContext.Provider>
     )

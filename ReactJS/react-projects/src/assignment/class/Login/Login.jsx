@@ -20,7 +20,8 @@ function Login() {
             [fieldName]: fieldName === 'rememberMe'? !existingValues.rememberMe: e.target.value,
         }))
     }
-    console.log(formInfo);
+
+
 
     return (
         <form action="" className='login-form'>

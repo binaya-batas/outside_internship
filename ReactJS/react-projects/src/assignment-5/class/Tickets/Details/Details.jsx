@@ -11,7 +11,7 @@ import { AiOutlineConsoleSql, AiOutlineDelete } from 'react-icons/ai';
 import "./details.scss";
 
 
-function Details({ tickets, handleDeleteIcon, priority }) {
+function Details({ tickets, handleDeleteIcon, priority, ticketLoading, ticketAddLoading }) {
     return (
         <div className="ticket__details">
             <table className="ticket__details__table">
@@ -25,7 +25,7 @@ function Details({ tickets, handleDeleteIcon, priority }) {
                     </tr>
                 </thead>
                 <tbody className="ticket__details__table__body">
-                    <TableRow tickets={tickets} handleDeleteIcon={handleDeleteIcon} priority={priority} />
+                    <TableRow tickets={tickets} handleDeleteIcon={handleDeleteIcon} priority={priority} ticketLoading={ticketLoading} ticketAddLoading={ticketAddLoading} />
                 </tbody>
             </table>
         </div>
@@ -34,35 +34,36 @@ function Details({ tickets, handleDeleteIcon, priority }) {
 
 export default Details;
 
-const TableRow = ({ tickets, handleDeleteIcon, priority }) => {
+const TableRow = ({ tickets, handleDeleteIcon, priority, ticketLoading, ticketAddLoading }) => {
     const search = useContext(SearchContext);
 
     return (
         <>
             {
-            tickets.filter((ticket) => {
-                if (priority === "all") {
-                    return true;
-                } else {
-                    return ticket.btnText === priority;
-                }
-            })
-            .filter((ticket) => {
-                return ticket.name.toLowerCase().includes(search.toLowerCase());
-            })
-            .map((ticket, index) => (
-                <tr key={index}>
-                    <TableColumn name={ticket.name} time={ticket.timeStatus} imageDisplayStatus="" imageSrc={ticket.imgSrc} />
-                    <TableColumn name={ticket.customerName} time={ticket.date} imageDisplayStatus="hide-img" />
-                    <TableColumn name={ticket.deadline} time={ticket.time} imageDisplayStatus="hide-img" />
-                    <td>
-                        <Priority text={ticket.btnText} btnColor={ticket.btnColor} />
-                    </td>
-                    <td>
-                        <AiOutlineDelete onClick={() => handleDeleteIcon(ticket.id)} style={{cursor: 'pointer'}} />
-                    </td>
-                </tr>
-            ))
+                ticketLoading ? <div style={{textAlign: 'center'}}>Loading....</div> :
+                    tickets.filter((ticket) => {
+                        if (priority === "all") {
+                            return true;
+                        } else {
+                            return ticket.btnText === priority;
+                        }
+                    })
+                        .filter((ticket) => {
+                            return ticket.name.toLowerCase().includes(search.toLowerCase());
+                        })
+                        .map((ticket, index) => (
+                            <tr key={index}>
+                                <TableColumn name={ticket.name} time={ticket.timeStatus} imageDisplayStatus="" imageSrc={ticket.imgSrc} />
+                                <TableColumn name={ticket.customerName} time={ticket.date} imageDisplayStatus="hide-img" />
+                                <TableColumn name={ticket.deadline} time={ticket.time} imageDisplayStatus="hide-img" />
+                                <td>
+                                    <Priority text={ticket.btnText} />
+                                </td>
+                                <td>
+                                    <AiOutlineDelete onClick={() => handleDeleteIcon(ticket.id)} style={{ cursor: 'pointer' }} />
+                                </td>
+                            </tr>
+                        ))
             }
         </>
     );
@@ -71,14 +72,14 @@ const TableRow = ({ tickets, handleDeleteIcon, priority }) => {
 const TableColumn = ({ imageDisplayStatus, name, time, imageSrc }) => {
     return (
         <td>
-            <div style={{ display: 'flex'}}>
+            <div style={{ display: 'flex' }}>
                 <figure className={`figure ${imageDisplayStatus}`}>
                     <img src={imageSrc} alt="man-photo" />
                 </figure>
                 <div className="">
                     <div className="ticket-column">
-                        <div className="ticket-column__name">{ name }</div>
-                        <div className="ticket-column__date">{ time }</div>
+                        <div className="ticket-column__name">{name}</div>
+                        <div className="ticket-column__date">{time}</div>
                     </div>
                 </div>
             </div>

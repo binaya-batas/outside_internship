@@ -20,8 +20,6 @@ function Signup() {
         }))
     }
 
-    console.log(formInfo);
-
     return (
         <form action="" className='signup-form'>
             <FormHeader />

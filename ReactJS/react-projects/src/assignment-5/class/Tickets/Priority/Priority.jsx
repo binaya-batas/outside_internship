@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './priority.scss';
 
-function Priority({text, btnColor}) {
+function Priority({text}) {
     // const [btnColor, setBtnColor] = useState("");
 
     return (
-        <button className={`btn btn-${btnColor}`}>
+        <button className={`btn btn-${text === 'high' ? 'red' : text=== 'normal' ? 'green' : 'yellow'}`}>
             {text}
         </button>
     )

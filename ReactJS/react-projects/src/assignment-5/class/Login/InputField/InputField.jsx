@@ -1,20 +1,16 @@
 import './input-field.scss';
 import { useState } from 'react';
 
-function InputField({ inputName, text, type, handleChange, formInfo}) {
+function InputField({ text, formInfo, ...rest}) {
     
     return (
         <div className="input-field">
-            <label htmlfor={inputName} className="input-field__label">{text}</label> <br/>        
+            <label htmlfor={rest.name} className="input-field__label">{text}</label> <br/>        
             
             <input
-             type={type} 
-             name={inputName} 
-             id={inputName} 
-             placeholder={text} 
              className="input-field__box" 
-             onChange={handleChange} 
-             value={formInfo} 
+             value={formInfo}
+             {...rest}
             />
         </div>
     )

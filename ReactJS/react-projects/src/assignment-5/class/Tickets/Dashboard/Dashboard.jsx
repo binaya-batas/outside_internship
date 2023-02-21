@@ -9,7 +9,7 @@ import HeaderTicket from '../HeaderTicket/HeaderTicket';
 import './dashboard.scss';
 
 
-function Dashboard({ tickets, handleDeleteIcon, filterTicketsByPriority }) {
+function Dashboard({ tickets, handleDeleteIcon, filterTicketsByPriority, ticketLoading, ticketAddLoading }) {
     const [priority, setPriority] = useState("all");
 
     function handlePriority(e) {
@@ -19,7 +19,7 @@ function Dashboard({ tickets, handleDeleteIcon, filterTicketsByPriority }) {
     return (
         <div className="ticket__dashboard">
             <HeaderTicket text="All Tickets" filterTickets={filterTicketsByPriority} handlePriority={handlePriority}/>
-            <Details handleDeleteIcon={handleDeleteIcon} tickets={tickets} priority={priority} />
+            <Details handleDeleteIcon={handleDeleteIcon} tickets={tickets} priority={priority} ticketLoading={ticketLoading} ticketAddLoading={ticketAddLoading} />
         </div>
     )
 }

@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import Header from "../Header/Header";
 import Dashboard from "./Dashboard/Dashboard";
+import useTickets from '../../../assignment-5/hooks/useTickets';
 
 import avatar from'../../images/avatar.png'
-import customer1 from '../../images/customer-1.png';
-import customer2 from '../../images/customer-2.png';
-import customer3 from '../../images/customer-3.png';
-import customer4 from '../../images/customer-4.png';
-import customer5 from '../../images/customer-5.png';
-import customer6 from '../../images/customer-6.png';
-import customer7 from '../../images/customer-7.png';
+// import customer1 from '../../images/customer-1.png';
+// import customer2 from '../../images/customer-2.png';
+// import customer3 from '../../images/customer-3.png';
+// import customer4 from '../../images/customer-4.png';
+// import customer5 from '../../images/customer-5.png';
+// import customer6 from '../../images/customer-6.png';
+// import customer7 from '../../images/customer-7.png';
 
 
 import './ticket.scss';
@@ -24,7 +25,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'high',
-        'btnColor': 'red',
         'imgSrc': customer1
     },
     {
@@ -36,7 +36,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'normal',
-        'btnColor': 'green',
         'imgSrc': customer2
     },
     {
@@ -48,7 +47,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'low',
-        'btnColor': 'yellow',
         'imgSrc': customer3
     },
     {
@@ -60,7 +58,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'low',
-        'btnColor': 'yellow',
         'imgSrc': customer4
     },
     {
@@ -72,7 +69,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'normal',
-        'btnColor': 'green',
         'imgSrc': customer5
     },
     {
@@ -84,7 +80,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'low',
-        'btnColor': 'yellow',
         'imgSrc': customer6
     },
     {
@@ -96,7 +91,6 @@ const ticketArray = [
         'deadline': 'May 26, 2019',
         'time': '6:30 PM',
         'btnText': 'high',
-        'btnColor': 'red',
         'imgSrc': customer7
     },
 ];

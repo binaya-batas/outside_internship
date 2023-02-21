@@ -1,18 +1,19 @@
 import { useState } from 'react'
-import Sidebar from './assignment/class/Sidebar/Sidebar'
-import Ticket from './assignment/class/Tickets/Ticket'
+// import Sidebar from './assignment/class/Sidebar/Sidebar'
+// import Ticket from './assignment/class/Tickets/Ticket'
 
 // import Sidebar from './assignment-4/class/Sidebar/Sidebar'
 // import Ticket from './assignment-4/class/Tickets/Ticket'
 
-// import Sidebar from './assignment-5/class/Sidebar/Sidebar'
-// import Ticket from './assignment-5/class/Tickets/Ticket'
+import Sidebar from './assignment-5/class/Sidebar/Sidebar'
+import Ticket from './assignment-5/class/Tickets/Ticket'
 
 import './app.scss';
 import './variables.scss';
-import Login from './assignment/class/Login/Login';
-import Signup from './assignment/class/SignUp/Signup';
-import Hover from './assignment-4/class/Hover/Hover';
+import Hover from './assignment-5/class/Hover/Hover';
+
+import Login from './assignment-5/class/Login/Login';
+import Signup from './assignment-5/class/SignUp/Signup';
 
 
 function App() {
@@ -20,9 +21,9 @@ function App() {
       <div className="App" style={{display: 'flex', height: '100%'}}>
         {/* <Sidebar />
         <Ticket /> */}
-        <Hover />
-        {/* <Login />
-        <Signup /> */}
+        {/* <Hover /> */}
+        <Login />
+        <Signup />
       </div>
   )
 }
