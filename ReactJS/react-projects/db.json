@@ -9,7 +9,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "high",
-      "imgSrc": "../../images/customer-1.png"
+      "imgSrc": "/assets/customer-1.png"
     },
     {
       "id": 1,
@@ -20,7 +20,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "normal",
-      "imgSrc": "../../images/customer-2.png"
+      "imgSrc": "/assets/customer-2.png"
     },
     {
       "id": 2,
@@ -31,7 +31,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "low",
-      "imgSrc": "../../images/customer-3.png"
+      "imgSrc": "/assets/customer-3.png"
     },
     {
       "id": 3,
@@ -42,7 +42,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "low",
-      "imgSrc": "../../images/customer-4.png"
+      "imgSrc": "/assets/customer-4.png"
     },
     {
       "id": 4,
@@ -53,7 +53,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "normal",
-      "imgSrc": "../../images/customer-5.png"
+      "imgSrc": "/assets/customer-5.png"
     },
     {
       "id": 5,
@@ -64,7 +64,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "low",
-      "imgSrc": "../../images/customer-6.png"
+      "imgSrc": "/assets/customer-6.png"
     },
     {
       "id": 6,
@@ -75,18 +75,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "high",
-      "imgSrc": "../../images/customer-7.png"
-    },
-    {
-      "name": "",
-      "timeStatus": "",
-      "customerName": "",
-      "date": "",
-      "deadline": "",
-      "time": "",
-      "btnText": "",
-      "imgSrc": "",
-      "id": 7
+      "imgSrc": "/assets/customer-7.png"
     }
   ],
   "users": [
@@ -95,30 +84,6 @@
       "fullname": "Binaya Batas",
       "email": "binaya@gmail.com",
       "password": "password"
-    },
-    {
-      "id": "1",
-      "fullname": "Devendra Gurung",
-      "email": "devendra@gmail.com",
-      "password": "password"
-    },
-    {
-      "fullname": "Kenish Dahal",
-      "email": "kenish@gmail.com",
-      "password": "password",
-      "id": "BrPXBZ5"
-    },
-    {
-      "fullname": "Kenish Dahal",
-      "email": "kenish@gmail.com",
-      "password": "password",
-      "id": "QzBw0qO"
-    },
-    {
-      "fullname": "Kenish Dahal",
-      "email": "kenish@gmail.com",
-      "password": "password",
-      "id": "VXEzRLk"
     }
   ]
 }

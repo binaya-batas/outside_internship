@@ -32,7 +32,7 @@ function Login() {
     console.log(loggedInUser);
     
     return (
-        <>
+        <div className="" style={{width: '100%', height: '100vh', backgroundColor: 'black', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
             <form action="" className='login-form'>
                 <FormHeader />
                 <div className="login-form__title">
@@ -55,7 +55,7 @@ function Login() {
                 loggedInUser ? <div className="">User successfully logged in.</div>
                                 : <div className="">Incorrect credentials.</div>
             }
-        </>
+        </div>
     )
 }
 

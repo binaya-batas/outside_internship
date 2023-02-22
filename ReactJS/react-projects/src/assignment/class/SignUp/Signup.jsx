@@ -21,20 +21,22 @@ function Signup() {
     }
 
     return (
-        <form action="" className='signup-form'>
-            <FormHeader />
+        <div className="" style={{width: '100%', height: '100vh', backgroundColor:'black', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+            <form action="" className='signup-form'>
+                <FormHeader />
 
-            <div className="signup-form__title">
-                Sign Up to Dashboard Kit
-            </div>
+                <div className="signup-form__title">
+                    Sign Up to Dashboard Kit
+                </div>
 
-            <InputField type="text" name="fullname" text="full name" onChange={handleChange} formInfo={formInfo.fullname} />
-            <InputField type="email" name="email" text="Email Address" onChange={handleChange} formInfo={formInfo.email}/>
-            <InputField type="password" name="password" text="Password" onChange={handleChange} formInfo={formInfo.password}/>
-            <InputField type="password" name="confirmPassword" text="Confirm Password" onChange={handleChange} formInfo={formInfo.confirmPassword}/>
-            
-            <Button text="Sign Up" />
-        </form>
+                <InputField type="text" name="fullname" text="full name" onChange={handleChange} formInfo={formInfo.fullname} />
+                <InputField type="email" name="email" text="Email Address" onChange={handleChange} formInfo={formInfo.email}/>
+                <InputField type="password" name="password" text="Password" onChange={handleChange} formInfo={formInfo.password}/>
+                <InputField type="password" name="confirmPassword" text="Confirm Password" onChange={handleChange} formInfo={formInfo.confirmPassword}/>
+                
+                <Button text="Sign Up" />
+            </form>
+        </div>
     )
 }
 
