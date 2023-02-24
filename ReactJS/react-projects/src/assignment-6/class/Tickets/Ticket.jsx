@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import useTickets from '../../hooks/useTickets';
+import { Navigate } from 'react-router-dom';
 
 import Header from "../Header/Header";
 import Dashboard from "./Dashboard/Dashboard";
@@ -13,7 +14,7 @@ export const SearchContext = createContext();
 
 
 function Ticket() {
-    const {tickets, ticketLoading, ticketAddLoading, getTickets, addTicket} = useTickets();
+    const {tickets, ticketLoading, ticketAddLoading, getTickets, addTicket, deleteTicket } = useTickets();
     const [searchInput, setSearchInput] = useState("")
 
     useEffect(() => {
@@ -32,12 +33,19 @@ function Ticket() {
         setSearchInput(e.target.value);
     }
 
+    const loggedIn = sessionStorage.getItem("loggedIn");
+
     return (
         <SearchContext.Provider value={searchInput}>
-            <div className="ticket">
-                <Header text="Tickets" name="Jones Ferdinand" imgSrc={avatar} handleSearchInput={handleSearchInput}/>
-                <Dashboard tickets={tickets} addTicket={addTicket} handleDeleteIcon={handleDeleteIcon} ticketLoading={ticketLoading} ticketAddLoading={ticketAddLoading} />
-            </div>
+            {
+                loggedIn ?
+                <div className="ticket">
+                    <Header text="Tickets" imgSrc={avatar} handleSearchInput={handleSearchInput}/>
+                    <Dashboard tickets={tickets} addTicket={addTicket} deleteTicket={deleteTicket} handleDeleteIcon={handleDeleteIcon} ticketLoading={ticketLoading} ticketAddLoading={ticketAddLoading} />
+                </div>
+                :
+                <Navigate to="/login" />
+            }
         </SearchContext.Provider>
     )
 }

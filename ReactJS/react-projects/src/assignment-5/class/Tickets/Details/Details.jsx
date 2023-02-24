@@ -41,7 +41,11 @@ const TableRow = ({ tickets, handleDeleteIcon, priority, ticketLoading, ticketAd
     return (
         <>
             {
-                ticketLoading ? <div style={{textAlign: 'center'}}>Loading....</div> :
+                ticketLoading ? 
+                    <div style={{textAlign: 'center'}}>
+                        Loading....
+                    </div> 
+                        :
                     tickets.filter((ticket) => {
                         if (priority === "all") {
                             return true;

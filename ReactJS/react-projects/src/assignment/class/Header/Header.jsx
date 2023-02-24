@@ -59,13 +59,14 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
                             <i className="icon-notification" onClick={toggleNotificationState}></i>
                             {notifications.length > 0 &&
                                 <div className="blue-dot" style={{
+                                    border:'1.5px solid #F7F8FC',
                                     position: 'absolute',
                                     right: '0',
                                     top: '2px',
-                                    height: '8px',
-                                    width: '8px',
+                                    height: '6px',
+                                    width: '6px',
                                     borderRadius: '50%',
-                                    backgroundColor: 'blue',
+                                    backgroundColor: '#3751FF',
                                 }}></div>
                             }
                             {

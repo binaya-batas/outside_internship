@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import API_ENDPOINT from "../../api";
 
 const useTickets = () => {
+    const [singleTicket, setSingleTicket] = useState([]);
     const [tickets, setTickets] = useState([]);
     const [ticketLoading, setTicketLoading] = useState(false);
     const [ticketAddLoading, setTicketAddLoading] = useState(false);
 
     const getTickets = async () => {
         setTicketLoading(true);
-        await fetch("http://localhost:3000/ticketArray")
+        await fetch(API_ENDPOINT.ticketArray)
             .then((res) => res.json())
             .then((data) => {
                 setTimeout(() => {
@@ -17,9 +20,17 @@ const useTickets = () => {
             })
     }
 
+    const getSingleTicket = async (id) => {
+        await fetch(`${API_ENDPOINT.ticketArray}/${id}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setSingleTicket(data);
+            })
+    }
+
     const addTicket = async (formInfo) => {
         setTicketAddLoading(true);
-        await fetch("http://localhost:3000/ticketArray", {
+        await fetch(API_ENDPOINT.ticketArray, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,12 +50,24 @@ const useTickets = () => {
             .then((res) => res.json())
             .then((data) => {
                 setTickets((existingTickets) => [data, ...existingTickets])
-                console.log(tickets);
                 setTicketAddLoading(false)
+                toast.success('Ticket added successfully.')
             })
     }
 
-    return { tickets, ticketLoading, ticketAddLoading, getTickets, addTicket }
+    const deleteTicket = async (id) => {
+        await fetch(`${API_ENDPOINT.ticketArray}/${id}`, {
+            method: 'DELETE'
+        })
+            .then((res) => res.json())
+            .then(() => {
+                setTickets(
+                    tickets.filter(ticket => ticket.id !== id)
+                )
+            }) 
+    }
+
+    return { tickets, ticketLoading, ticketAddLoading, getTickets, addTicket, deleteTicket, getSingleTicket, singleTicket }
 
 }
 

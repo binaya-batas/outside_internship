@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
-
+import { Link, Navigate } from 'react-router-dom';
 import useUsers from '../../hooks/useUsers';
 import FormHeader from '../../../assignment/class/Login/FormHeader/FormHeader';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import InputField from './InputField/InputField';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './login.scss';
 
@@ -24,18 +26,13 @@ function Login() {
             [fieldName]: fieldName === 'rememberMe'? !existingValues.rememberMe: e.target.value,
         }))
     }
-
+    
     const handleClick = (event) => {
         event.preventDefault();
         findUser(formInfo);
-        if (loggedInUser) {
-            console.log('logged in.');
-            navigate('/tickets', {replace: true})
-        } else {
-            navigate('/login');
-        }
+        sessionStorage.setItem("activeUser", formInfo.email)
     }
-    
+
     console.log(loggedInUser);
     
     return (
@@ -49,15 +46,20 @@ function Login() {
                     Enter your email and password below
                 </div>
 
-                <InputField type="text" name="email" text="Email" onChange={handleChange} formInfo={formInfo.email} />
-                <InputField type="password" name="password" text="Password" onChange={handleChange} formInfo={formInfo.password}/>
+                <InputField type="text" name="email" text="Email" onChange={handleChange} formInfo={formInfo.email} placeholder="Email Address" />
+                <InputField type="password" name="password" text="Password" onChange={handleChange} formInfo={formInfo.password} placeholder="Password"/>
                 
                 <input type="checkbox" name="rememberMe" className='login-form__remember-me' onChange={handleChange} checked={formInfo.rememberMe} />
                 <label htmlFor="rememberMe">Remember me</label>
                 
                 <Button text="Log In" onClick={handleClick}/>
+                <ToastContainer />
 
-                {loggedInUser && <Navigate to="/tickets" replace="true" /> }
+                <div className="login-form__instruction">
+                    Don't have an account?<span><Link to="/">Sign Up</Link></span>
+                </div>
+
+                {loggedInUser && <Navigate to="/dashboard" replace="true" /> }
 
             </form>
         </div>

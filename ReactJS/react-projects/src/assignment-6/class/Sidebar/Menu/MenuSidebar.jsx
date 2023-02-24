@@ -4,27 +4,33 @@ import './menu-sidebar.scss';
 const menus = [
     {
         name: 'Overview',
-        iconName: 'pie_chart'
+        iconName: 'pie_chart',
+        path: '/dashboard/overview'
     },
     {
         name: 'Tickets',
-        iconName: 'ticket'
+        iconName: 'ticket',
+        path: '/dashboard'
     },
     {
         name: 'Ideas',
-        iconName: 'bulb'
+        iconName: 'bulb',
+        path: '/dashboard/ideas'
     },
     {
         name: 'Contacts',
-        iconName: 'group'
+        iconName: 'group',
+        path: '/dashboard/contacts'
     },
     {
         name: 'Agents',
-        iconName: 'profile'
+        iconName: 'profile',
+        path: '/dashboard/agents'
     },
     {
         name: 'Articles',
-        iconName: 'book'
+        iconName: 'book',
+        path: '/dashboard/articles'
     }
 ]
 
@@ -33,7 +39,7 @@ function MenuSidebar() {
         <div className="sidebar__menu">
             {
                 menus.map((menu, index) => (
-                    <TabsSidebar key={index} text={menu.name} iconName={menu.iconName} />
+                    <TabsSidebar key={index} text={menu.name} iconName={menu.iconName} path={menu.path} />
                 ))
             }
 

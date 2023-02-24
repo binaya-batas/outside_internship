@@ -1,61 +1,6 @@
 {
   "ticketArray": [
     {
-      "id": 0,
-      "name": "Contact email not linked",
-      "timeStatus": "Updated 1 day ago",
-      "customerName": "Tom Cruise",
-      "date": "24.05.2019",
-      "deadline": "May 26, 2019",
-      "time": "6:30 PM",
-      "btnText": "high",
-      "imgSrc": "/assets/customer-1.png"
-    },
-    {
-      "id": 1,
-      "name": "Adding Images to Featured Posts",
-      "timeStatus": "Updated 1 day ago",
-      "customerName": "Matt Damon",
-      "date": "24.05.2019",
-      "deadline": "May 26, 2019",
-      "time": "6:30 PM",
-      "btnText": "normal",
-      "imgSrc": "/assets/customer-2.png"
-    },
-    {
-      "id": 2,
-      "name": "When will I be charged this month?",
-      "timeStatus": "Updated 1 day ago",
-      "customerName": "Robert Downey",
-      "date": "24.05.2019",
-      "deadline": "May 26, 2019",
-      "time": "6:30 PM",
-      "btnText": "low",
-      "imgSrc": "/assets/customer-3.png"
-    },
-    {
-      "id": 3,
-      "name": "Payment not going through",
-      "timeStatus": "Updated 1 day ago",
-      "customerName": "Robert Downey",
-      "date": "24.05.2019",
-      "deadline": "May 26, 2019",
-      "time": "6:30 PM",
-      "btnText": "low",
-      "imgSrc": "/assets/customer-4.png"
-    },
-    {
-      "id": 4,
-      "name": "Unable to add replies",
-      "timeStatus": "Updated 1 day ago",
-      "customerName": "Robert Downey",
-      "date": "24.05.2019",
-      "deadline": "May 26, 2019",
-      "time": "6:30 PM",
-      "btnText": "normal",
-      "imgSrc": "/assets/customer-5.png"
-    },
-    {
       "id": 5,
       "name": "Referral Bonus",
       "timeStatus": "Updated 1 day ago",
@@ -64,7 +9,7 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "low",
-      "imgSrc": "/assets/customer-6.png"
+      "imgSrc": "https://source.unsplash.com/random/?potrait,man"
     },
     {
       "id": 6,
@@ -75,7 +20,18 @@
       "deadline": "May 26, 2019",
       "time": "6:30 PM",
       "btnText": "high",
-      "imgSrc": "/assets/customer-7.png"
+      "imgSrc": "https://source.unsplash.com/random/?potrait,woman"
+    },
+    {
+      "id": 7,
+      "name": "Cannot respond to email",
+      "timeStatus": "Updated 1 day ago",
+      "customerName": "Binaya Batas",
+      "date": "24.05.2019",
+      "deadline": "May 26, 2019",
+      "time": "6:30 PM",
+      "btnText": "high",
+      "imgSrc": "https://source.unsplash.com/random/?potrait,handsome"
     }
   ],
   "users": [
@@ -84,6 +40,12 @@
       "fullname": "Binaya Batas",
       "email": "binaya@gmail.com",
       "password": "password"
+    },
+    {
+      "fullname": "Kenish Dahal",
+      "email": "kenish@gmail.com",
+      "password": "123",
+      "id": "fQJIxmW"
     }
   ]
 }

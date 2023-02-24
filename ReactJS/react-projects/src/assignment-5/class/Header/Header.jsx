@@ -51,12 +51,8 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
         setProfileIsOpen(false);
     };
 
-    const openNotification = () => {
-        setNotificationIsOpen(true);
-    }
-
-    const closeNotification = () => {
-        setNotificationIsOpen(false);
+    const toggleNotificationState = () => {
+        setNotificationIsOpen(!notificationIsOpen)
     }
 
     return (
@@ -73,7 +69,7 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
                     </div>
                     <div className="ticket__header__rightsection__notifications">
                         <div className="bell" style={{position: 'relative'}} >
-                            <i className="icon-notification" onClick={openNotification}></i>
+                            <i className="icon-notification" onClick={toggleNotificationState}></i>
                             {notifications.length > 0 &&
                                 <div className="blue-dot" style={{
                                     position: 'absolute',
@@ -85,13 +81,25 @@ function Header({ text, name, imgSrc, handleSearchInput }) {
                                     backgroundColor: 'blue',
                                 }}></div>
                             }
-                            <Modal isOpen={notificationIsOpen} style={notificationStyles}>
-                                <button className="ticket__header__rightsection__button" onClick={closeNotification}>X</button>
-                                Notifications
-                                {notifications.map((notification, index) => (
-                                    <Notification key={index} text={notification} />
-                                ))}
-                            </Modal>
+                            {
+                                notificationIsOpen && 
+                                <div className="ticket__header__rightsection__notifications__popup"
+                                    style={{
+                                        border:'1.5px solid #F7F8FC',
+                                        position: 'absolute',
+                                        right: '0',
+                                        top: '2px',
+                                        height: '6px',
+                                        width: '6px',
+                                        borderRadius: '50%',
+                                        backgroundColor: '#3751FF',
+                                    }}
+                                > 
+                                    {notifications.map((notification, index) => (
+                                        <Notification key={index} text={notification} />
+                                    ))}
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

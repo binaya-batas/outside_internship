@@ -55,6 +55,11 @@
                             width: 44px;
                             object-fit: cover;
                             object-position: 0 10%;
+                            transition: 0.5s;
+
+                            &:hover {
+                                transform: scale(1.2);
+                            }
                         }
                     }
 
@@ -63,6 +68,19 @@
                             font-size: 14px;
                             font-weight: 600;
                             margin-bottom: 4px;
+
+                            &:not(:first-child) {
+                                cursor: none;
+                            }
+                        }
+
+                        &__link {
+                            text-decoration: none;
+                            color: black;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
                         }
 
                         &__date {

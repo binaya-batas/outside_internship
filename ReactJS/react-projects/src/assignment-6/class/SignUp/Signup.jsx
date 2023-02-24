@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import useUsers from '../../hooks/useUsers';
 import InputField from '../Login/InputField/InputField';
 import Button from '../Button/Button';
@@ -53,6 +53,10 @@ function Signup() {
                 <InputField type="password" name="confirmPassword" text="Confirm Password" onChange={handleChange} formInfo={formInfo.confirmPassword}/>
                 
                 <Button text="Sign Up" onClick={handleClick} />
+
+                <div className="signup-form__instruction">
+                    Already have an account?<span><Link to="/login">Log In</Link></span>
+                </div>
             </form>
         </div>
     )
