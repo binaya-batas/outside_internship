@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 
-import Sidebar from './assignment-3/class/Sidebar/Sidebar'
-import Ticket from './assignment-3/class/Tickets/Ticket'
-import Login from './assignment-3/class/Login/Login';
-import Signup from './assignment-3/class/SignUp/Signup';
+import Sidebar from './assignment-4/class/Sidebar/Sidebar'
+import Ticket from './assignment-4/class/Tickets/Ticket'
+import Login from './assignment-4/class/Login/Login';
+import Signup from './assignment-4/class/SignUp/Signup';
+import Hover from './assignment-4/class/Hover/Hover';
 
 
 import './app.scss';
@@ -18,8 +19,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<> <Sidebar /> <Ticket /> </>} />
-            <Route path='/login' element={ <Login /> } />
-            <Route path='/signup' element={ <Signup /> } />
+            <Route path='/hover' element={ <Hover /> } />
             <Route path="*" element={<h1>404 not found.</h1>} />
           </Routes>
         </BrowserRouter>
