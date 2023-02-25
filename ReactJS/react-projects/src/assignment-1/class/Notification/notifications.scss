@@ -1,0 +1,11 @@
+@import '../../../variables.scss';
+
+.notification {
+    padding: 20px 0px;
+    width: 100%;
+    border-bottom: 1px solid $light-gray;
+    
+    &:hover {
+        background-color: $light-gray;
+    }
+}
