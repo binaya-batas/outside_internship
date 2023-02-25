@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Header from "../Header/Header";
 import Dashboard from "./Dashboard/Dashboard";
-import useTickets from '../../../assignment-5/hooks/useTickets';
 
 import avatar from'../../images/avatar.png'
 import customer1 from '../../images/customer-1.png';
