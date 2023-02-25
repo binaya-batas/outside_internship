@@ -11,8 +11,8 @@ import { BrowserRouter, Routes, Route, Router } from "react-router-dom";
 // import Sidebar from './assignment-5/class/Sidebar/Sidebar'
 // import Ticket from './assignment-5/class/Tickets/Ticket'
 
-import Sidebar from './assignment-6/class/Sidebar/Sidebar'
-import Ticket from './assignment-6/class/Tickets/Ticket'
+import Sidebar from './assignment-1/class/Sidebar/Sidebar'
+import Ticket from './assignment-1/class/Tickets/Ticket'
 import Overview from './assignment-6/class/Overview/Overview';
 
 import Hover from './assignment-5/class/Hover/Hover';
@@ -31,7 +31,7 @@ function App() {
 
   return (
       <div className="App" style={{ display: 'flex', height: '100%' }}>
-        <BrowserRouter>
+        {/* <BrowserRouter>
           <Routes>
             <Route path="/" element={<Signup />} />
             <Route path="/login" element={<Login />} />
@@ -51,7 +51,10 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
-        <ToastContainer />
+        <ToastContainer /> */}
+
+        <Sidebar />
+        <Ticket />
       </div>
   )
 }
