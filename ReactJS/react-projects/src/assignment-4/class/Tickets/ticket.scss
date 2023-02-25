@@ -3,7 +3,7 @@
 .ticket {
     padding: 36px 30px;
     margin-left: 255px;
-    // width: 100%;
+    min-height: 100vh;
     width: calc(100% - 255px);
     background-color: #f6f9fc;
 }
