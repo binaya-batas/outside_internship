@@ -1,0 +1,84 @@
+@import '../../../../variables.scss';
+
+.ticket__details {
+    &__table {
+        border-collapse: collapse;
+        width: 100%;
+        // margin-top: 48px;
+
+        &__head {
+            font-size: 14px;
+            letter-spacing: 0.2px;
+            color: #9FA2B4;
+
+            tr {
+                border-bottom: 1.5px solid $light-gray;
+
+                th {
+                    padding-bottom: 12px;
+                    text-align: left;
+
+                    &:first-child {
+                        padding-left: 32px;
+                    }
+                }
+            }
+
+        }
+
+        &__body {
+            tr {
+                border-bottom: 1.5px solid $light-gray;
+
+                &:hover {
+                    background-color: #f6f9fc;
+                }
+
+                td {
+                    padding: 24px 0px;
+
+                    &:first-child {
+                        padding-left: 32px;
+                    }
+
+                    &:last-child {
+                        text-align: right;
+                        padding-right: 40px;
+                    }
+                    
+                    figure {
+                        margin: 0px 24px 0px 0px;
+                        
+                        img {
+                            border-radius: 50%;
+                            height: 44px;
+                            width: 44px;
+                            object-fit: cover;
+                            object-position: 0 10%;
+                        }
+                    }
+
+                    .ticket-column {
+                        &__name {
+                            font-size: 14px;
+                            font-weight: 600;
+                            margin-bottom: 4px;
+                        }
+
+                        &__date {
+                            font-size: 12px;
+                            color: $light-gray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.hide-img {
+    display: none;
+}
+
+
