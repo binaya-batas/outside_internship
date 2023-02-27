@@ -58,7 +58,7 @@ function Login() {
                     Don't have an account?<span><Link to="/">Sign Up</Link></span>
                 </div>
 
-                {loggedInUser && <Navigate to="/dashboard" replace="true" /> }
+                {sessionStorage.getItem("activeUser") && <Navigate to="/dashboard" replace="true" /> }
 
             </form>
         </div>

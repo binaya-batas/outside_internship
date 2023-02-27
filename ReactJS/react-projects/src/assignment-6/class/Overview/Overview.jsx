@@ -8,7 +8,7 @@ import { Navigate } from 'react-router-dom';
 
 
 function Overview() {
-    const loggedIn = sessionStorage.getItem("loggedIn");
+    const loggedIn = sessionStorage.getItem("activeUser");
     return (
         <>
         {

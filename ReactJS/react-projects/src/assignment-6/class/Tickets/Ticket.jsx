@@ -34,7 +34,7 @@ function Ticket() {
         setSearchInput(e.target.value);
     }
 
-    const loggedIn = sessionStorage.getItem("loggedIn");
+    const loggedIn = sessionStorage.getItem("activeUser");
 
     return (
         <SearchContext.Provider value={searchInput}>

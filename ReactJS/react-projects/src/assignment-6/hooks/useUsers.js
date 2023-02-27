@@ -41,35 +41,32 @@ const useUsers = () => {
     };
 
     const findUser = async (formInfo) => {
+        console.log("find user.")
         setLoggedInUser(false);
-        await fetch(
-            `${API_ENDPOINT.users}?email=${formInfo.email}&password=${formInfo.password}`
-        )
+        await fetch(`${API_ENDPOINT.users}`)
             .then((res) => res.json())
             .then((data) => {
-                setTimeout(() => {
-                    const userArray = Object.keys(data).map((key) => ({
-                        ...data[key],
-                        nodeName: key,
-                    }))
-                    setUsers(userArray);
-                }, 1000)
+                const userArray = Object.keys(data).map((key) => ({
+                    ...data[key],
+                    nodeName: key,
+                }))
+                setUsers(userArray);
 
-                let user = users.some((user) =>
-                    user.email === formInfo.email &&
-                    user.password === formInfo.password
-                );
-
-                if (user) {
-                    setLoggedInUser(true);
-                    sessionStorage.setItem("loggedIn", true);
-                    toast.success("Logged in successfully", {
-                        position: toast.POSITION.TOP_RIGHT,
-                    });
-                } else {
-                    toast.error("Incorrect credentials.")
-                }
+                
             });
+            let user = users.some((user) =>
+                user.email === formInfo.email &&
+                user.password === formInfo.password
+            );
+
+            if (user) {
+                console.log("hello")
+                setLoggedInUser(true);
+                sessionStorage.setItem("loggedIn", true);
+                toast.success("Logged in successfully", {
+                    position: toast.POSITION.TOP_RIGHT,
+                });
+            } 
     };
 
     return { users, userLoading, getUsers, addUser, findUser, loggedInUser };
