@@ -1,0 +1,15 @@
+@import '../../../variables.scss';
+
+.overview {
+    padding: 36px 30px;
+    margin-left: 255px;
+    width: calc(100% - 255px);
+    min-height: 100vh;
+    background-color: #f6f9fc;
+
+    &__top {
+        margin-top: 58px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

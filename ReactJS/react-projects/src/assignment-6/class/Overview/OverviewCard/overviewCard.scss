@@ -1,0 +1,32 @@
+@import '../../../../variables.scss';
+
+.overview-card {
+    text-decoration: none;
+    background-color: white;
+    padding: 24px 32px;
+    margin-right: 30px;
+    border-radius: 8px;
+    text-align: center;
+
+    &:last-child {
+        margin-right: 0px;
+    }
+
+    &__text {
+        margin: 0px;
+        color: $light-gray;
+        font-weight: 700;
+        line-height: 23.85px;
+        letter-spacing: 0.4px;
+        margin-bottom: 12px;
+    }
+    
+    &__number {
+        color: black;
+        margin: 0px;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 50.2px;
+        letter-spacing: 1px;
+    }
+}
