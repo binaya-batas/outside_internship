@@ -19,8 +19,10 @@
 
         function __call($name, $arguments)
         {
-            print_r($arguments);
-            echo("<br/>");
+            if($name = "nofunction") {
+                print_r($arguments);
+                echo("<br/>");
+            }
         }
 
         function __set($name, $value)
