@@ -9,7 +9,7 @@ class Building extends Sprite {
         y: BUILDING_Y_OFFSET,
       },
     });
-    this.position = position;
+    // this.position = position;
     this.height = TILE_SIZE;
     this.width = this.height * 2;
     this.center = {
@@ -19,7 +19,6 @@ class Building extends Sprite {
     this.projectiles = [];
     this.projectileCount = 0;
     this.radius = BUILDING_RADIUS;
-    this.projectileInterval = 0;
     this.activeTile = activeTile;
     this.health = 100;
   }
@@ -61,7 +60,5 @@ class Building extends Sprite {
         })
       );
     }
-
-    this.projectileInterval++;
   }
 }

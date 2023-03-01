@@ -5,7 +5,7 @@ class Enemy extends Sprite {
       imgSrc: "assets/goblin.png",
       frames: { max: ENEMY_FRAMES },
     });
-    this.position = position;
+    // this.position = position;
     this.width = ENEMY_WIDTH;
     this.height = ENEMY_HEIGHT;
     this.radius = ENEMY_RADIUS;

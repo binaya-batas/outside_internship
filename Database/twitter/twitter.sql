@@ -1,5 +1,4 @@
 -- Active: 1677463018193@@127.0.0.1@5432@twitter@public
-
 CREATE TABLE Users (
    id SERIAL NOT NULL PRIMARY KEY,
    first_name VARCHAR(50) NOT NULL,

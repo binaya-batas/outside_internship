@@ -18,4 +18,18 @@
     echo "The monk with highest calories has food of $calories[0] calories";
     echo("<br/>");
     print($calories[0] + $calories[1] + $calories[3]);
+
+    class fruit {
+        public $name;
+        public $color;
+
+        function _construct($name, $color) {
+            $this->name = $name;
+            $this->color = $color;
+        }
+
+        function get_name() {
+            return $this->name;
+        }
+    }
 ?>
