@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .login {
+        background-color: rgb(147, 134, 134);
+    }
+
+    input {
+        padding: 10px 5px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <div>
+        <form action="login.php" method="get" class="login">
+            <br/>
+
+            <label for="email">Name: </label>
+            <input type="text" name="name" id="name">
+
+            <br/>
+            <br/>
+
+            <label for="password">Password: </label>
+            <input type="text" name="password" id="password">
+
+            <br/>
+            <br/>
+
+            <input name="Submit" type="submit" value="Submit" />
+            <div class="">Don't have and account? <span><a href="signupForm.php">Sign up</a></span></div>
+        </form>
+    </div>
+</body>
+</html>
