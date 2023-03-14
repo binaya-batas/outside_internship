@@ -56,9 +56,21 @@ class ProductGateway
         return $data;
     }
 
-    public function update()
+    public function update(array $current, array $new): int
     {
         $sql = "UPDATE Student SET name=:name, age=:age, password=:password WHERE id=:id";
+                
+        $stmt = $this->conn->prepare($sql);
+        
+        $stmt->bindValue(":name", $new["name"] ?? $current["name"], PDO::PARAM_STR);
+        $stmt->bindValue(":age", $new["age"] ?? $current["age"], PDO::PARAM_INT);
+        $stmt->bindValue(":password", $new["password"] ?? $current["password"], PDO::PARAM_STR);
+        
+        $stmt->bindValue(":id", $current["id"], PDO::PARAM_INT);
+        
+        $stmt->execute();
+        
+        return $stmt->rowCount();
 
     }
 

@@ -22,7 +22,9 @@ $id = $parts[2] ?? null;
 
 $database = new Database("localhost", "local", "root", "root");
 
-$gateway = new ProductGateway($database);
 
+$gateway = new ProductGateway($database);
 $controller = new ProductController($gateway);
 $controller->processRequest($_SERVER["REQUEST_METHOD"], $id);
+
+// if ($part[1] == '')
